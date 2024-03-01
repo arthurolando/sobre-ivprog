@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html ng-app="ivprog">
+  <head>
+  <title>iVProgH5 : Visual Programming (LInE-IME-USP)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/font-awesome.css" rel="stylesheet" media="screen" />
+    <link href="css/bootstrap-editable.css" rel="stylesheet" media="screen" />
+    <link href="css/ivprog.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+ <div class="header">
+      <h1><img src="img/logo_ivprog.png" title="iVProg" /></h1>
+ </div>
+
+ <div class="indent1">
+
+    <h2>&nbsp;iVProg : Visual Programming (LInE-IME-USP)</h2>
+
+    <a href="http://www.usp.br/line" title="Uma das paginas do LInE">LInE</a>.
+    <a href="https://github.com/LInE-IME-USP" title="LInE no GitHub">Software educacional livre</a>.
+    <a href="http://www.usp.br/line/wp" title="Prototipo ambiente LInE">Interatividade na Internet para aprendizagem</a>.
+
+  <script type='text/javascript'>
+    //<![CDATA[
+    var strAnswer = '';
+    var evaluationResult = '';
+    var comment = '';
+
+    function resp () {
+      // 'getEvaluation()' calls 'js/services.js : endTest function(index)' that calls 'getEvaluationCallback(apro/100);'
+      window.frames.iLM.getEvaluation(); // in './mod/iassign/ilm/ivprog-html/js/services.js'; './mod/iassign/ilm/ivprog-html/main.html'
+      // var comment = document.formEnvio.submission_comment.value;
+      // iVProgH5 will call function 'getEvaluationCallback(...)': /var/www/html/ivprogh5/js/services.js
+      }
+
+ function getEvaluationCallback (evaluation) { // ./mod/iassign/ilm/ivprog-html/js/services.js : call this to define the variable 'evaluationResult'
+   evaluationResult = evaluation;
+   strAnswer = window.frames.iLM.getAnswer();
+   comment = document.formEnvio.submission_comment.value;
+   if ((strAnswer==null || strAnswer=='' || strAnswer==-1) && (comment==null || comment=='')) { // undefined
+      alert('Atividade enviada sem conteúdo.');
+      return false; // error...
+   } else { 
+      //alert('getEvaluationCallback: enviando evaluationResult=' + evaluation + ', strAnswer=' + strAnswer);
+      alert('getEvaluationCallback: ' + document.formEnvio. iLM_PARAM_ArchiveContent.value);
+      document.formEnvio. iLM_PARAM_ArchiveContent.value = strAnswer;
+      document.formEnvio.iLM_PARAM_ActivityEvaluation.value = evaluationResult;
+      document.formEnvio.submit();
+      return true; // success
+      }
+   }
+  //]]>
+  </script>
+
+<!--
+  <div class="ladoalado">
+    <div id="ladoesquerdo">
+    </div>
+    <div id="ladodireito">
+    </div>
+  </div><!-- class="ladoalado" -->
+
+  <div class="bloco">
+    O <i>iVProgH</i> é mais um sistema educacional livre do <i>LInE</i>, implementado em <i>HTML5</i>
+    (usa fortemente <i>JavaScript</i>), este destinado ao ensino e aprendizagem de algoritmos e programação.
+    O <i>iVProgH</i> é uma nova implementação do 
+    <i><a href="http://www.matematica.br/ivprog2" title="veja a segunda versao do iVProg Java">iVProg</a></i> que é implementado em <i>Java</i>.
+    Ambos <i>iVProg</i> dispõem de um esquema para avaliação automática de exercícios, experimente!
+    <br/>
+    Esses sistemas foram desenhados a partir de um <i>modelo visual</i> para programação, podendo ser utilizado desde o
+    segundo ciclo do Ensino Fundamental.
+    <br/>
+  </div>
+
+  <div class="bloco">
+  <div class="secao">1. Sobre a interface principal</div>
+  
+    <div class="ladoalado">
+      <div id="ladoesquerdo">
+       <p>
+        A imagem 1 apresenta a interface inicial do <i>iVProgH</i> (quando configurado para não apresentar o gabarito do exercício).
+       <br/>	
+        Abaixo são explicadas os cinco botões da interface principal e a área cinza inferior seguindo a ordem em que aparecem, de cima para baixo.
+       </p>	
+        <ol>
+         <li>
+          <img src="imagens/botao_avaliar.png" title="botao para avaliar o codigo quando tratar-se de exercicio"/> &nbsp; &nbsp;
+          Este botão deve ser utilizado para avaliar o código resposta a um exercícios;
+         </li>
+         <li>
+          <img src="imagens/botao_variaveis.png" title="botao para criar variaveis"/> &nbsp; &nbsp;
+          Este botão serve para criar novas variáveis (que nascem com nomes <tt>newVarN</tt>, se de um "clique" duplo sobre seu nome pode-se alterá-lo);
+         </li>
+        </ol>	
+       </p>       
+      </div>
+      <div id="ladodireito">
+       <center>
+       <img src="imagens/manual_interface_1.png" title="interface inicial"/>
+       <br/>
+       <i>Fig. 1</i>: Interface principal do <i>iVProgH</i>.
+       </center>
+      </div>
+      <ol start="3">
+         <li>
+          <img src="imagens/botao_comandos.png" title="botao para inserir no codigo comandos"/> &nbsp; &nbsp;
+          Este botão serve para inserir no código novos comandos (vide abaixo "Sobre opções de comandos"));
+         </li>
+         <li>
+          <img src="imagens/botao_rodar.png" title="botao para rodar o codigo atual"/> &nbsp; &nbsp;
+          Este botão serve para "rodar" o código construído;
+         </li>
+         <li>
+          <img src="imagens/botao_limpar_console.png" title="botao para limpar a area de saida de dados"/> &nbsp; &nbsp;
+          Este botão serve para "limpar" o console de mensagens, ou seja, remove todas as mensagens previamente "impressas";
+         </li>
+         <li>
+          <img src="imagens/area_saidas.png" title="area para saida de dados"/> &nbsp; &nbsp;
+          Esta é a área em que as mensagens aparecerão (as saídas de dados). 
+         </li>
+      </ol>
+    </div>
+
+  </div>
+
+  <div class="bloco">
+  <div class="secao">1. Sobre variáveis</div>
+  <p>
+   Em qualquer ambiente para codificar algoritmos, as variáveis são utilizadas para armazenar valores a serem utilizados no código.
+   Um exemplo simples de sua utilidade é a obtenção do quadrado de um número a ser digitado pelo usuário.
+   Ou seja, ao escrever o código o programador <b>não</b> sabe qual valor será digitado, assim tem que redigir seu código supondo
+   um "local" especial para armazenar o valor a ser digitado, que é representado por uma variável.
+  </p>
+
+  <div class="subsecao">1.1 Sobre a criação de variáveis</div>
+
+  <p>
+   No <i>iVProgH</i>, para criar uma nova variável deve-se utilizar o botão <img src="imagens/botao_variaveis.png" title="botao para criar variaveis"/>.
+  </p>
+  <p>
+   Inicialmente não existem variáveis disponíveis (como indicado na figura 1). Ao "clicar" a primeira vez no botão para criar
+   variável, aparecerá uma nova variável (atualmente com nome inicial <tt>newVar0</tt>).
+   Mas pod-se "clicar" sobre o nome da variável para alterar seu <i>nome</i>.
+  </p>
+
+  <p>
+   Na imagem abaixo estão 3 passos para a criação e edição dos nomes de 2 variáveis, cronologicamente da esquerda para a direita..
+   Na esquerda resultado após criar as 2 variáveis, seguida da imagem indicando o início da alteração do nome da primeira variável e,
+   mais à direita, o resultado após trocar os nomes das variáveis, respectivamente, para <tt>a</tt> e <tt>b</tt>.
+   <br/>
+   <center>
+    <img src="imagens/var_img1.png" title="processo de criacao e alteraco de nomes em 3 passos: 1. criar var."/>
+    <img src="imagens/var_img2.png" title="processo de criacao e alteraco de nomes em 3 passos: 2. alterar nome 1"/>
+    <img src="imagens/var_img3.png" title="processo de criacao e alteraco de nomes em 3 passos: 3. nomes alterados"/>
+    <br/>
+    <i>Fig. 2</i>: Processo de criação e alteração de nomes de variáveis.
+   </center>
+  </p>
+
+  <div class="subsecao">1.2 Sobre os tipos de variáveis</div>
+
+  <p>
+   Outra característica importante de variáveis é o espaço que cada uma ocupa e o formato de sua representação.
+   Isso quer dizer que cada <i>tipo de variável</i> utiliza uma quantidade padrão de memória (isso costuma ser expresso
+   em <i>bytes</i> - agrupamento de 8 <i>bits</i>).
+   Esta questão não será aprofundada aqui, pois o foco deste manual é apresentar os rudimentos da programação e o
+   funcionamento básico do <i>iVProgH</i>.
+  </p>
+
+  <p>
+   Mas existe uma questão muito importante que precisa ser enfatizada: qualquer computador digital dispõe de uma quantidade finita
+   de memória e por isso <b>não</b> consegue representar qualquer número.
+   Se quiser entender a razão dessa impossibilidade, tente entender a frase seguinte, senão pule-a.
+   <blockquote>
+   Os números inteiros são infinitos, não existindo nem um maior inteiro e nem um menor inteiro,
+   ou dito de outra forma, dado qualquer número inteiro
+   sempre existe um outro maior que ele e também um outro menor que ele!
+   <br/>
+   Assim, suponha que cada dígito (que são: <i>0</i>, <i>1</i> até <i>9</i>) precise de <i>4</i> <i>bits</i> para ser representado
+   e que o computador considerado tenha disponível um total de <i>N</i> <i>bits</i>. Então este computador poderia representar
+   um número com até <i>N/4</i> dígitos.
+   <br/>
+   Por exemplo, um computador básico atual vem com no mínimo <i>2 giga-bytes</i> de espaço em memória (<i>RAM - Random Access Memory</i>),
+   o que equivale a aproximadamente 2 bilhões de <i>bytes</i>, resultando em <i>2 x 8</i> bilhões de <i>bits</i>.
+   Assim, o maior número inteiro positivo que caberia neste computador seria um número com
+   <i>2 x 8 / 4 = 16</i> bilhões de dígitos.
+   <br/>
+   Note que um inteiro com <i>16</i> bilhões de dígitos é tremendamente maior que o inteiro 16 bilhões, pois esse último tem apenas <i>11</i> dígitos.
+   <br/>
+   Então, se representarmos esse número com <i>16</i> bilhões de dígitos por <i>X</i>, basta multiplicá-lo por 10 que resultaria em um
+   número com <i>16</i> bilhões e <i>1</i> dígitos, o que <b>não</b> caberia na memória do computador considerado,
+   o que resultaria em erro (que usualmente é denominado por <i>overflow</i>).
+   </blockquote>   
+  </p>
+  <p>
+   Se estiver interessado em saber um pouquinho mais sobre esta questão de espaço-representação,
+   <a href="https://www.ime.usp.br/~leo/mac2166/2017-1/introducao_var.html" title="sobre variaveis e expressoes aritmeticas">siga este apontador</a> e
+   <a href="https://www.ime.usp.br/~leo/mac2166/2017-1/introducao_char_float.html" title="sobre caracteres e numeros simulando os reais">este apontador</a>.
+  </p>
+
+  <p>
+   Do ponto de vista prático, no <i>iVProgH</i> estão disponíveis as variáveis
+   inteiras, reais, textos e lógicas.
+   Ao criar uma variável, como indicado na figura 2, esta "nasce" do tipo <i>inteira</i>.
+   Para alterar seu tipo, pode-se "clicar" no ícone da <i>chave inglesa</i>, ao lado do nome da variável (e.g. <tt>newVar0</tt>) e
+   escolhendo o tipo.
+  </p>
+
+  <p>
+   Abaixo uma imagem ilustrando como alterar o tipo da variável de nome <i>x</i> de <i>inteiro</i> para <i>real</i>, em 3 passos.
+   <center>
+    <img style="vertical-align: top;" src="imagens/var_tipo_1.png" title="processo de alteraco de tipo: 1. tipo inicial (inteiro)."/>
+    <img style="vertical-align: top;" src="imagens/var_tipo_2.png" title="processo de alteraco de tipo: 2. escolhendo novo tipo (real)."/>
+    <img style="vertical-align: top;" src="imagens/var_tipo_3.png" title="processo de alteraco de tipo: 3. tipo final (real)."/>
+    <br/>
+    <i>Fig. 3</i>: Processo de alteração de tipo inteiro para real na variável <i>x</i>.
+   </center>
+  </p>
+
+  <p>
+   Note que na esquerda aparece <tt>x=1</tt>, enquanto na direita vê-se <tt>x=1.0000</tt>.
+   Isso significa que a variável <tt>x</tt> será iniciada com a unidade e que o aparecimento de "ponto decimal"
+   diferencia o tipo <i>inteiro</i> do tipo <i>real</i>, no primeiro aparece <tt>1</tt> e no último <tt>1.0000</tt>.
+   O valor inicial da variável pode ser alterado de modo análogo à alteração de seu nome, basta "clicar" sobre o número e editá-lo.
+  </p>
+  </div>
+
+  <div class="bloco">
+  <div class="secao">2. Sobre comandos</div>
+  <p>
+   Os <i>comandos</i> são as difentes instruções disponíveis na linguagem. Na atual versão do <i>iVProgH</i> existem seis (6) diferentes
+   comandos, explicados abaixo.
+   <br/>
+   Em cada um dos 6 comando, apresentaremos uma versão sintética do comando, em uma linguagem que será apelidada de 
+   <b>Portugol</b>. Também será apresentado um exemplo em linguagem <b>C</b>.
+  </p>
+
+  <p>
+  <ol>
+   <li>
+     <tt class="corDef">Atribuição</tt> &nbsp; &nbsp; Para atribuir valor a alguma variável. Obtém-se a imagem abaixo.
+         <br/>
+         <i class="corEx">Representação em "Portugol"</i>: <tt>x = x * x + x + 1;</tt>. Variável <tt>x</tt> receberá o valor resultante da expressão à direita (<tt>x * x + x + 1;</tt>).
+         <br/>
+         <i class="corEx">Representação em C</i>: <tt>x = x * x + x + 1;</tt>.
+         <br/>
+         <center>
+          <img style="vertical-align: top;" src="imagens/com_attrib_1.png" title="comando de Atribuicao"/>
+          <br/>
+          <i>Fig. 4</i>: Comando de atribuição, situação inicial.
+         </center>
+         Nesse momento deve-se selecionar a variável (destacado em fundo amarelo) e depois
+         construir a expressão aritmética que definirá a variável. Por exemplo, pode-se fazer <tt>i = i+1</tt>, significando a variável
+	 <b>receberá</b> o valor atual nela acrescido de uma unidade.<br/>
+	 Em programação a atribuição <tt>x = x*x + x + 2</tt> deve ser entendida como:
+	 cálcula-se primeiro o valor da expressão à direita, cujo resultado final é atribuido à variável à esquerda.</li>
+   <li>
+     <tt class="corDef">Se verdadeiro então</tt> &nbsp; &nbsp; Para executar comando de acordo com uma condição (<i>expressão lógica</i>).
+         <br/>
+         <i class="corEx">Representação em "Portugol"</i>: <tt>se (a &lt; b) faça CMD1; senão CMD2</tt>.
+	    Se <tt>a</tt> for estritamente menor que <tt>b</tt>, execute comando <tt>CMD1</tt>, senão execute comando <tt>CMD2</tt>.
+         <br/>
+         <i class="corEx">Representação em C</i>: <tt>if (a &lt; b) CMD1; else CMD2;</tt>. Sendo <tt>CMD1</tt> e <tt>CMD2</tt> qualquer comando válido de <tt>C</tt>.
+         <br/>
+         <center>
+          <img style="vertical-align: top;" src="imagens/com_se_entao_1.png" title="comando Se-Entao"/>
+          <br/>
+          <i>Fig. 5</i>: Comando de <i>seleção</i>.
+         </center>
+         Nesse momento deve-se selecionar a variável
+         (a versão corrente tem um erro: ao clicar no <tt>Selecione...</tt> deve-se pegar a opção <tt>Valor</tt> e não <tt>Variável</tt>)
+         e seguir construindo a expressão lógica.
+         <br/>
+	 <b>Atenção</b>, a decisão (execução do comando) ocorre durante sua execução, com os valores desse contexto.
+         Durante a execução, a condição é avaliada, se resoltar verdadeiro o comando subordinado ao <tt>se</tt> será executado,
+	 senão será executado o comando sob o <tt>senão</tt>. Pode-se deixar qualquer um deles vazio.
+         <br/>
+	 
+         <br/>
+	 <i>Exemplo</i>: para a expressão <tt>a &lt; b</tt>
+   </li>
+   <li>
+     <tt class="corDef">Repita N vezes</tt> &nbsp; &nbsp;  Repetir todos os comandos sobordinados (sob esse) <tt>N</tt> vezes.
+         <br/>
+         <i class="corEx">Representação em "Portugol"</i>: <tt>repetir N vezes { CMD1; ...; CMK; }</tt>.
+         <br/>
+         <i class="corEx">Representação em C</i>: <tt>for (i=0; i &lt; N; i++) { CMD1; ...; CMK; }</tt>.
+         <br/>
+         <center>
+          <img style="vertical-align: top;" src="imagens/com_for_1.png" title="comando de repeticao for"/>
+          <br/>
+          <img style="vertical-align: top;" src="imagens/com_for_2.png" title="comando de repeticao for"/>
+          <br/>
+          <i>Fig. 6</i>: comando para repetir um número fixo de vezes (dado por uma variável ou expressão).
+         </center>
+         Na parte de superior da figura 6 está a imagem obtida imediatamente após pegar comando <tt>Repita N vezes</tt>,
+	 na parte inferior após "clicar" no símbolo
+	 <img style="vertical-align: top;" src="imagens/com_for_3.png" title="trocar numero de repeticoes"/>.
+   </li>
+   <li>
+     <tt class="corDef">Enquanto verdadeiro</tt> &nbsp; &nbsp; Outro comando de repetição, repetindo enquanto a condição for verdadeira.
+         <br/>
+         <i class="corEx">Representação em "Portugol"</i>: <tt>enquanto (CONDICAO) { CMD1; ...; CMK; }</tt>.
+         <br/>
+         <i class="corEx">Representação em C</i>: <tt>while (CONDICAO) { CMD1; ...; CMK; }</tt>.
+         <br/>
+         <center>
+          <img style="vertical-align: top;" src="imagens/com_enquanto_1.png" title="comando de repeticao com condicao de entrada"/>
+          <br/>
+          <i>Fig. 7</i>: comando para repetir enquanto a condição resultar verdadeiro.
+         </center>
+         Nesse comando, o bloco subordinando será repetido até que a condição de entrada deixe de ser verdadeira.
+   </li>
+   <li>
+     <tt class="corDef">Leitura de dados</tt> &nbsp; &nbsp; Comando para permitir que o usuário <i>entre</i> um <i>número/texto/Verdadeiro/Falso</i> para o programa.
+         <br/>
+         <i class="corEx">Representação em "Portugol"</i>: <tt>leia(x);</tt>. Ler um valor e armazenar em <tt>x</tt>.
+         <br/>
+         <i class="corEx">Representação em C</i>: <tt>scanf("%d", &x);</tt>.
+         <br/>
+         <center>
+          <img style="vertical-align: top;" src="imagens/com_entrada_1.png" title="comando para entrada de dados (situacao inicial)"/>
+          <br/>
+          <img style="vertical-align: top;" src="imagens/com_entrada_2.png" title="comando para entrada de dado, a ser armazenado em x"/>
+          <br/>
+          <i>Fig. 8</i>: Comando para <i>entrada</i> de dados. Abaixo após definir a variável na qual o valor digitado será armazenado (<tt>x</tt>).
+         </center>
+         Nesse momento deve-se selecionar a variável (destacado em fundo amarelo) e depois
+   </li>
+   <li>
+     <tt class="corDef">Escrita de dados</tt> &nbsp; &nbsp; Comando para permitir que o usuário receba uma <i>saída</i> do programa.
+         <br/>
+         <i class="corEx">Representação em "Portugol"</i>: <tt>escreva(x);</tt>. Escreva no dispositivo de saída padrão o valor armazenado em <tt>x</tt>.
+         <br/>
+         <i class="corEx">Representação em C</i>: <tt>printf("%d\n", x);</tt>.
+         <br/>
+         <center>
+          <img style="vertical-align: top;" src="imagens/com_saida_1.png" title="comando para saida de dados (situacao inicial)"/>
+          <br/>
+          <img style="vertical-align: top;" src="imagens/com_saida_2.png" title="comando para saida de dados da variavel x"/>
+          <br/>
+          <i>Fig. 9</i>: Comando para <i>saída</i> de dados. Na imagem inferior após definir qual variável terá seu valor impresso.
+         </center>
+         Nesse momento deve-se selecionar a variável (destacado em fundo amarelo) e depois
+   </li>
+  </ol>
+  </p>
+  </div>
+
+ <div class="bloco">
+  <div class="secao">3. Solução para o Exercício 1: somar 2 números digitados</div>
+
+   <strong> Exercício 1: </strong>
+     <i>Fazer um algoritmo que solicite que o usuário digite 2 valores (inteiros), depois compute a soma dos valores digitados e por último imprima esta soma.
+   <br/>
+
+   <strong>Solução para o Exercício 1: </strong> passos para obter o algoritmo/programa da figura 10.<br/>
+   <ul>
+    <li>
+     Criar 3 variáveis e renomeá-las para nomes mais significativos.
+     Eventualmente poderia-se dispensar a variável <tt>soma</tt> e acumular a soma em <tt>a</tt> ou em <tt>b</tt>, mas o código não ficaria tão claro;
+    </li>
+    <li>
+     Criar o comando <tt>leia(a);</tt> e  <tt>leia(b);</tt>, para capturar e armazenar os 2 valores a serem digitados pelo usuário
+     (seria impossível usar apenas uma, perderia-se o primeiro valor que fosse digitado);
+    </li>
+    <li>
+     Criar o comando de atribuição correspondente ao comando Porgugol <tt>soma = a+b;</tt>;
+    </li>
+    <li>
+     Criar o comando para imprimir a resposto, correspondente ao comando Portugol <tt>escreva(soma);</tt>;
+   </ul>
+   <br/>
+   <center>
+     <img style="vertical-align: top;" src="imagens/sol_exerc1.png" title="programa solucao do exercicio 1"/>
+     <br/>
+     <i>Fig. 10</i>: Imagem do programa para receber 2 valores digitados e imprimir sua soma.
+   </center>
+   <br/>
+ </div>
+
+ <!--
+ Atencao e' preciso que existe PHP para mostrar a acao para gravar (via programa PHP 'gravar.php'.
+ %3A :
+ %2F /
+ %3D =
+ %26 &
+ -->
+ <center>
+ <div class="bloco">
+ <div class="secao">4. <i>iVProgH</i> com o exercício 1 (da soma de 2 inteiros) para experimentar novamente.</div>
+   
+ <iframe frameborder="0" name="iLM"
+  src="main.html?lang=pt_br&iLM_PARAM_Assignment=./exerc/exerc_ivprogh5_somar2inteiros_digitados.ivp&iLM_PARAM_SendAnswer=false"
+  style="width: 800px; height: 600px;"  id="iLM">
+ </iframe>
+ <!-- /home/leo/projetos/iMA/ima/sobre_protocolo/sobre-protocolo-ima.txt
+  Explicacoes sobre os parametros para configurar a carga do iVProgH
+  - lang: "lang=pt_br" => carrega em Portugues; "lang=en" => carrega em Ingles
+  - iLM_PARAM_Assignment: nome do arquivo a ser carregado, pode ser um exemplo (com codigo pronto) ou um gabarito (com dados de entradas x saidas)
+  - iLM_PARAM_SendAnswer: se "false" => que NAO mostra o gabarito - para mostrar, eliminar "&iLM_PARAM_SendAnswer=false" ou deixar &iLM_PARAM_SendAnswer=true"
+ -->
+ <form name='formEnvio' id='formEnvio' method='post' action='gravar.php' enctype='multipart/form-data'>
+    <!-- document.formEnvio.MA_POST_Archive.value           document.formEnvio.MA_POST_Value.value -->
+    <!-- document.formEnvio.iLM_PARAM_ArchiveContent.value  document.formEnvio.iLM_PARAM_ActivityEvaluation.value-->
+    <input type='hidden' name='iLM_PARAM_ArchiveContent' />
+    <input type='hidden' name='iLM_PARAM_ActivityEvaluation' />
+    <p><textarea rows='2' cols='60' name='submission_comment'></textarea></p>
+    <input type=button value='Enviar resposta' onclick = 'javascript:window.resp();' title='clique aqui para enviar sua resposta' />
+ </form>
+ </div><!-- class="bloco" -->
+ </center>
+
+
+<!--
+/var/www/html/ivprogh5/img/manual_interface_1.png
+
+
+/var/www/html/ivprogh5/js/app-i18n.js
+ 'msg_testcases' : 'Casos de teste (para autoria de exercícios)',
+
+/var/www/html/ivprogh5/partials/create.html
+ 'msg_testcases' : <div id="caseTests" ng-show="notSend"> = iLM_PARAM_SendAnswer=false&
+
+--> 
+ 
+ 
+  <div class="foot"><center>
+   <a href="http://www.ime.usp.br/line">LInE</a> |
+   <a href="http://www.matematica.br">iM&aacute;tica</a> |
+   <a href="http://www.usp.br/line/mooc">MOOC</a>
+  </center></div>
+
+ </div><!-- class="indent1" -->
+
+  </body>
+</html>

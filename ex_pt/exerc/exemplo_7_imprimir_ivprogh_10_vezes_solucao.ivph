@@ -1,0 +1,15 @@
+ {  
+ "testcases" : [ 
+{ 
+ "input": [], 
+ "output": ["iVProgH", "iVProgH", "iVProgH", "iVProgH", "iVProgH", "iVProgH", "iVProgH", "iVProgH", "iVProgH", "iVProgH"]
+}
+] ,
+"settings_data_types": 
+[{"name":"integer_data_type","value":"on"},{"name":"real_data_type","value":"on"},{"name":"text_data_type","value":"on"},{"name":"boolean_data_type","value":"on"},{"name":"void_data_type","value":"on"}],
+"settings_commands": 
+[{"name":"commands_read","value":"on"},{"name":"commands_write","value":"on"},{"name":"commands_comment","value":"on"},{"name":"commands_attribution","value":"on"},{"name":"commands_functioncall","value":"on"},{"name":"commands_iftrue","value":"on"},{"name":"commands_repeatNtimes","value":"on"},{"name":"commands_while","value":"on"},{"name":"commands_dowhile","value":"on"},{"name":"commands_switch","value":"on"}],
+"settings_functions": 
+[{"name":"functions_creation","value":"on"},{"name":"functions_move","value":"on"}] } 
+::algorithm::
+{"functions":[{"type":"function","name":"inicio","return_type":"void","return_dimensions":0,"parameters_list":[],"is_main":true,"is_hidden":false,"variables_list":[{"type":"integer","name":"i","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},{"type":"text","name":"text","value":"iVProgH","dimensions":0,"is_constant":false,"rows":0,"columns":0}],"function_comment":{"type":"comment","comment_text":"Esta é a função principal..."},"commands":[{"type":"repeatNtimes","var_attribution":{"type":"var_value","variable_and_value":1,"content":{"type":"integer","name":"i","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":false,"dimensions":0,"dom_object":{"0":{},"length":1}},"var_incrementation":{"type":"var_value","variable_and_value":1,"content":{"type":"integer","name":"i","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":false,"dimensions":0,"dom_object":{"0":{},"length":1}},"expression1":{"type":"var_value","variable_and_value":7,"content":"1","row":null,"column":null,"include_constant":true,"dimensions":0,"dom_object":{"0":{},"length":1}},"expression2":{"type":"var_value","variable_and_value":7,"content":"10","row":null,"column":null,"include_constant":true,"dimensions":0,"dom_object":{"0":{},"length":1},"expression":{"type":"exp_arithmetic","first_operand":{"type":"var_value","variable_and_value":1,"content":{"type":"integer","name":"i","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":false,"dimensions":0,"dom_object":{"0":{},"length":1}},"second_operand":{"type":"var_value","variable_and_value":7,"content":null,"row":null,"column":null,"include_constant":true,"dimensions":0},"operator":"less_than"}},"expression3":null,"commands_block":[{"type":"writer","content":[{"type":"var_value","variable_and_value":7,"content":{"type":"text","name":"text","value":"iVProgH","dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":true,"dimensions":0,"dom_object":{"0":{},"length":1}}]}]}]}],"globals":[]}

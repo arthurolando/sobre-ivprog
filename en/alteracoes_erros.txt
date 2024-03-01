@@ -1,0 +1,83 @@
+2018/11/17
+
+Usei marcador "//leo1"
+
+/home/leo/projetos/iMA/ima/ivprog_html5/2018/manual_ima/www/ivprogh/i18n/i18n-engine.js
+ + fuction i18n(identifier): no Vivaldi resulta erro (e NAO carrega)
+     at i18n (i18n-engine.js:11)
+       Uncaught TypeError: Cannot read property 'ERROR' of undefined
+     Solucao: acrescentei 'try/catch'
+       try { // Vivaldi: error 'Uncaught TypeError: Cannot read property 'ERROR' of undefined
+         if (StringTypes.ERROR === type) ...
+       } catch (error) { 
+         //DEBUG alert('./ivprogh/i18n/i18n-engine.js: i18n('+identifier+'): error ' + error);
+         }
+
+
+/home/leo/projetos/iMA/ima/ivprog_html5/2018/manual_ima/www/ivprogh/build/ivprog.bundle.js:
+  + linha 49198/50226: var lang = localStorage.getItem(this.lsKey);
+    Erro: SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.
+    Rever: essa funcao esta sendo chamada MUITAS vezes!
+    LanguageService.prototype.getLang = function (): linha "var lang = localStorage.getItem(this.lsKey);"
+    Troque por:
+    var lang;
+    try { lang = localStorage.getItem(this.lsKey); } catch (error) {
+      //DEBUG alert('./ivprogh/build/ivprog.bundle.js: LanguageService.prototype.getLang(): error ' + error);
+      /TODO   rever aqui, pois ao carregar iVProg esse metodo esta sendo chamado MUITAS vezes!		
+      return "pt"; //TODO "pt_BR" "en_US"
+      }
+
+
+/home/leo/projetos/iMA/ima/ivprog_html5/2018/manual_ima/www/ivprogh/js/iassign-integration-functions.js
+  + linha 20/340 (antes de alterar, depois 341)
+    Uncaught DOMException: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.
+      at file:///home/leo/projetos/iMA/ima/ivprog_html5/2018/manual_ima/www/ivprogh/js/iassign-integration-functions.js:20:1
+    Troqui: localStorage.setItem('ivprog.lang', iLMparameters.lang);
+    Por:
+    try { localStorage.setItem('ivprog.lang', iLMparameters.lang); }
+    catch (error) { } //leo1 If NOT in iAssign 'localStorage' is undefined! Do not try: localStorage.setItem('ivprog.lang', 'pt');
+
+---
+
+Botao 'submit'
+
+/home/leo/projetos/iMA/ima/ivprog_html5/2018/manual_ima/www/ivprogh/js/iassign-integration-functions.js
+  + function getEvaluation (): if (iLMparameters.iLM_PARAM_SendAnswer == 'false') runCodeAssessment();
+
+
+/home/leo/projetos/iMA/ima/ivprog_html5/2018/manual_ima/www/ivprogh/build/ivprog.bundle.js
+  + 19265/50232:
+    window.runCodeAssessment = runCodeAssessment;
+  + 19587/50232:
+    function runCodeAssessment(): ...
+    
+
+---
+
+Manual
+
+Eliminar recurso de: https://www.w3schools.com/w3css/4/w3.css
+Usar origem: https://pastebin.com/raw/VLAn1rV0
+
+Eliminar recurso de: https://www.w3schools.com/lib/w3-theme-teal.css
+
+Eliminar: https://fonts.googleapis.com/css?family=Roboto
+
+Eliminar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+
+index.html
+ + 'myAccordion' -> 'manuItem'
+ + "onclick="carregar('..." -> "onclick="carregar('menu_...": 24 mudancas
+
+Alterados nomes de quase todos os HTML.
+
+Alterados inicio de quase todos os HTML.
+
+Alteradas explicacoes em quase todos os HTML.
+
+w3.css
+ .w3-button:hover: color:#000 -> color:#fff e background-color:#ccc -> background-color:#001A66
+ .w3-show: acresc ";color:#001065;background-color:#eee" em "{display:block!important;color:#001065;background-color:#eee}"
+ .w3-item{padding:4px;display:block;border:1pt;border-bottom:1px solid #001A66;width:100%}: novo!
+
+ 

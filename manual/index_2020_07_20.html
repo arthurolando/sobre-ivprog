@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<head>
+    <title>Tutorial iVProg</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/w3.css" />
+    <!-- link href="../css/bootstrap.min.css" rel="stylesheet" / -->
+    <link href="../css/style.css" rel="stylesheet" />
+<style>
+  .main-img-div img {
+    width: 90%;
+    margin: 10px;
+  }
+  .img-div {
+    margin: auto auto !important;
+    width: 50%;
+  }
+  .img-div img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .img-label {
+    display: block;
+    text-align: center;
+    font-style: italic;
+  }
+  .icon_32x32 {
+    width: 32px;
+    height: 32px;
+  }
+  .image {
+    opacity: 1;
+    display: block;
+    width: 50px;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    float:left;
+    margin-top:25px;
+  }
+  .image:hover {opacity: 0.5;}
+  body {font-family: sans-serif, arial}
+  .w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
+  #conteudo { width: 900px; height: 300px;}
+</style>
+
+<!-- script type="text/javascript" src="../ivprogh/js/jquery-3.3.1.min.js"></script -->
+<!-- script type="text/javascript" src="../ivprogh/js/jquery-ui.js"></script -->
+
+<script>
+// Open and close the sidebar on medium and small screens
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+  }
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+  }
+
+// Change style of top container on scroll
+window.onscroll = function() {loadMainFrameIVProg()};
+
+function loadMainFrameIVProg () {
+  //if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+  //  document.getElementById("mainFrame").classList.add("w3-card-4", "w3-animate-opacity");
+  //  //document.getElementById("myTope").classList.add("w3-card-4", "w3-animate-opacity");
+  //  //document.getElementById("myIntro").classList.add("w3-show-inline-block");
+  //} else {
+  //  document.getElementById("mainFrame").classList.remove("w3-card-4", "w3-animate-opacity");
+  //  //document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+  //  //document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+  //  }
+  }
+
+// Define dimension of central block
+function defineSizeCentral (element) { // screen.width
+  //mySidebar
+  // clientWidth = dimensions of the body + padding
+  // scrollWidth = dimensions of the body, including parts that are out of the screen
+  var varScreenWidth = document.body.clientWidth - 40;
+  var varMySideBarWidth = document.getElementById("mySidebar").clientWidth; //style.width; // style.width="250px", scrollWidth="250"
+  var varWidth;
+  varWidth = varScreenWidth - varMySideBarWidth;
+  element.width = varWidth;
+  element.height = document.body.clientHeight + 150; // document.body.scrollHeight; // 
+  // alert(varScreenWidth + ", " + varMySideBarWidth + ", " + varWidth + ", Height=" + element.height);
+  element.style.border = 0;  
+  }
+
+// Accordions
+function manuItem (id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme";
+  } else {
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-theme", "");
+    }
+  }
+
+function carregar (pagina) { // carragar pagina
+  // $("#conteudo").load(pagina); //D nao usar pacote JQuery
+  // document.getElementById("mainFrame").src = pagina;
+  var txtFile = new XMLHttpRequest(); // https://forums.tumult.com/t/importing-content-from-a-text-file-txt/2004/16
+  //108 txtFile.open("GET", "http://www.usp.br/line/ivprog/manual_pt/" + pagina, true);
+  txtFile.open("GET", "http://localhost/ivprog/manual_pt/" + pagina, true);
+  // alert("aqui");
+  txtFile.onreadystatechange = function () {
+    if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
+      if (txtFile.status === 200) {  // Makes sure it's found the file.
+        allText = txtFile.responseText;
+        //lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+        var customTextElement = document.getElementById('mainDiv');
+        customTextElement.innerHTML = txtFile.responseText;
+        }
+      }
+    }
+  txtFile.send(null);
+  }
+</script>
+</head>
+
+
+<body>
+
+<!--
+<div class="w3-item"><img src="img/icn_bf_avalia.png" title="icone opcao avaliar codigo" class="w3-icon"/>
+<div class="w3-item"><img src="img/icn_ajuda.png" title="icone opcao de ajuda" class="w3-icon"/>
+
+.navbar{position:static;float:none;display:-ms-flexbox;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:center;
+align-items:center;-ms-flex-pack:justify;justify-content:space-between;padding:.5rem 1rem;}
+
+-->
+
+<div class="header">
+<nav class="navbar-expand-md navbar-dark fixed-top" style="background-color: #03396c;">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <b><a class="nav-link" href="../">iVProg</a></b>
+          </li>
+          <li class="nav-item">
+            <b><a class="nav-link" href="../"
+               title="Navegue para a página inicial do site do iVProg.">Home</a></b>
+          </li>
+          <li class="nav-item">
+            <b><a class="nav-link" href="../sobre_ivprog.html"
+               title="Conheça resumidamente o que é e para que serve o iVProg.">Conheça</a></b>
+          </li>
+          <li class="nav-item">
+            <b><a class="nav-link" href="../ex_pt/index.html"
+               title="Veja alguns exemplos e teste o iVProg online.">Exemplos</a></b>
+          </li>
+          <li class="nav-item">
+            <b><a class="nav-link" href="../download.html"
+               title="Faça uma cópia do iVProg para sua máquina.">Download</a></b>
+          </li>
+          <li class="nav-item active">
+            <b><a class="nav-link" href="../manual_pt/index.html" 
+               title="Acesse um manual online do iVProg e conheça todos os recursos.">Ajuda</a></b>
+          </li>
+          <li class="nav-item">
+            <b><a class="nav-link" href="../bugs/report.html"
+               title="Envie uma mensagem para a equipe do iVProg.">Contato</a></b>
+          </li>
+          <li class="nav-item">
+            <b><a class="nav-link" href="//www.usp.br/line/"
+               title="Conheça o Laboratório de Informática na Educação do Instituto de Matemática e Estatística da USP.">LInE</a></b>
+          </li>
+          <li class="nav-item">
+            <b><a class="nav-link" href="../docs/"
+               title="Tenha acesso a toda a documentação do iVProg.">Desenvolvedores</a></b>
+          </li>
+          <li class="nav-item">
+            <b><a class="nav-link" href="../publicacoes.html"
+               title="Leia as publicações da equipe a respeito do iVProg.">Publicações</a></b>
+          </li>
+        </ul>
+        <!--div class="form-inline my-2 my-lg-0"-->
+           <img src="../img/img_flag_brazil.png" title="Lingua Portuguesa" style="vertical-align:middle;"/></td>
+           <a href="../en/index.html"><img src="../img/img_flag_usa.png" title="Change to English language" style="vertical-align:middle;"/></a></td></tr></table>
+        <!--/div-->
+</nav>
+</div>
+
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;" id="mySidebar">
+
+<a class="w3-bar-item w3-button" onclick="manuItem('visual')" href="javascript:void(0)">
+   Formas de programação<i class="fa fa-caret-down"></i></a>
+  <div id="visual" class="w3-hide"><!-- .w3-btn,.w3-button -->
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_fp_visual.html')" href="#" title="">Visual</a>
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_fp_textual.html')" href="#" title="">Textual</a>
+  </div>
+
+
+<!-- de dentro de a: style="color:#001A66;;font-size:11pt"-->
+<a class="w3-bar-item w3-button" onclick="manuItem('ferramentas')" href="javascript:void(0)">
+   Barra de ferramentas<i class="fa fa-caret-down"></i></a>
+  <div id="ferramentas" class="w3-hide">
+    <!--a class="w3-bar-item w3-button" onclick="carregar('menu_bf_novo.html')" href="#" title="">Novo</a -->
+    <!--a class="w3-bar-item w3-button" onclick="carregar('menu_bf_gravar.html')" href="#" title="">Gravar</a -->
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_bf_importar.html')" href="#" title=""> Importar</a>
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_bf_exportar.html')" href="#" title="">Exportar</a>
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_bf_desfazer.html')" href="#" title="">Desfazer</a>
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_bf_refazer.html')" href="#" title="">Refazer</a>
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_bf_executar.html')" href="#" title="">Executar</a>
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_bf_avaliar.html')" href="#" title="">Avaliar</a>
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_bf_ajuda.html')" href="#" title="">Ajuda</a>
+  </div>
+
+<a class="w3-bar-item w3-button" onclick="manuItem('variaveis')" href="javascript:void(0)">
+   Variáveis<i class="fa fa-caret-down"></i></a>
+
+  <div id="variaveis" class="w3-hide">
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_var_variavel-global.html')" href="#" title="">Variável Global</a>
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_var_variavel-local.html')" href="#" title="">Variável Local</a>
+   
+  </div>
+
+<a class="w3-bar-item w3-button" onclick="manuItem('comandos')" href="javascript:void(0)">
+   Comandos<i class="fa fa-caret-down"></i></a>
+
+<!--
+http://localhost/ivprog/manual_pt/menu_cmd_repita_para.html     -> menu_cmd_repita_ate_que.html : Comando Faça Enquanto verdadeiro
+http://localhost/ivprog/manual_pt/menu_cmd_repita_enquanto.html -> menu_cmd_repita_enquanto.html: Comando Repita Enquanto (CONDICAO_eh_verdadeira) COMANDO1
+http://localhost/ivprog/manual_pt/menu_cmd_repita_ateque.html   -> menu_cmd_repita_n_vezes.html : Comando repita N vezes
+menu_cmd_repita_enquanto.html - 
+menu_cmd_repita_ate_que.html  - 
+menu_cmd_repita_n_vezes.html  - 
+-->
+
+    <div id="comandos" class="w3-hide">
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_comandos.html')" href="#" title="">Comandos iVProg</a> <!-- manual_pt/menu_cmd_comandos.html -->
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_leitura.html')" href="#" title="">Leitura de dados</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_escrever.html')" href="#" title="">Escrita de dados</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_comentario.html')" href="#" title="">Comentários</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_atribuicao.html')" href="#" title="">Atribuição</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_chamada-funcao.html')" href="#" title="">Chamada de função</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_se.html')" href="#" title="">Se verdadeiro então</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_repita_enquanto.html')" href="#" title="">Repita Enquanto (verdadeiro)</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_repita_n_vezes.html')" href="#" title="">Repita N vezes</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_repita_ate_que.html')" href="#" title="">Repita Comandos até que (Verdadeiro)</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_escolha.html')" href="#" title="">Multipla Escolha</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_retorno.html')" href="#" title="">Retorno</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_pare.html')" href="#" title="">Pare</a>
+      <a class="w3-bar-item w3-button" onclick="carregar('menu_cmd_caso.html')" href="#" title="">Caso</a>
+   
+  </div>
+  <a class="w3-bar-item w3-button" onclick="manuItem('funcao')" href="javascript:void(0)">
+   Função<i class="fa fa-caret-down"></i></a>
+  <div id="funcao" class="w3-hide">
+    <a class="w3-bar-item w3-button" onclick="carregar('menu_fc_funcao.html')" href="#" title="">Estrutura da função</a>
+  </div>
+
+</nav>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()"
+   style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-main"
+   style="margin-left:250px;">
+
+<div id="cabecalho" class="w3-container w3-head"
+   style=" background-color:#001A66;color: white;">
+  <a href="index.html" ><img src="img/icn_home.png" width="30px" title="Voltar para o inicio" /> </a>
+  <i class="w3-xxxlarge"
+   style="margin-left: 5%">Tutorial iVProg</i>
+</div>
+
+<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>
+
+<div class="w3-container"
+   style="padding:32px"  id="mainDiv">
+
+<div style="font-family: Arial">
+
+<h2 style="color:#001A66;">O que é o iVProg?</h2>
+
+<p>
+O <b>iVProg</b> (<b>P</b>rogramação <b>V</b>isual <b>i</b>nterativa na <b>I</b>nternet) é um dos sistemas educacionais de código livre do
+<a href="https://line.ime.usp.br" title="visitar pagina do Laboratorio de Informatica na Educacao">LInE</a>,
+sendo destinado ao ensino e à aprendizagem de algoritmos e programação. 
+O <b>iVProg</b> pode ser integrado ao 
+<b><a href="https://www.matematica.br/ia" title="visitar pagina do iTarefa">iTarefa/Moodle</a></b>,
+<b>Educação Livre, Dados Privados</b>!.
+</p>
+
+<hr>
+<h2 style="color:#001A66;">Interface 1</h2>
+<img src="img/pt_img_manual_interface.png" title="imagem da interface principal do iVProg destacando modo Visual x Textual e Barra de Ferramentas" />
+
+</div>
+
+</div>
+
+</body>
+</html> 

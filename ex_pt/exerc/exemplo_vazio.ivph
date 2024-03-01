@@ -1,0 +1,9 @@
+{
+"testcases" : [],
+"settings_data_types": [],
+"settings_commands": [],
+"settings_functions": []
+}
+::algorithm::{"functions":[{"type":"function","name":"inicio","return_type":"void","return_dimensions":0,"parameters_list":[],"is_main":true,"is_hidden":false,"variables_list":[],"function_comment":{"type":"comment","comment_text":"Esta é a função principal..."},"commands":[]}],"globals":[]
+}
+::logs::[[]]

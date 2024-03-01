@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>iVProg - LInE (free educational software and contents)</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+  </head>
+
+<body>
+
+<!-- iVProg: cabecalho --->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #03396c;">
+      <b><a class="navbar-brand" href="./">iVProg</a></b>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./" 
+               title="Navegue para a página inicial do site do iVProg.">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./sobre_ivprog.html"
+               title="Conheça resumidamente o que é e para que serve o iVProg.">Conheça</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./ex_pt/index.html"
+               title="Veja alguns exemplos e teste o iVProg online.">Exemplos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./download.html"
+               title="Faça uma cópia do iVProg para sua máquina.">Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./manual_pt/index.html" 
+               title="Acesse um manual online do iVProg e conheça todos os recursos.">Ajuda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./bugs/report.html"
+               title="Envie uma mensagem para a equipe do iVProg.">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="//www.usp.br/line/"
+               title="Conheça o Laboratório de Informática na Educação do Instituto de Matemática e Estatística da USP.">LInE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./docs/"
+               title="Tenha acesso a toda a documentação do iVProg.">Desenvolvedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./publicacoes.html"
+               title="Leia as publicações da equipe a respeito do iVProg.">Publicações</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <a href="./index.html"><img src="img/img_flag_brazil.png"/></a>
+          <a href="./en/index.html"><img src="img/img_flag_usa.png"/></a>
+        </div>
+      </div>
+    </nav>
+<!-- iVProg: cabecalho --->
+
+    <main role="main">
+      <div class="jumbotron ivprogh-desc">
+        <div class="container">
+          <h1>iVProg</h1>
+          <p class="text-reduced">
+	  <!-- xxxxxxxxxxxx -->
+          <b>Exercício.</b>
+          4.1 Vetores - Sequência invertida (exercício de sala).
+          </p>
+        </div>
+      </div>
+      <div class="container ivprog-container">
+
+      <p>Fazer um programa que receba um valor natural (digamos N<u>&gt;</u>1) e a seguir o usuário deve digitar N valores inteiros, que devem ser armazenados em
+      um <b>vetor</b>. Em seguida, imprima a sequência dos N inteiros do vetor na ordem inversa de como foram digitados.
+      </p>
+      <p>Exemplo. Se for digitado N=4 e depois os valores <tt>{45, -12, 30, 25}</tt> deverá ser impresso <tt>25 30 -12 45</tt> (um em cada linha).<br></p>
+      <p><span style="color: #008000;"><em>Entrada esperada</em>: um natural N&gt;0 e depois N valores inteiros. <br> <em>Saída esperada</em>: imprimir em ordem inversa os N valores inteiros.
+      <br></span></p>
+      <p><span style="color: #0000ff;"><em>Atenção</em>: <strong>não imprima </strong>textos informativos ao usuário, pois estes atrapalhariam o avaliador automático.
+      Apenas imprima as variáveis ou expressões aritméticas requeridas.</span></p>
+
+
+        <div class="embed-responsive embed-responsive-4by3"><!-- embed-responsive-16by9 -->
+	  <!-- xxxxxxxxxxxx -->
+          <iframe class="embed-responsive-item"
+           src="../ivprogh/index.html?iLM_PARAM_SendAnswer=false&iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=../vetor/exerc_4_1_vetor_ordem_inversa.ivph"
+           allowfullscreen>
+          </iframe>
+	  <!--
+            src="ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=../ex_pt/exerc/exemplo_fatorial.ivph"
+	  -->
+        </div>
+      </div>
+
+      </div>
+
+    </main>
+    <footer class="container text-center">
+      <a href="http://www.ime.usp.br/line">iVProg</a> | 
+      <a href="http://www.ime.usp.br/line">LInE</a> |
+      <a href="http://www.matematica.br">iM&aacute;tica</a>
+    </footer>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/octicons.min.css"><!-- https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css -->
+  </body>
+</html>

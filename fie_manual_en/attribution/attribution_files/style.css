@@ -1,0 +1,173 @@
+.ivprog-container {
+  -webkit-box-shadow: 0px 0px 31px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 31px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 31px -5px rgba(0,0,0,0.75);
+  border-radius: 4px; padding-top: 0.3rem;
+}
+footer.container {
+  margin-top: 1%;
+}
+.jumbotron.ivprogh-desc {
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.text-reduced {
+  font-size: 96%;
+  margin-bottom: 0.5rem;
+}
+h1 {
+  margin-bottom: 0;
+}
+.col-md-3.item {
+  padding: 1em; background: #007bff; color: white;
+  margin: 1em; border-radius: .5em; text-align: center; 
+  border: 1px groove; cursor: pointer;
+} 
+.col-md-3.item .octicon {
+  font-size: 2em;
+}
+.col-md-3.item h4 {
+  font-size: 1.4em;
+  margin-top: 0.6em;
+}
+.row.thumbs-ivprog {
+  margin-top: 1em;
+}
+.row.thumbs-ivprog-download .item {
+  background-color: #5a6570;
+  border: 2px groove;
+}
+.col-md-3.item:hover {
+  background-color: #03396c;
+}
+.col-md-3.item hr {
+  background: white;
+}
+.col-md-3.item a {
+  color: white;
+}
+.btn.btn-primary .octicon {
+  font-size: 1.5em;
+  margin-right: 0.5em;
+}
+.download-ivprog {
+  font-size: 1.3em;
+}
+.div-button {
+  text-align: center;
+  padding-top: 2.5em;
+}
+.div-button .span-version {
+  display: block;
+  font-size: 98%;
+}
+.my-4 .octicon-history {
+  font-size: 1em;
+}
+.row.thumbs-ivprog-download {
+  padding-bottom: 3em;
+}
+
+.history-ivprog-version {
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: -.5em;
+  margin-bottom: .5em;
+}
+.history-ivprog-time {
+  background-color: gray;
+  padding: .4em;
+  border-radius: .4em;
+}
+footer.container {
+  margin-bottom: 1em;
+}
+.example-large-div {
+  background-color: #0bbf4a;
+  border-radius: .8em;
+  margin-top: 0.5em;
+}
+
+.example-large-div .container .embed-responsive {
+  border-radius: .5em;
+  margin-top: 1em;
+}
+
+.text-count-example {
+  font-size: 1.5em;
+  color: white;
+  text-shadow: 2px 2px gray;
+  font-weight: 600;
+  margin-bottom: .3em;
+  padding-top: .3em;
+  padding-bottom: .2em;
+  cursor: pointer;
+}
+.example-large-div .text-reduced {
+  color: #06065a;
+  font-size: 1.1em;
+  text-indent: 1em;
+}
+.text-count-example .octicon {
+  text-shadow: none;
+  font-weight: normal;
+  font-size: .9em;
+  margin-right: .1em;
+}
+.container.text-center .btn {
+  margin: .5em;
+}
+.container.example-large-div.autoeval-descript {
+  background-color: #538564;
+  color: white;
+  padding: .2em;
+  padding-left: 1em;
+  font-size: 1.1em;
+  border-radius: .3em;
+}
+.container.example-large-div.autoeval-descript .pointer {
+  cursor:pointer;
+}
+.container.example-large-div.autoeval-descript span {
+  font-size: 1.2em;
+  margin-right: .2em;
+}
+#area-autoeval-descript {
+  padding-left: 2em;
+  padding-top: 1em;
+  padding-right: 2em;
+  padding-bottom: 1em;
+}
+button.btn.btn-primary.show-solution {
+  float: right;
+  margin-right: 1em;
+}
+.ivprogh-title-download {
+  color: #03396c;
+}
+.ivprogh-title-download .octicon {
+  font-size: 1em;
+}
+.table.about-auto-eval {
+  border: 2px solid white;
+}
+.box-download {
+  background: #efefef;
+  border-radius: .5em;
+}
+.distinct-container {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.zoom-images {
+  width: 10em;
+  cursor: zoom-in;
+  height: 5.5em !important;
+}
+ul.col_download {
+  margin-left:4px; padding:0; list-style:square;
+  }
+li.col_download {
+  display:inline-block; text-align:left;font-size: 0.9em;
+  }

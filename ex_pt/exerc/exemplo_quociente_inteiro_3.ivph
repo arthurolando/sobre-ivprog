@@ -1,0 +1,67 @@
+{
+    "version": "1.0",
+    "test_cases": [
+        {
+            "input": [
+                "1"
+            ],
+            "output": [
+                "1"
+            ]
+        },
+        {
+            "input": [
+                "-1"
+            ],
+            "output": [
+                "-1"
+            ]
+        },
+        {
+            "input": [
+                "543"
+            ],
+            "output": [
+                "543"
+            ]
+        },
+        {
+            "input": [
+                "5431"
+            ],
+            "output": [
+                "5431"
+            ]
+        }
+    ],
+    "settings": {
+        "programming": {
+            "programming_type": "visual"
+        },
+        "functions": {
+            "functions_creation": true,
+            "functions_move": true
+        },
+        "datatypes": {
+            "integer_data_type": true,
+            "real_data_type": true,
+            "text_data_type": true,
+            "boolean_data_type": true,
+            "void_data_type": true
+        },
+        "commands": {
+            "commands_read": true,
+            "commands_write": true,
+            "commands_comment": true,
+            "commands_attribution": true,
+            "commands_functioncall": true,
+            "commands_iftrue": true,
+            "commands_repeatNtimes": true,
+            "commands_while": true,
+            "commands_dowhile": true,
+            "commands_switch": true
+        },
+        "filter": {}
+    },
+    "algorithm": "programa { \n\n\tfuncao vazio inicio (  )  {\n\t\tinteiro a <- 3\n\t\tinteiro b <- 4\n\t\tinteiro c <- 5\n\t\treal cos <- 0.00\n\t\tcos <-  ( b * b + c * c - a * a )  /  ( 2 * b * c ) \n\t\tescreva ( cos, \"\\n\" ) \n\t}\n\n}"
+}

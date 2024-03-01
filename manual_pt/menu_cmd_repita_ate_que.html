@@ -1,0 +1,106 @@
+<!--
+Free Education, Private Data
+http://line.ime.usp.br
+http://www.ime.usp.br/line
+http://www.matematica.br
+http://www.usp.br/line/ivprog
+-->
+
+<meta charset="UTF-8">
+
+<div style="font-family: Arial">
+
+<div class="w3-item"><img src="img/icn_menu_repita.png" title="ícone para inserir comando de repetição do tipo 'para'" class="w3-icon" style="border:1pt solid #001A66"/></div>
+
+<!--
+img/pt_fluxo_laco_enquanto_saida.png
+img/pt_fluxo_laco_n_vezes.png
+-->
+
+<h3>Comando <tt>Repita COMANDOS até_que (CONDICAO_eh_verdadeira)</tt></h3>
+
+<p clear=”left”>
+Comando de repetição (<b>laço</b>) com <i>condição de saída</i>.
+Útil para executar determinada <i>sequência de instruções</i> (<b>bloco de repetição</b>) repetidas vezes.
+Com este tipo de laço o <i>bloco de repetição</i> será executado até que a <i>condição de saída</i> for satisfeita.
+<br/>
+Note que neste comando, o <i>bloco de repetição</i> será executado sempre, ao menos uma vez.
+</p>
+
+
+<table clear="left" width="100%">
+ <tr><td>
+   <table align="left" valign="top">
+   <tr><td>
+     <a name="sintaxe"><h4>Sintaxe</h4></a>
+     A sintaxe desse comanto em <i>Portugol</i> é: <br/>
+     <tt>repita { <br/>
+     &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
+     &nbsp;&nbsp;} ate_que (CONDICAO)</tt>
+     <br/>
+     <a name="sintaxe"><h4>Exemplo.</h4></a>
+     Dado <i>n</i> (a ser digitado pelo usuário), imprimir os <i>n</i> primeiros naturais.
+     <pre>programa {
+  funcao vazio inicio (  )  {
+    inteiro n &lt;- 0
+    inteiro i &lt;- 1
+    leia ( n ) 
+    repita {
+      escreva ( i )
+      i &lt;- i+1
+    }  ( i == n )
+    }
+  }</pre>
+     <br/>
+     <a name="visual"><h4>Exemplo Visual.</h4></a>
+     <br/>
+     O exemplo de código visual no <i>iVProg</i>, na fig. 2, tem duas variáveis, <tt>n</tt> para o usuário digitar um
+     valor inteiro e o <tt>i</tt> para servir de contador.
+     O primeiro comando a ser executado é capturar uma leitura de dados. Vamos supor que usuário digite <tt>5</tt>.
+   </td></tr>
+   </table>
+   </td>
+   <td>
+   <table style="align:"right; valign:top" width="300px">
+     <tr><td align="center"><img src="img/pt_fluxo_laco_enquanto_saida.png" title="" class="" width="100%" /></td></tr>
+     <tr><td><i>Fig. 1. Diagrama de fluxo de execução do laço do tipo 'repita até que'.</i></td></tr>
+   </table>
+ </td></tr>
+</table>
+</p>
+
+<p>
+     <br/>
+     Como o comando é do tipo <i>condição de saída</i>, o <i>bloco de repetição</i> é executado a primeira vez
+     (independente do valor digitado), o primeiro comando dentro do bloco é para imprimir o valor de <tt>i</tt>
+     (no caso <tt>0</tt>).
+     <br/>
+     O próximo comando é <i>somar 1 ao conteúdo de <tt>i</tt></i> (portanto <tt>1</tt>) e atribuir à própria variável
+     <tt>i</tt> esse valor (diz-se <i><tt>i</tt> recebe o que está em <tt>i</tt> somado de <tt>1</tt>).
+     <br/>
+     Agora deve-se verificar a condição de finalização <tt>i==n</tt>, ou seja,
+     o valor guardado em <tt>i</tt> coincide com valor guardado em <tt>n</tt>?
+     Como no momento <tt>i</tt> guarda o valor <tt>1</tt> e <tt>n</tt> o valor 5, a condição 
+     é falsa (<b>não</b> é verdadeira), logo volta-se para executar o primeiro comando do <i>bloco de repetição</i>
+     (vide ilustração no <i>diagrama de fluxo</i> na fig. 1).
+     <br/>
+     Esse processo repete-se para <tt>i</tt> com o valor <tt>2</tt> (<tt>2 == 5</tt> é falso), com o valor <tt>3</tt>
+     (<tt>3 == 5</tt> é falso), com o valor <tt>4</tt> (<tt>4 == 5</tt> é falso), mas com o valor <tt>5</tt>, a condição de 
+     finalização é satisfeita (<tt>5 == 5</tt> é verdadeiro), portanto o laço é finalizado.
+     <br/>
+     Então sai do <i>bloco de repetição</i>, executando-se o primeiro comando após ele, ou seja, será impressa a mensagem
+     <tt>Fim do laco</tt>.
+</p>
+
+<br />
+
+<div class="img-div">
+  <center>
+   <img src="img/pt_cmd_ex_laco_ateque.png" title="Exemplo de uso do comando repita enquanto" width="60%" >
+   <br/>
+   <span class="img-label">Fig. 2. Exemplo de uso do comando <tt>repita até que</tt>.</span>
+  </center>
+</div>
+
+
+</div>

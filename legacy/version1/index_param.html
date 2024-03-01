@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<title>iVProg - Programa&ccedil;&atilde;o Visual e Interativa na Internet</title>
+<meta http-equiv= "Content-Type" content="charset=ISO-8859-1"/>
+<META Name="description" content="iM&aacute;tica: iVProg">
+
+<style type="text/css" media="screen"> 
+@import url(iComb.css);
+</style>
+
+</head>
+
+<body>
+
+<!-- Begin Header Element -->
+<table class="wrapper" border="0" cellpadding="0" cellspacing="0">
+<tbody> <tr id="header-row"> <td width="985">
+
+<!-- Begin Content Element -->
+<tr>
+<td width="985">
+
+<hr class="hide">
+<div id="container">
+<div id="contentwide">
+
+<!-- Page content starts here -->
+                  
+<div id="page">
+<div id="widthwrapper">
+
+<h1>iVProg - Programa&ccedil;&atilde;o Visual e Interativa na Internet</h1>
+
+<div align="left" class="section-homepage-width-holder">
+<p>
+O <i>iVProg - Programação Visual e Internativa na Internet</i> &eacute; um novo sistema para uso no ensino/aprendizagem de t&oacute;picos relativos a 
+algoritmos via Web. Ele é baseado no projeto ALICE.<br/>
+O <i>iVProg</i> vem sendo desnvolvido desde julho de 2009 e atualmente já
+existe o protótipo funcional, vide abaixo.
+</p>
+</div>
+
+<p><a href="testa-primo.html" title="exemplo iVprog para determinação se número é ou não primo">
+   Clique aqui</a> para ver um exemplo de código pronto para <i>iVprog</i>.
+</p>
+
+ <!--
+  < param name='MA_PARAM_PropositionURL' value='true' >
+  archive="iVprog.jar"
+  -->
+ <div class="applet">
+ <applet codebase="bin/." code="edu.cmu.cs.stage3.alice.authoringtool.JAlice.class" WIDTH=791 HEIGHT=600>
+  <param name='lang' value='pt'>
+  <param name='MA_PARAM_Proposition' value='<element class="edu.cmu.cs.stage3.alice.core.World" name="main">
+   <child filename="renderTarget">1_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.RenderTarget" name="renderTarget">
+   <property name="data">
+   </property>
+   </element>1_CDATA_END</child>
+   <child filename="play">1_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.response.UserDefinedResponse" name="play">
+   <child filename="n">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.Variable" name="n">
+   <property class="java.lang.Double" name="value">1.0</property>
+   <property name="valueClass">java.lang.Number</property>
+   <property name="data">
+   </property>
+   </element>2_CDATA_END</child>
+   <child filename="__Unnamed1__">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.response.PropertyAnimation">
+   <child filename="__Unnamed0__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.ask.AskUserForNumber">
+   <property name="title">Question</property>
+   <property name="question">Digite um n&uacute;mero</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">question</value>
+   </entry>
+   </property>
+   </element>3_CDATA_END</child>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="element">play.n</property>
+   <property name="propertyName">value</property>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="value">play.__Unnamed1__.__Unnamed0__</property>
+   <property class="edu.cmu.cs.stage3.util.HowMuch" name="howMuch">edu.cmu.cs.stage3.util.HowMuch[INSTANCE_AND_PARTS]</property>
+   <property class="edu.cmu.cs.stage3.alice.core.style.TraditionalAnimationStyle" name="style">edu.cmu.cs.stage3.alice.core.style.TraditionalAnimationStyle[BEGIN_AND_END_GENTLY]</property>
+   <property class="java.lang.Integer" name="duration">0</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">element,propertyName,value</value>
+   </entry>
+   </property>
+   </element>2_CDATA_END</child>
+   <child filename="__Unnamed2__">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.response.IfElseInOrder">
+   <child filename="__Unnamed0__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.userdefined.CallToUserDefinedQuestion">
+   <child filename="numero">4_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.Variable" name="numero">
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="value">play.n</property>
+   <property name="valueClass">java.lang.Number</property>
+   <property name="data">
+   </property>
+   </element>4_CDATA_END</child>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="userDefinedQuestion">verificaPrimo</property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Variable" name="requiredActualParameters">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">play.__Unnamed2__.__Unnamed0__.numero</item>
+   </property>
+   <property name="keywordActualParameters">
+   </property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">userDefinedQuestion,requiredActualParameters</value>
+   </entry>
+   </property>
+   </element>3_CDATA_END</child>
+   <child filename="__Unnamed1__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.response.Print">
+   <property name="text">O n&uacute;mero digitado &eacute; primo</property>
+   <property name="object">
+   </property>
+   <property name="addNewLine">true</property>
+   <property class="java.lang.Double" name="duration">0.0</property>
+   <property name="data">
+   </property>
+   </element>3_CDATA_END</child>
+   <child filename="__Unnamed2__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.response.Print">
+   <property name="text">O n&uacute;mero digitado n&atilde;o &eacute; primo</property>
+   <property name="object">
+   </property>
+   <property name="addNewLine">true</property>
+   <property class="java.lang.Double" name="duration">0.0</property>
+   <property name="data">
+   </property>
+   </element>3_CDATA_END</child>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="condition">play.__Unnamed2__.__Unnamed0__</property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Response" name="elseComponentResponses">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">play.__Unnamed2__.__Unnamed2__</item>
+   </property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Response" name="componentResponses">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">play.__Unnamed2__.__Unnamed1__</item>
+   </property>
+   <property class="java.lang.Double" name="duration">1.0</property>
+   <property name="data">
+   </property>
+   </element>2_CDATA_END</child>
+   <child filename="__Unnamed3__">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.response.Print">
+   <property name="text">
+   </property>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="object">play.n</property>
+   <property name="addNewLine">true</property>
+   <property class="java.lang.Double" name="duration">0.0</property>
+   <property name="data">
+   </property>
+   </element>2_CDATA_END</child>
+   <property name="requiredFormalParameters">
+   </property>
+   <property name="keywordFormalParameters">
+   </property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Variable" name="localVariables">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">play.n</item>
+   </property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Response" name="componentResponses">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">play.__Unnamed1__</item>
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">play.__Unnamed3__</item>
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">play.__Unnamed2__</item>
+   </property>
+   <property name="duration">
+   </property>
+   <property name="data">
+   </property>
+   </element>1_CDATA_END</child>
+   <child filename="behavior0">1_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.behavior.WorldStartBehavior" name="behavior0">
+   <child filename="__Unnamed0__">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.response.CallToUserDefinedResponse">
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="userDefinedResponse">play</property>
+   <property name="requiredActualParameters">
+   </property>
+   <property name="keywordActualParameters">
+   </property>
+   <property class="java.lang.Double" name="duration">1.0</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">requiredActualParameters,userDefinedResponse</value>
+   </entry>
+   </property>
+   </element>2_CDATA_END</child>
+   <child filename="__Unnamed1__">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.response.CallToUserDefinedResponse">
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="userDefinedResponse">play</property>
+   <property name="requiredActualParameters">
+   </property>
+   <property name="keywordActualParameters">
+   </property>
+   <property class="java.lang.Double" name="duration">1.0</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">PropertyViewController_propertyOwner</key>
+   <value class="java.lang.String">triggerResponse</value>
+   </entry>
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">userDefinedResponse,requiredActualParameters</value>
+   </entry>
+   </property>
+   </element>2_CDATA_END</child>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="triggerResponse">behavior0.__Unnamed1__</property>
+   <property class="edu.cmu.cs.stage3.alice.core.behavior.MultipleRuntimeResponsePolicy" name="multipleRuntimeResponsePolicy">edu.cmu.cs.stage3.alice.core.behavior.MultipleRuntimeResponsePolicy[ENQUEUE_MULTIPLE]</property>
+   <property name="isEnabled">true</property>
+   <property name="details">
+   </property>
+   <property name="data">
+   </property>
+   </element>1_CDATA_END</child>
+   <child filename="verificaPrimo">1_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.userdefined.UserDefinedQuestion" name="verificaPrimo">
+   <child filename="__Unnamed0__">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.userdefined.Return">
+   <property class="java.lang.Boolean" name="value">true</property>
+   <property name="valueClass">java.lang.Boolean</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">value</value>
+   </entry>
+   </property>
+   </element>2_CDATA_END</child>
+   <child filename="__Unnamed1__">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.userdefined.IfElse">
+   <child filename="__Unnamed0__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.NumberIsLessThan">
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="a">verificaPrimo.numero</property>
+   <property class="java.lang.Double" name="b">2.0</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">a,b</value>
+   </entry>
+   </property>
+   </element>3_CDATA_END</child>
+   <child filename="__Unnamed1__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.userdefined.Return">
+   <property class="java.lang.Boolean" name="value">false</property>
+   <property name="valueClass">java.lang.Boolean</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">value</value>
+   </entry>
+   </property>
+   </element>3_CDATA_END</child>
+   <child filename="__Unnamed2__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.userdefined.LoopN">
+   <child filename="index">4_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.Variable" name="index">
+   <property name="value">
+   </property>
+   <property name="valueClass">java.lang.Number</property>
+   <property name="data">
+   </property>
+   </element>4_CDATA_END</child>
+   <child filename="__Unnamed1__">4_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.userdefined.IfElse">
+   <child filename="__Unnamed0__">5_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.NumberIsEqualTo">
+   <child filename="__Unnamed0__">6_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.math.IEEERemainder">
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="a">verificaPrimo.numero</property>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="b">verificaPrimo.__Unnamed1__.__Unnamed2__.index</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">a,b</value>
+   </entry>
+   </property>
+   </element>6_CDATA_END</child>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="a">verificaPrimo.__Unnamed1__.__Unnamed2__.__Unnamed1__.__Unnamed0__.__Unnamed0__</property>
+   <property class="java.lang.Double" name="b">0.0</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">a,b</value>
+   </entry>
+   </property>
+   </element>5_CDATA_END</child>
+   <child filename="__Unnamed1__">5_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.userdefined.Return">
+   <property class="java.lang.Boolean" name="value">false</property>
+   <property name="valueClass">java.lang.Boolean</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">value</value>
+   </entry>
+   </property>
+   </element>5_CDATA_END</child>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="condition">verificaPrimo.__Unnamed1__.__Unnamed2__.__Unnamed1__.__Unnamed0__</property>
+   <property name="elseComponents">
+   </property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.question.userdefined.Component" name="components">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">verificaPrimo.__Unnamed1__.__Unnamed2__.__Unnamed1__.__Unnamed1__</item>
+   </property>
+   <property name="data">
+   </property>
+   </element>4_CDATA_END</child>
+   <property class="java.lang.Double" name="count">Infinity</property>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="index">verificaPrimo.__Unnamed1__.__Unnamed2__.index</property>
+   <property class="java.lang.Integer" name="start">2</property>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="end">verificaPrimo.numero</property>
+   <property class="java.lang.Double" name="increment">1.0</property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.question.userdefined.Component" name="components">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">verificaPrimo.__Unnamed1__.__Unnamed2__.__Unnamed1__</item>
+   </property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.editors.compositeeditor class="java.lang.String">IS_COMPLICATED_LOOP_KEY</key>
+   <value class="java.lang.Boolean">true</value>
+   </entry>
+   </property>
+   </element>3_CDATA_END</child>
+   <child filename="__Unnamed3__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.NumberIsLessThanOrEqualTo">
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="a">verificaPrimo.numero</property>
+   <property class="java.lang.Double" name="b">2.0</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">a,b</value>
+   </entry>
+   </property>
+   </element>3_CDATA_END</child>
+   <child filename="__Unnamed4__">3_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.question.NumberIsLessThan">
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="a">verificaPrimo.numero</property>
+   <property class="java.lang.Double" name="b">2.0</property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.visibleProperties</key>
+   <value class="java.lang.String">a,b</value>
+   </entry>
+   </property>
+   </element>3_CDATA_END</child>
+   <property criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion" name="condition">verificaPrimo.__Unnamed1__.__Unnamed4__</property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.question.userdefined.Component" name="elseComponents">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">verificaPrimo.__Unnamed1__.__Unnamed2__</item>
+   </property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.question.userdefined.Component" name="components">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">verificaPrimo.__Unnamed1__.__Unnamed1__</item>
+   </property>
+   <property name="data">
+   </property>
+   </element>2_CDATA_END</child>
+   <child filename="numero">2_CDATA_INIT<element class="edu.cmu.cs.stage3.alice.core.Variable" name="numero">
+   <property class="java.lang.Double" name="value">1.0</property>
+   <property name="valueClass">java.lang.Number</property>
+   <property name="data">
+   </property>
+   </element>2_CDATA_END</child>
+   <property name="valueClass">java.lang.Boolean</property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.question.userdefined.Component" name="components">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">verificaPrimo.__Unnamed1__</item>
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">verificaPrimo.__Unnamed0__</item>
+   </property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Variable" name="requiredFormalParameters">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">verificaPrimo.numero</item>
+   </property>
+   <property name="keywordFormalParameters">
+   </property>
+   <property name="localVariables">
+   </property>
+   <property name="data">
+   </property>
+   </element>1_CDATA_END</child>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Response" name="responses">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">play</item>
+   </property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Behavior" name="behaviors">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">behavior0</item>
+   </property>
+   <property name="variables">
+   </property>
+   <property componentClass="edu.cmu.cs.stage3.alice.core.Question" name="questions">
+   <item criterionClass="edu.cmu.cs.stage3.alice.core.criterion.InternalReferenceKeyedCriterion">verificaPrimo</item>
+   </property>
+   <property name="data">
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.playCount</key>
+   <value class="java.lang.String">7</value>
+   </entry>
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.tabObjects</key>
+   <value class="java.lang.String">main.play:main.verificaPrimo:</value>
+   </entry>
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.worldOpenTime</key>
+   <value class="java.lang.String">5369157</value>
+   </entry>
+   <entry>
+   <key class="java.lang.String">edu.cmu.cs.stage3.alice.authoringtool.saveCount</key>
+   <value class="java.lang.String">20</value>
+   </entry>
+   </property>
+</element>'>
+ </applet>
+
+<!-- Closes content div --> 
+</div> <!-- Closes page div -->
+</div>
+
+</div><!-- End Content Element -->
+<!-- Begin Footer Element -->
+
+<hr class="hide">
+ <div id="footer">  
+ <p class="moreinfo">Prof. Dr. Le&ocirc;nidas de Olivera Brand&atilde;o<BR/>
+                     Reginaldo Rideaki<BR/>Universidade de S&atilde;o Paulo</p>
+ </div>
+</td>
+</tr>
+
+</tbody>
+</table><!-- End Footer Element -->
+</body>
+</html>
+

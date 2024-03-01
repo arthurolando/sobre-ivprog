@@ -1,0 +1,101 @@
+/*
+Laboratory of Informatics in Education (LInE)
+Free Education, Private Data
+http://www.usp.br/line
+*/
+
+/*
+#018343
+#03396c = azul escuro 1
+#001a66 = azul escuro 2 (manual)
+#488EAD = verde azulado simpatico
+#43899c = verde azulado simpatico um pouco + escuro
+*/
+
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+body{ font: normal 16px sans-serif; padding: 0 10%; background: #eee;}
+
+body .container{ max-width:1551px; margin:0 auto;}
+
+/* Header */
+header{
+ display: flex; /* Enable flex mode. */
+ justify-content: space-between; /* Spread out the elements inside the header. */
+ align-items: center; /* Align items vertically in the center. */
+ padding: 10px 20px; color: #fff; background-color: #03396c;
+ }
+.header2{
+ display: flex; /* Enable flex mode. */
+ justify-content: space-between; /* Spread out the elements inside the header. */
+ align-items: center; /* Align items vertically in the center. */
+ padding: 0px 5px; color: #fff; background-color: #001a66;
+ }
+.font-xxlarge{ font-size:30px!important }
+
+.header-left{ font: normal 28px 'Fugaz One', cursive;}
+.header-left span{ color: #EAD314;}
+.header-center ul{ list-style: none;}
+.header-center ul li{ display: inline-block; margin: 0 15px;}
+.header-center ul li a{ text-decoration: none; color: #fff; cursor: pointer; font-weight: bold;}
+.header-right button{
+ color: #fff; cursor: pointer; font-weight: 800; text-transform: uppercase; padding: 12px 30px;
+ border: 2px solid #FFFFFF; border-radius: 4px; background-color: transparent;
+ }
+.header-right img{ /* leo */
+ color: #fff; cursor: pointer; padding: 0;
+ border: 2px solid #FFFFFF; border-radius: 4px; background-color: transparent;
+ }
+.header-right button:hover { background-color: rgba(255,255,255,0.1); }
+
+/* Main content */
+.main-content{ padding: 6px 10px; background-color: #fff; line-height: 1.3; color: #444;}
+.main-content h2{ margin-bottom: 8px; }
+.main-content p{ margin: 5px 0; }
+.main-content .placeholder{ margin: 4px 0; height:30px; background-color: #e3e3e3; }
+
+/* Media queries */
+@media (max-width: 1551px){
+ header{ padding: 5px 60px; }
+ .main-content{ padding: 100px 60px; }
+ body {  padding: 0 5%; }
+ }
+
+@media (max-width: 1000px){
+ header{
+  flex-direction: column; /* Reverse the axis of the header, making it vertical. */
+  align-items: flex-start;  /* Align items to the begining (the left) of the header. */
+  }
+ header > div{ margin: 12px 0; }
+ .header-center ul li{ margin: 0 5px 0 0; }
+ }
+
+@media (max-width: 600px) {
+ body { padding: 0 10px; }
+ .header-left{ margin-top:0; }
+ header { padding: 10px; }
+ .main-content{ padding:0px; }
+ }
+
+/* Model from: https://jsfiddle.net/liutong_chen/njwemcck/ */
+ul.navBar {
+ list-style-type: none; margin: 0px; padding:0px;
+ /* position: relative; dropdown invisible when this position is added */
+ overflow: hidden; /* why does the navigation bar disappear if "overflow is not set" */
+ cursor: pointer;
+ }
+li.navBar { float: left; }
+li.navBar a { display: inline-block; color: white; text-align: center; padding: 4px 16px;
+ text-decoration: none;
+ }
+li.navBar:hover { background-color: #A2AEB3; }
+.dropDownContent {
+ display: none; position: absolute; background-color: #6D99C3; width: 160px; font-size:.8em;
+ box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); z-index: 1;
+ }
+.dropDownContent a { color: white; display: block; }
+.dropDownContent a:hover { background-color: #4A96B0; }
+li.dropDownBtn:hover .dropDownContent{ display: block; }
+
+.line-item { text-align:left; }
+img.line-icon { border:1pt solid black; }

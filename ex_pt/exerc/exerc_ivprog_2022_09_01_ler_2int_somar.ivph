@@ -1,0 +1,70 @@
+{
+    "version": "1.0",
+    "test_cases": [
+        {
+            "input": [
+                "-1",
+                "1"
+            ],
+            "output": [
+                "0"
+            ]
+        },
+        {
+            "input": [
+                "1",
+                "2"
+            ],
+            "output": [
+                "3"
+            ]
+        },
+        {
+            "input": [
+                "10",
+                "20"
+            ],
+            "output": [
+                "30"
+            ]
+        },
+        {
+            "input": [
+                "128",
+                "128"
+            ],
+            "output": [
+                "256"
+            ]
+        }
+    ],
+    "settings": {
+        "programming": {
+            "programming_type": "visual"
+        },
+        "functions": {
+            "functions_creation": true,
+            "functions_move": true
+        },
+        "datatypes": {
+            "integer_data_type": true,
+            "real_data_type": true,
+            "text_data_type": true,
+            "boolean_data_type": true,
+            "void_data_type": true
+        },
+        "commands": {
+            "commands_read": true,
+            "commands_write": true,
+            "commands_comment": true,
+            "commands_attribution": true,
+            "commands_functioncall": true,
+            "commands_iftrue": true,
+            "commands_repeatNtimes": true,
+            "commands_while": true,
+            "commands_dowhile": true,
+            "commands_switch": true
+        },
+        "filter": {}
+    }
+}

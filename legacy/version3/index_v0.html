@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html ng-app="ivprog">
+  <head>
+  <title>iVProgH5 : Visual Programming (LInE-IME-USP)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/font-awesome.css" rel="stylesheet" media="screen" />
+    <link href="css/bootstrap-editable.css" rel="stylesheet" media="screen" />
+    <link href="css/ivprog.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+    <div class="header">
+      <h1><img src="img/logo_ivprog.png" title="iVProg" /></h1>
+    </div>
+
+    <h2>&nbsp;iVProg : Visual Programming (LInE-IME-USP)</h2>
+
+    <a href="http://www.usp.br/line" title="Uma das paginas do LInE">LInE</a>.
+    <a href="https://github.com/LInE-IME-USP" title="LInE no GitHub">Software educacional livre</a>.
+    <a href="http://www.usp.br/line/wp" title="Prototipo ambiente LInE">Interatividade na Internet para aprendizagem</a>.
+
+  <script type='text/javascript'>
+    //<![CDATA[
+    var strAnswer = '';
+    var evaluationResult = '';
+    var comment = '';
+
+    function resp () {
+      // 'getEvaluation()' calls 'js/services.js : endTest function(index)' that calls 'getEvaluationCallback(apro/100);'
+      window.frames.iLM.getEvaluation(); // in './mod/iassign/ilm/ivprog-html/js/services.js'; './mod/iassign/ilm/ivprog-html/main.html'
+      // var comment = document.formEnvio.submission_comment.value;
+      // iVProgH5 will call function 'getEvaluationCallback(...)': /var/www/html/ivprogh5/js/services.js
+      }
+
+ function getEvaluationCallback (evaluation) { // ./mod/iassign/ilm/ivprog-html/js/services.js : call this to define the variable 'evaluationResult'
+   evaluationResult = evaluation;
+   strAnswer = window.frames.iLM.getAnswer();
+   comment = document.formEnvio.submission_comment.value;
+   if ((strAnswer==null || strAnswer=='' || strAnswer==-1) && (comment==null || comment=='')) { // undefined
+      alert('Atividade enviada sem conteúdo.');
+      return false; // error...
+   } else {
+alert('getEvaluationCallback: enviando evaluationResult=' + evaluation + ', strAnswer=' + strAnswer);
+      document.formEnvio.iLM_PARAM_ArchiveContent.value = strAnswer;
+      document.formEnvio.iLM_PARAM_ActivityEvaluation.value = evaluationResult;
+      document.formEnvio.submit();
+      return true; // success
+      }
+   }
+  //]]>
+  </script>
+
+    
+    <div class="bloco">
+    Para adicionar <i>vari&aacute;veis</i> clique no bot&atilde;o <i>Vari&aacute;veis</i>.
+    Para comandos no bot&atilde;o <i>Instru&ccedil;&atilde;o</i>. Para interpretar seu c&oacute;digo, clique no bot&atilde;o <img src="img/botao_rodar.png">
+    (abaixo, ao lado do bot&atilde;o "Limpar console").<br/>
+    Para examinar um c&oacute;digo pronto
+    <a href="?MA_PARAM_PropositionURL=true&MA_PARAM_Proposition=./exerc/exemplo_n_primeiros_fibonacci.ivph#/create/" title="Listar os n primeiros termos da sequencia de Fibonacci">clique aqui</a>.
+    <br/>
+    Para examinar um c&oacute;digo simples
+    <a href="?MA_PARAM_PropositionURL=true&MA_PARAM_Proposition=./exerc/exemplo_imprima.ivph#/create/" title="Listar os n primeiros termos da sequencia de Fibonacci">clique aqui</a>.
+    </div>
+
+    <div>
+
+    <div class="bloco_ivprog">
+    <div ng-view></div>
+    </div>
+
+    <span ng-controller="CommCtrl" id="commCtrl"></span>
+
+    <script src="js/jquery.1.8.3.js"></script>
+    <script src="js/jsdeferred.jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
+    <!--script src="js/app-i18n.js"></script-->
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="js/jquery.ui.js"></script>
+    <script src="js/angular.ui.min.js"></script>
+
+    </div>
+
+    <script>
+      function getParameterByName (name) {
+        var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+        return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : null;
+        }
+      function getAnswer () {
+        return angular.element("#commCtrl").scope().getSource()
+        }
+      function getEvaluation () {
+        return angular.element("#commCtrl").scope().getEvaluation();
+        //return "getEvaluation will return some value in future";
+        }
+      function getEvaluationCallback(nota){
+        parent.getEvaluationCallback(nota);
+        }
+      var ilaParams = {
+        MA_PARAM_PropositionURL:        getParameterByName("MA_PARAM_PropositionURL"),
+        MA_PARAM_notSEND:               getParameterByName("MA_PARAM_notSEND"),
+        MA_PARAM_addresPOST:            getParameterByName("MA_PARAM_addresPOST"),
+        MA_PARAM_PropositionURL:        getParameterByName("MA_PARAM_PropositionURL"),
+        MA_PARAM_Proposition:           getParameterByName("MA_PARAM_Proposition"),
+        };
+      function trackAction(action){
+        if (ilaParams.MA_PARAM_addresPOST!=null){
+          $.post(ilaParams.MA_PARAM_addresPOST+"&track=1", { trackingData: "html=1;"+action }, function(d){});
+          }
+        }
+    </script>
+
+    </div>
+
+  <form name='formEnvio' id='formEnvio' method='post' action='gravar.php' enctype='multipart/form-data'>
+
+  <input type='hidden' name='iLM_PARAM_ArchiveContent' />
+  <input type='hidden' name='iLM_PARAM_ActivityEvaluation' />
+  <center>
+  <p><textarea rows='2' cols='60' name='submission_comment'></textarea></p>
+  <input type=button value='Enviar resposta' onclick = 'javascript:window.resp();' title='clique aqui para enviar sua resposta' />
+  </center>
+  </form>
+
+  <div class="foot"><center>
+   <a href="http://www.ime.usp.br/line">LInE</a> |
+   <a href="http://www.matematica.br">iM&aacute;tica</a> |
+   <a href="http://www.usp.br/line/mooc">MOOC</a>
+  </center></div>
+
+  </body>
+</html>

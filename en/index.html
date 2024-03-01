@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>iVProg - LInE (free educational software and contents)</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #03396c;">
+      <b><a class="navbar-brand" href="./">iVProg</a></b>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./" 
+               title="Navigate to iVProg homepage.">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./sobre_ivprog.html"
+               title="Know what iVProg is and what iVProg is for.">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./ex_en/index.html"
+               title="See some examples and test iVProg online.">Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./download.html"
+               title="Download a copy of iVProg for your computer.">Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./manual_en/index.html" 
+               title="Access online iVProg manual and learn about all the features.">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./bugs/report.html"
+               title="Send a message to the iVProg team.">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="//www.usp.br/line/"
+               title="Meet the Laboratory of Informatics in Education of the Institute of Mathematics and Statistics of USP.">LInE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./docs/"
+               title="Get access to all iVProg documentation.">Developers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./publicacoes.html"
+               title="Read the team publications about iVProg.">Publications</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <a href="../index.html"><img src="img/img_flag_brazil.png"/></a>
+          <a href="./index.html"><img src="img/img_flag_usa.png"/></a>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main">
+      <div class="jumbotron ivprogh-desc">
+        <div class="container">
+         <h1>iVProg</h1>
+          <p class="text-reduced">
+          The <b>iVProg</b> (<i>Interactive Visual Programming on the Internet</i>) is one of the free-code educational systems of the
+          <a href="http://line.ime.usp.br" title="pagina LInE no IME-USP">LInE</a>, being intended for teaching and learning of <b>algorithms</b>
+          and <b>programming</b>.
+          The <i>iVProg</i> implements the concept of <b>Visual Programming Language (VPL)</b> which employs icons and simplifies
+          the construction of codes, reducing the apprentice's need to know details of <i>programming languages</i>.
+          </p>
+          
+          <p class="text-reduced">
+            Because this version is implemented in <i>HTML5</i> (uses heavily <i>JavaScript</i>), we call it <b>iVProg</b>.
+            It has a
+	    <!-- a href="autoeval/index.html" title="know more about"><b>Automatic evaluator</b></a-->
+            <b title="based on test-cases that must prepared by the teacher">Automatic evaluator</b>
+            for exercises and can easily be integrated into the <i>Moodle</i> environment from the package
+            <a href="http://www.matematica.br/ia" title="iTarefa page in iMatica"><b>iTarefa</b></a>.
+            The first version of <i>iVProg</i> was implemented in <i> Java </i> in 2009,
+            <a href="legacy/index.html" title="first versions of iVProg">check out the previous versions of <i>iVProg</i></a>.
+          </p>
+
+          <a class="btn btn-primary" href="./sobre_ivprog.html" role="button" title="Know briefly what is and what iVProg is for.">See more &raquo;</a>
+        </div>
+      </div>
+      <div class="container ivprog-container">
+      <p>
+          Below the <i>iVProg</i> with an illustrative code, in this case to compute the factorial of a natural to be typed by the user. You run the code (type a natural), but you can change it as you wish.
+      </p>
+        <div class="embed-responsive embed-responsive-4by3">
+        <!-- Attention: since 2022/08/25 the use of "../" do not work any more, then use iLM_file=up to indicate "upper directory" -->
+          <iframe class="embed-responsive-item"
+                  src="ivprogh/index.html?lang=en&iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_fatorial.ivph&iLM_file=up"
+           allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="row thumbs-ivprog">
+          <div class="col-md-1"></div>
+          <div class="col-md-3 item">
+            <span class="octicon octicon-light-bulb"></span>
+            <h4>Less language <br> More algorithm</h4>
+            <hr>
+            <p>In iVProg, the student devotes himself to the learning of algorithm, not being attached to a language or IDE.</p>
+          </div>
+          <div class="col-md-3 item">
+            <span class="octicon octicon-clock"></span>
+            <h4>Easy to program</h4>
+            <hr>
+            <p>With an interactive environment, to build algorithms you just have to create and drag the components to create a program.</p>
+          </div>
+          <div class="col-md-3 item">
+            <span class="octicon octicon-checklist"></span>
+            <h4>Automatic Evaluation</h4>
+            <hr>
+            <p>The student receive instantaneous feedback, informing if his solution solves or not the proposed problem.</p>
+          </div>
+        </div>
+
+        <div class="row thumbs-ivprog">
+          <div class="col-md-1"></div>
+          <div class="col-md-3 item">
+            <span class="octicon octicon-mortar-board"></span>
+            <h4>Activity creation area</h4>
+            <hr>
+            <p>The teacher has an area where you can prepare the activities. These can be reused in other courses too!</p>
+          </div>
+          <div class="col-md-3 item">
+            <span class="octicon octicon-globe"></span>
+            <h4>Web Based</h4>
+            <hr>
+            <p>IVProgH is designed to run on browsers using HTML5, CSS3 and JavaScript. This allows your incorporation into any web site.</p>
+          </div>
+          <div class="col-md-3 item">
+            <span class="octicon octicon-plug"></span>
+            <h4>Easy to integrate with Moodle</h4>
+            <hr>
+            <p>IVProgH has a complete integration with Moodle: user control, activity logs, exercises notes, teacher/student communication, etc.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <footer class="container text-center">
+      <a href="http://www.ime.usp.br/line">iVProg</a> | 
+      <a href="http://www.ime.usp.br/line">LInE</a> |
+      <a href="http://www.matematica.br">iM&aacute;tica</a>
+    </footer>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" -->
+    <link rel="stylesheet" href="../css/octicons.min.css">
+
+  </body>
+</html>

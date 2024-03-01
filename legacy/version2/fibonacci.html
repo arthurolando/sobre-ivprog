@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="ivprog">
+  <head>
+    <title>ivProg - vers&atilde;o Java</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/font-awesome.css" rel="stylesheet" media="screen" />
+    <link href="css/bootstrap-editable.css" rel="stylesheet" media="screen" />
+    <link href="css/ivprog.css" rel="stylesheet" media="screen" />
+  </head>
+  <body>
+    <div class="header">
+        <h1><img src="img/logo_ivprog.png" title="iVProg" /></h1>
+    </div>
+
+    <h1>&nbsp;iVProg : Visual Programming (LInE-IME-USP)</h1>
+
+    <a href="http://www.usp.br/line" title="Uma das paginas do LInE">LInE</a>.
+    <a href="https://github.com/LInE-IME-USP" title="LInE no GitHub">Software educacional livre</a>.
+    <a href="http://www.usp.br/line/wp" title="Prototipo ambiente LInE">Interatividade na Internet para aprendizagem</a>.
+
+    
+    <div class="bloco">
+    Um exemplo de programa: dado N imprimir o N-&eacute;simo termo da sequ&ecirc;ncia de <i>Fibonacci</i>.<br/>
+    Sequ&ecirc;ncia de <i>Fibonacci</i>: 1, 1, 2, 3, 5, 8, 13, ... (f_n = f_{n-1} + f_{n-2}).<br/>
+    Para iniciar interpreta&cedil;&atilde;o do c&oacute;digo, clique no bot&atilde;o
+    <img src="img/ivp_roda.png" title="Rodar">
+    (no canto inferior esquerdo, o bot&atilde;o do meio).<br/>
+    Para examinar um exemplo sem qualquer c&oacute;digo
+    <a href="index.html" title="iVProg em branco">clique aqui</a>.
+
+    <div class="bloco_ivprog">
+    <div ng-view></div>
+    <span ng-controller="CommCtrl" id="commCtrl"><center>
+     <applet name="iLM" archive="iVProg2.jar" code="usp.ime.line.ivprog.Ilm.class"
+             width="800" height="650" vspace=10 hspace=10>
+         <param name="lang" value="pt"/>
+         <param name="MA_PARAM_PropositionURL" value="true"/>
+         <param name="MA_PARAM_Proposition" value="exemplo/fibonacci.ivp2">
+         <param name="MA_PARAM_addresPOST" value=".">
+         <param name="MA_PARAM_notSEND" value="false"/>
+     </applet>
+    </center></span>
+    </div>
+    </div>
+
+    <script>
+        function getParameterByName(name) {
+            var match = RegExp('[?&]' + name + '=([^&]*)')
+                            .exec(window.location.search);
+            return match ?
+                decodeURIComponent(match[1].replace(/\+/g, ' '))
+                : null;
+        }
+        function getAnswer(){
+            return angular.element("#commCtrl").scope().getSource()
+        }
+        function getEvaluation(){
+            return angular.element("#commCtrl").scope().getEvaluation();
+            //return "getEvaluation will return some value in future";
+        }
+        function getEvaluationCallback(nota){
+            parent.getEvaluationCallback(nota);
+        }
+        var ilaParams = {
+            MA_PARAM_PropositionURL:        getParameterByName("MA_PARAM_PropositionURL"),
+            MA_PARAM_notSEND:               getParameterByName("MA_PARAM_notSEND"),
+            MA_PARAM_addresPOST:            getParameterByName("MA_PARAM_addresPOST"),
+            MA_PARAM_PropositionURL:        getParameterByName("MA_PARAM_PropositionURL"),
+            MA_PARAM_Proposition:           getParameterByName("MA_PARAM_Proposition"),
+        };
+        function trackAction(action){
+            if(ilaParams.MA_PARAM_addresPOST!=null){
+                $.post(ilaParams.MA_PARAM_addresPOST+"&track=1", { trackingData: "html=1;"+action }, function(d){
+                });
+            }
+        }
+    </script>
+
+  <div class="foot"><center>
+   <a href="http://www.ime.usp.br/line">LInE</a> |
+   <a href="http://www.matematica.br">iM&aacute;tica</a> |
+   <a href="http://www.usp.br/line/mooc">MOOC</a>
+  </center></div>
+
+  </body>
+</html>

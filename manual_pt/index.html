@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head>
+    <title>Tutorial iVProg</title>
+    <link rel="shortcut icon" href="../iVProg_141_49.png"> <!-- icone iVProg -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/line_ivprog.css" rel="stylesheet" />
+    <!-- link rel="stylesheet" href="css/w3.css" / -->
+    <!-- link href="../css/bootstrap.min.css" rel="stylesheet" / -->
+    <!-- link href="../css/style.css" rel="stylesheet" / -->
+
+<script>
+// Open and close the sidebar on medium and small screens
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+  }
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+  }
+
+// Change style of top container on scroll
+window.onscroll = function() {loadMainFrameIVProg()};
+
+function loadMainFrameIVProg () {
+  //if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+  //  document.getElementById("mainFrame").classList.add("w3-card-4", "w3-animate-opacity");
+  //  //document.getElementById("myTope").classList.add("w3-card-4", "w3-animate-opacity");
+  //  //document.getElementById("myIntro").classList.add("w3-show-inline-block");
+  //} else {
+  //  document.getElementById("mainFrame").classList.remove("w3-card-4", "w3-animate-opacity");
+  //  //document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+  //  //document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+  //  }
+  }
+
+// Define dimension of central block
+function defineSizeCentral (element) { // screen.width
+  //mySidebar
+  // clientWidth = dimensions of the body + padding
+  // scrollWidth = dimensions of the body, including parts that are out of the screen
+  var varScreenWidth = document.body.clientWidth - 40;
+  var varMySideBarWidth = document.getElementById("mySidebar").clientWidth; //style.width; // style.width="250px", scrollWidth="250"
+  var varWidth;
+  varWidth = varScreenWidth - varMySideBarWidth;
+  element.width = varWidth;
+  element.height = document.body.clientHeight + 150; // document.body.scrollHeight; // 
+  // alert(varScreenWidth + ", " + varMySideBarWidth + ", " + varWidth + ", Height=" + element.height);
+  element.style.border = 0;  
+  }
+
+// Accordions
+function manuItem (id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme";
+  } else {
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-theme", "");
+    }
+  }
+
+/* Formas: visual; textual */
+function carregar (pagina) { // carregar pagina
+  // document.getElementById("mainFrame").src = pagina;
+  var txtFile = new XMLHttpRequest(); // https://forums.tumult.com/t/importing-content-from-a-text-file-txt/2004/16
+  // txtFile.open("GET", "http://localhost/ivprog/manual_pt/" + pagina, true);
+  txtFile.open("GET", "./" + pagina, true);
+
+  // alert("aqui");
+  txtFile.onreadystatechange = function () {
+    if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
+      if (txtFile.status === 200) {  // Makes sure it's found the file.
+        allText = txtFile.responseText;
+        //lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+        var customTextElement = document.getElementById('mainDiv');
+        customTextElement.innerHTML = txtFile.responseText;
+        }
+      }
+    }
+  txtFile.send(null);
+  }
+</script>
+</head>
+
+
+<body>
+
+
+ <header>
+  <div class="header-left" title="iVProg"><b style="color:#FF0;">i</b><b style="color:#5080FA;">V</b><b style="color:#50FAB0;">P</b><b>rog</b></div>
+  <div class="header-center">
+   <ul>
+    <li > <b><a href="../" title="Navegue para a página inicial do site do iVProg.">Home</a></b> </li> 
+    <li > <b><a href="../ex_pt/index.html" title="Veja alguns exemplos e teste o iVProg online.">Exemplos</a></b> </li> 
+    <li > <b><a href="vetores.html" title="Veja como construir vetores no iVProg.">Vetores</a></b> </li>
+    <li > <b><a href="../bugs/report.html" title="Envie uma mensagem para a equipe do iVProg.">Contato</a></b> </li> 
+    <li > <b><a href="//www.usp.br/line/" title="Conheça o Laboratório de Informática na Educação do Instituto de Matemática e Estatística da USP.">LInE</a></b> </li>
+    <!-- <li > <b><a href="../docs/" title="Tenha acesso a toda a documentação do iVProg.">Desenvolvedores</a></b> </li> -->
+    <li > <b><a href="../publicacoes.html" title="Leia as publicações da equipe a respeito do iVProg.">Publicações</a></b> </li>
+   </ul>
+  </div>
+  <div class="header-right">
+    <img src="../img/img_flag_brazil.png" title="Lingua Portuguesa"/>
+    <a href="../en/index.html"><img src="../img/img_flag_usa.png" title="Change to English language"/></a>
+    <!--<button>Buy now</button>-->
+  </div>
+ </header>
+ 
+ <section class="header2">
+  <a href="index.html" ><img src="img/icn_home.png" width="30px" title="Voltar para o inicio" /> </a>
+  <i class="font-xxlarge" title="tutorial iVProg">
+     Tutorial <b style="color:#FF0;">i</b><b style="color:#5080FA;">V</b><b style="color:#50FAB0;">P</b><b>rog</b></i>
+ </section>
+
+<!-- D
+</a><br/><hr/></li>
+-->
+
+ <section class="header2">
+  <div class="header-center">
+  <ul class="navBar">
+   <li id="link1-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title="Formas de programação: visual ou textual"> &nbsp; &nbsp; Formas &nbsp; &nbsp; </a>
+    <div class="dropDownContent">
+     <a onclick="carregar('menu_fp_visual.html')" href="#" title="Modo de programação Visual: comandos via ícones: menu_fp_visual.html">Visual</a>
+     <a onclick="carregar('menu_fp_textual.html')" href="#" title="Modo de programação textual: programação tradicional: menu_fp_textual.html">Textual</a>
+    </div></li>
+   <li id="link2-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title="Barra de ferramentas: visual, textual, rodar, avaliar, ...">Ferramentas</a>
+    <div class="dropDownContent">
+     <a onclick="carregar('menu_bf_importar.html')" href="#" title="Para importar um código iVProg: menu_bf_importar.html"> Importar</a>
+     <a onclick="carregar('menu_bf_exportar.html')" href="#" title="Para exportar um código iVProg: menu_bf_exportar.html">Exportar</a>
+     <a onclick="carregar('menu_bf_desfazer.html')" href="#" title="Desfaz o último comando realizado no iVProg: menu_bf_desfazer.html">Desfazer</a>
+     <a onclick="carregar('menu_bf_refazer.html')" href="#" title="Refaz o último comando desfeito: menu_bf_refazer.html">Refazer</a>
+     <a onclick="carregar('menu_bf_executar.html')" href="#" title="Execute o código de seu programa: menu_bf_executar.html">Executar</a>
+     <a onclick="carregar('menu_bf_avaliar.html')" href="#" title="Se exercício, verifica se seu programa está como o esperado: menu_bf_avaliar.html">Avaliar &nbsp; &nbsp;</a>
+     <a onclick="carregar('menu_bf_ajuda.html')" href="#" title="Ajuda sobre iVProg: menu_bf_ajuda.html">Ajuda &nbsp; &nbsp;</a>
+    </div></li>
+   </li>
+   <li id="link3-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title="Variáveis globais ou locais">Variáveis</a>
+    <div class="dropDownContent">
+     <a onclick="carregar('menu_var_variavel-global.html')" href="#" title="Cria uma nova variável global (evite!): menu_var_variavel-global.html">Global &nbsp; &nbsp; &nbsp; &nbsp;</a>
+     <a onclick="carregar('menu_var_variavel-local.html')" href="#" title="Cria uma nova variável local: menu_var_variavel-local.html">Local &nbsp; &nbsp; &nbsp; &nbsp;</a>
+    </div></li>
+   <li id="link4-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title="Comandos iVProg">Comandos</a>
+    <div class="dropDownContent">
+     <a onclick="carregar('menu_cmd_comandos.html')" href="#" title="Comandos iVProg - menu_cmd_comandos.html">Comandos</a>
+     <a onclick="carregar('menu_cmd_leitura.html')" href="#" title="Leitura de dados: entrada - menu_cmd_leitura.html">Leitura</a>
+     <a onclick="carregar('menu_cmd_escrever.html')" href="#" title="Escrita de dados: saída - menu_cmd_escrever.html">Escrita</a>
+     <a onclick="carregar('menu_cmd_comentario.html')" href="#" title="Comentário em código - menu_cmd_comentario.html">Comentários</a>
+     <a onclick="carregar('menu_cmd_atribuicao.html')" href="#" title="Atribuição - menu_cmd_atribuicao.html">Atribuição</a>
+     <a onclick="carregar('menu_cmd_chamada-funcao.html')" href="#" title="Chamada de função - menu_cmd_chamada-funcao.html">Função</a>
+     <a onclick="carregar('menu_cmd_se.html')" href="#" title="Se verdadeiro então - menu_cmd_se.html">Se/senão</a>
+     <a onclick="carregar('menu_cmd_repita_enquanto.html')" href="#" title="Laço: Repita Enquanto (verdadeiro) - menu_cmd_repita_enquanto.html">Laço Enquanto</a>
+     <a onclick="carregar('menu_cmd_repita_n_vezes.html')" href="#" title="Laço: Repita N vezes - menu_cmd_repita_n_vezes.html">Laço N vezes</a>
+     <a onclick="carregar('menu_cmd_repita_ate_que.html')" href="#" title="Laço: Repita Comandos até que (Verdadeiro) - menu_cmd_repita_ate_que.html">Laço Até que</a>
+     <a onclick="carregar('menu_cmd_escolha.html')" href="#" title="Multipla Escolha - menu_cmd_escolha.html">Escolhas</a>
+     <a onclick="carregar('menu_cmd_devolva.html')" href="#" title="Retorno de função - menu_cmd_devolva.html">Devolva &nbsp; &nbsp; &nbsp;</a>
+     <a onclick="carregar('menu_cmd_pare.html')" href="#" title="Pare: quebrar laço ou escolha - menu_cmd_pare.html">Pare &nbsp; &nbsp; &nbsp; &nbsp;</a>
+     <a onclick="carregar('menu_cmd_caso.html')" href="#" title="Caso: item de múltipla escolha - menu_cmd_caso.html">Caso &nbsp; &nbsp; &nbsp; &nbsp;</a>
+    </div></li>
+   <li id="link5-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title=""> &nbsp; &nbsp; Função &nbsp; &nbsp;</a>
+    <div class="dropDownContent">
+     <a onclick="carregar('menu_fc_funcao.html')" href="#" title="Estrutura da função: menu_fc_funcao.html">Sobre</a>
+    </div></li>
+   </ul>
+   </div>
+ </section>
+
+ <section class="main-content">
+ <div id="mainDiv">
+ <div class="paragrafo1">
+   <h2 style="color:#001A66;">O que é o iVProg?</h2>
+   <p>
+   O <b>iVProg</b> (<b>P</b>rogramação <b>V</b>isual <b>i</b>nterativa na <b>I</b>nternet) é um dos sistemas educacionais de código livre do
+   <a href="//line.ime.usp.br" title="visitar pagina do Laboratorio de Informatica na Educacao">LInE</a>,
+   sendo destinado ao ensino e à aprendizagem de algoritmos e programação.
+   O <b>iVProg</b> pode ser integrado ao
+   <b><a href="//www.matematica.br/ia" title="visitar pagina do iTarefa">iTarefa/Moodle</a></b>,
+   <b>Educação Livre, Dados Privados</b>!.
+   </p>
+ </div>
+ <hr />
+ <h2 style="color:#001A66;">Interface 1</h2>
+
+ <img src="img/pt_img_manual_interface.png" title="imagem da interface principal do iVProg destacando modo Visual x Textual e Barra de Ferramentas" />
+ <br/>
+ <i>Fig. 1. Imagem da interface principal do <i>iVProg</i> destacando-se a "barra de ferramentas" e opções de programação <i>visual</i> ou <i>textual</i>.</i>
+ <!-- div class="placeholder"></div -->
+ </div>
+ </section>
+
+</div>
+
+</body>
+</html> 

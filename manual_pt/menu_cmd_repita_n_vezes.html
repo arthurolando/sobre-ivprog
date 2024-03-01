@@ -1,0 +1,104 @@
+<!--
+Free Education, Private Data
+http://line.ime.usp.br
+http://www.ime.usp.br/line
+http://www.matematica.br
+http://www.usp.br/line/ivprog
+-->
+
+<meta charset="UTF-8">
+<link rel='stylesheet' type='text/css' href='css/line_ivprog.css'>
+
+<div style="font-family: Arial" class="line-item">
+
+<img src="img/icn_menu_repita.png" title="ícone para inserir comando de repetição do tipo 'repita N vezes/para'" class="line-icon" />
+
+<h3>Comando <tt>Repita N vezes COMANDO1</tt></h3>
+
+<p clear=”left”>
+Esse comando permite executar um conjunto de comandos um número fixo de vezes, definido pelo indicador <i>N</i>,
+sendo que <i>N</i> pode ser uma <i>constante inteira</i> ou uma <i>variável inteira</i>.
+<br/>
+Esse comando é conhecido como comando de repetição tipo <i>para</i>
+(ou <i>for</i> em linguagens de programação tradicionais).
+</p>
+
+<table clear="left" width="100%">
+ <tr><td>
+   <table align="left" valign="top">
+   <tr><td>
+     <a name="sintaxe"><h4>Sintaxe</h4></a>
+     <p>
+     A sintaxe desse comanto em <i>Portugol</i> é:
+     </p>
+     <p>
+     <tt><azul2>repita_para</azul2> i de 0 até n passo  +1 {<br/>
+     &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
+     &nbsp;&nbsp;}</tt>
+     </p>
+     <p>
+     Vale observar que este comando equivale ao seguinte usando
+     <tt><azul2>repita_enquanto</azul2></tt> (vide diagrama de fluxo na fig. 1):
+     <br/>
+     <tt>i &lt;- 0;<br/>
+     <azul2>repita_enquanto</azul2> ( i &lt; N )  { <br/>
+     &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
+     &nbsp;&nbsp;i &lt;- i+1 <br/>
+     &nbsp;&nbsp;}</tt>
+     </p>
+     <p>
+     <a name="sintaxe"><h4>Exemplo.</h4></a>
+     Dado <i>n</i> (a ser digitado pelo usuário), imprimir os <i>n</i> primeiros naturais.
+     <pre><def>programa</def> {
+  <def>funcao</def> vazio inicio (  )  {
+    <verm>inteiro</verm> n &lt;- 0
+    <verm>inteiro</verm> i &lt;- 1
+    <verd>leia</verd> ( n ) 
+    <azul2>repita_para</azul2> i de 0 até n passo  +1  {
+      <verd2>escreva</verd2> ( i )
+      }
+    }
+  }</pre></p>
+   <p>
+     <a name="visual"><h4>Exemplo Visual.</h4></a>
+     O exemplo de código visual no <i>iVProg</i>, na fig. 2, tem duas variáveis, <tt>n</tt> para o usuário digitar um
+     valor <verm>inteiro</verm> e o <tt>i</tt> para servir de contador.
+     O primeiro comando a ser executado é capturar uma leitura de dados. Vamos supor que usuário digite <tt>5</tt>.
+   </p>
+   </td></tr>
+   </table>
+   </td>
+   <td>
+   <table align="right" valign="top" width="500px;">
+     <tr><td align="center"><img src="img/pt_fluxo_laco_n_vezes.png" title="" class="" width="80%" /></td></tr>
+     <tr><td><i>Fig. 1. Diagrama de fluxo de execução do laço do tipo 'repita N vezes'.</i></td></tr>
+   </table>
+ </td></tr>
+</table>
+</p>
+
+
+<p>
+ Assim, o <i>bloco de repetição</i> é executado <tt>5</tt>: para <tt>i</tt> com o valor <tt>0</tt>,
+ com o valor <tt>1</tt>, com o valor <tt>2</tt>, com o valor <tt>3</tt> e com o valor <tt>4</tt>.
+ Portanto, serão impressos:<br/>
+ <tt>0<br/>1<br/>2<br/>3<br/>4</tt>.
+</p>
+
+<br />
+
+<div class="img-div">
+  <center>
+   <img src="img/pt_ex_cmd_repita_n_vezes.png" title="Esta é uma imagem! Com exemplo de uso do comando repita N vezes" width="60%" >
+   <br/>
+   <span class="img-label">Fig. 2. Exemplo de uso do comando <tt>repita N vezes</tt>.</span>
+  </center>
+</div>
+  
+<p>
+O exemplo acima realiza uma iteração da variável <tt>i</tt> de <i>0</i> até <i>n-1</i>, sendo que
+o valor na variável <tt>i</tt> pode ser utilizada para realizar operações de interesse (no
+exemplo, imprimir os primeiros naturais).
+</p>
+
+</div>

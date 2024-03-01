@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>iVProg - LInE (free educational software and contents)</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+  </head>
+
+<!--
+   -------------------------------------------------------------------------------
+  JavaScript code: starting point
+  This JavaScript code could be inserted in any LMS to get the iLM content and send it to the server.
+  In this example it use a single "applet" instance, here from iHanoi.
+ -->
+<script Language="JavaScript">
+  //<![CDATA[
+  var strAnswer = '';
+  var evaluationResult = '';
+  var comment = '';
+
+  function submit_iMA_Answer (index) {
+    // alert('./ex_pt/index.html: window.frames=' + window.frames);
+    // alert('./ex_pt/index.html: window.frames.iLM=' + window.frames.iLM);
+
+    var name = 'iLM[' + index + ']'; // alert('name='+name);
+    window.frames[name].getEvaluation();
+    var strAnswer = window.frames[name].getAnswer();
+    alert('Copie o código ivph a seguir (para usá-lo com o iVProg): ' + strAnswer);
+
+    //DEBUG
+    //D var strFrames = "";
+    //D var arrFrames = parent.document.getElementsByTagName("IFRAME");
+    //D for (var i=0; i<arrFrames.length; i++) {
+    //D   strFrames += ', ' + arrFrames[i].name; // if (arrFrames[i].contentWindow === window) alert("yay!");
+    //D   } // acho 'window.frames' de nome 'iLM'!!!
+    //D if (index<10)
+    //D alert('./ex_pt/index.html: window.frames=' + strFrames);
+
+    // alert('window.frames.iLM=' + window.frames.iLM); // undefined
+
+    //D var docForm = document.formEnvio;
+    //D // Prepared to be used with more than 1 "applet'
+    //D var exercise_answer = new Array(3); // answer: to get the learner answer
+    //D var exercise_value = new Array(3);  // value from the iLM automatic evaluator
+    //D // var doc = document.formEnvio; // ----------------------------------------------------------
+    //D // var doc = javascript:window.jsAnalyseAnswer();
+    //D try {
+    //D   alert('submit_iMA_Answer(): evaluationResult=' + evaluationResult);
+    //D   exercise_answer[0] = doc.getAnswer();    // answer: it must be first (usually the iLM first get the answer to compute the evaluation grade)
+    //D   exercise_value[0] = doc.getEvaluation(); // value from the iLM automatic evaluator
+    //D } catch (Exception) { alert("Error!"); }
+    //D docForm.iLM_POST_Archive_0.value = exercise_answer[0]; // Content coming from the iLM
+    //D docForm.iLM_POST_Value_0.value = exercise_value[0];    // The activity evaluation coming from the iLM
+    //D // This is used to help the developer to debug his iLM
+    //D // It presents the file content that will be registered. 
+    //D alert('The file activity value is: ' + exercise_value[0] + '\nThe activity content is:\n' + exercise_answer[0]);
+    //D //uncomment_this docForm.submit(); // envia de fato o formulario
+    //D //uncomment_this return true;
+
+    }
+
+  function getEvaluationCallback (evaluation) {
+    evaluationResult = evaluation;
+    strAnswer = window.frames.iLM[index].getAnswer();
+    alert('getEvaluationCallback(...)' + evaluation + ', strAnswer=' + strAnswer);
+    comment = document.formEnvio.submission_comment.value;
+    //leo
+    if ((strAnswer==null || strAnswer=='' || strAnswer==-1) && (comment==null || comment=='')) { // undefined
+      alert('Activity sent without content.'); // 'Activity sent without content.'
+      return false; // error...
+      }
+    else {
+      //leo alert('getEvaluationCallback: enviando evaluationResult=' + evaluation + ', strAnswer=' + strAnswer);
+      document.formEnvio.iLM_PARAM_ArchiveContent.value = strAnswer;
+      document.formEnvio.iLM_PARAM_ActivityEvaluation.value = evaluationResult;
+      document.formEnvio.submit();
+      return true; // success
+      }
+    }
+
+  // Atencao: no LInE nao esta' aceitando mover de diretorio (erro se usar "iLM_PARAM_Assignment=../ex_pt/algo")
+  function openSolution (url_file, el_button) {
+    $(el_button).parent().find('iframe').attr('src', '../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=' + url_file + '&iLM_PARAM_SendAnswer=false&lang=pt&iLM_file=up');
+    }
+//]]>
+</script>
+
+<!--
+  JavaScript code: final -------------------------------------------------------------------------------
+-->
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #03396c;">
+      <b><a class="navbar-brand" href="../">iVProg</a></b>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../" 
+               title="Navegue para a página inicial do site do iVProg.">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../sobre_ivprog.html"
+               title="Conheça resumidamente o que é e para que serve o iVProg.">Conheça</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="../ex_pt/index.html"
+               title="Veja alguns exemplos e teste o iVProg online.">Exemplos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../download.html"
+               title="Faça uma cópia do iVProg para sua máquina.">Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../manual_pt/index.html" 
+               title="Acesse um manual online do iVProg e conheça todos os recursos.">Ajuda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../bugs/report.html"
+               title="Envie uma mensagem para a equipe do iVProg.">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="//www.usp.br/line/"
+               title="Conheça o Laboratório de Informática na Educação do Instituto de Matemática e Estatística da USP.">LInE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../docs/"
+               title="Tenha acesso a toda a documentação do iVProg.">Desenvolvedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../publicacoes.html"
+               title="Leia as publicações da equipe a respeito do iVProg.">Publicações</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <a href="../index.html"><img src="../img/img_flag_brazil.png"/></a>
+          <a href="../en/index.html"><img src="../img/img_flag_usa.png"/></a>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main">
+      <div class="jumbotron ivprogh-desc">
+        <div class="container">
+          <h1>Exemplos</h1>
+        </div>
+      </div>
+
+      <div class="container example-large-div autoeval-descript">
+        <div data-toggle="collapse" class="pointer" href="#area-autoeval-descript" aria-expanded="false" aria-controls="area-autoeval-descript"
+             title="Clique aqui para uma rapida explicacao de como funciona o avaliador automatica do iVProg">
+             <span class="octicon octicon-info"></span>
+             Entenda o funcionamento de expressões envolvendo inteiros</div>
+        </div>
+      </div>
+
+
+
+      <div class="container" id="area-autoeval-descript1"> <!--  class="collapse" -->
+          <p>Na linguagem do <i>iVProg</i>, se os tipos forem inteiros, as operações são feitas com inteiros.</p>
+
+          <p>Desse modo <tt>inteiro a=3, b=2; escreva(a/b);</tt> resulta na impressão do valor <itt>1.0</tt>, que é o quociente inteiro de <tt>3/2</tt>.</p>
+
+          <p>Se você deseja que a conta seja realizada em flutuante, bastaria definir um dos operando como "real", por exemplo, <tt>inteiro a=3; real b=2; escreva(a/b);</tt>.</p>
+
+          <p><span class="octicon octicon-pin"></span><b>Problema:</b>
+	  <br/>
+          No exemplo 1, o uso de inteiros resulta em quociente inteiro de divisão, como ilustrado na imagem abaixo.
+          <a href="exerc/exemplo_quociente_inteiro_1.ivph" title="clique para descarregar">Pegue aqui o código-exemplo 1</a>, grave-o em seu computador,
+          depois submeta-o para o <i>iVProg</i> usando o quarto ícone
+          <img src="../manual_pt/img/icn_bf_carregar.png" title="divisão inteira" />.
+	  <br/>
+          <center><img src="img/exemplo_quociente_inteiro_1.png" title="divisão inteira" />><br/>
+	  <i>Fig 1. Imagem ilustrativa do quociente inteiro.</center>
+          </p>
+
+          <p><span class="octicon octicon-light-bulb"></span> <b> Como obter o quociente em ponto flutuante</b></p>
+
+          <p>Basta usar uma das variáveis como "real", como na ilustração da figura abaixo.
+          <a href="exerc/exemplo_quociente_inteiro_2.ivph" title="clique para descarregar">Pegue aqui o código-exemplo 2</a>, grave-o em seu computador,
+          depois submeta-o para o <i>iVProg</i> usando o quarto ícone
+          <img src="../manual_pt/img/icn_bf_carregar.png" title="divisão inteira" />.
+	  <br/>
+          <center><img src="img/exemplo_quociente_inteiro_2.png" title="divisão em ponto flutuante" /><br/>
+	  <i>Fig 2. Imagem ilustrativa do quociente resultando flutuante.</center>
+	  </p>
+      </div>
+
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" href="#area-exemplo-1" aria-expanded="" aria-controls="area-exemplo-1"><span class="octicon octicon-rocket"></span>
+	<!-- data-toggle="collapse"  -->
+            Exemplo 1: Carregar os códigos-exemplos com quociente inteiro/real</div>
+        <div class="example-content" id="area-exemplo-1">
+	<!--
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('ex_pt/exerc/exemplo_quociente_inteiro_1.ivph', this)">Ver solução</button>
+	  -->
+          <p class="text-reduced">
+            Exemplo de divisão inteira no <i>iVProg</i>.
+          </p>
+
+          <p class="text-reduced">
+            <b>Faça um programa que solicite do usuário um valor inteiro, depois imprima o valor por ele digitado.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio_1' id='formEnvio_1' method='post' action='#' enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <div onClick='full_screen()' style='color: blue; cursor: pointer; display:contents;'>Tela cheia</div>
+                <iframe name="iLM[1]" id="iLM[1]" class="embed-responsive-item"
+                        src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_pt/exerc/exemplo_vazio.ivph&iLM_PARAM_SendAnswer=false&lang=pt&iLM_file=up&iLM_n=1"
+                        allowfullscreen></iframe><br/>
+<!--
+                        src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_pt/exerc/exemplo_1_ler_e_imprimir_inteiro.ivph&iLM_PARAM_SendAnswer=false&lang=pt&iLM_file=up&iLM_n=1"
+                        src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_pt/exerc/exemplo_quociente_inteiro_1.ivph&iLM_PARAM_SendAnswer=false&lang=pt&iLM_file=up&iLM_n=1"
+
+-->
+              </div>
+               <input type='button' name='Submit' value='Enviar resposta' class="btn btn-warning" 
+                       title='Clique aqui para visualizar seu código.'
+                       onclick='javascript:window.submit_iMA_Answer(1);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+    </main>
+    <footer class="container text-center">
+      <a href="http://www.ime.usp.br/line">iVProg</a> | 
+      <a href="http://www.ime.usp.br/line">LInE</a> |
+      <a href="http://www.matematica.br">iM&aacute;tica</a>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" -->
+    <link rel="stylesheet" href="../css/octicons.min.css">
+    <script type="text/javascript">
+      $('.example-content').on('shown.bs.collapse', function () {
+        this.parentNode.scrollIntoView();
+      });
+    </script>
+  </body>
+</html>

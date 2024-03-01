@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>iVProgH - LInE (free educational software and contents)</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+  </head>
+
+<!-- Attention: since 2022/08/25 the use of "../" do not work any more, then use iLM_file=up to indicate "upper directory" -->
+
+<!--
+   -------------------------------------------------------------------------------
+  JavaScript code: starting point
+  This JavaScript code could be inserted in any LMS to get the iLM content and send it to the server.
+  In this example it use a single "applet" instance, here from iHanoi.
+ -->
+<script Language="JavaScript">
+  //<![CDATA[
+  var strAnswer = '';
+  var evaluationResult = '';
+  var comment = '';
+
+  function submit_iMA_Answer (index) {
+    // alert('./ex_pt/index.html: window.frames=' + window.frames);
+    // alert('./ex_pt/index.html: window.frames.iLM=' + window.frames.iLM);
+
+    var name = 'iLM[' + index + ']'; // alert('name='+name);
+    window.frames[name].getEvaluation();
+    var strAnswer = window.frames[name].getAnswer();
+    alert('Copy the following ivph code (to use it with iVProgH): ' + strAnswer);
+
+    //DEBUG
+    //D var strFrames = "";
+    //D var arrFrames = parent.document.getElementsByTagName("IFRAME");
+    //D for (var i=0; i<arrFrames.length; i++) {
+    //D   strFrames += ', ' + arrFrames[i].name; // if (arrFrames[i].contentWindow === window) alert("yay!");
+    //D   } // acho 'window.frames' de nome 'iLM'!!!
+    //D if (index<10)
+    //D alert('./ex_pt/index.html: window.frames=' + strFrames);
+
+    // alert('window.frames.iLM=' + window.frames.iLM); // undefined
+
+    //D var docForm = document.formEnvio;
+    //D // Prepared to be used with more than 1 "applet'
+    //D var exercise_answer = new Array(3); // answer: to get the learner answer
+    //D var exercise_value = new Array(3);  // value from the iLM automatic evaluator
+    //D // var doc = document.formEnvio; // ----------------------------------------------------------
+    //D // var doc = javascript:window.jsAnalyseAnswer();
+    //D try {
+    //D   alert('submit_iMA_Answer(): evaluationResult=' + evaluationResult);
+    //D   exercise_answer[0] = doc.getAnswer();    // answer: it must be first (usually the iLM first get the answer to compute the evaluation grade)
+    //D   exercise_value[0] = doc.getEvaluation(); // value from the iLM automatic evaluator
+    //D } catch (Exception) { alert("Error!"); }
+    //D docForm.iLM_POST_Archive_0.value = exercise_answer[0]; // Content coming from the iLM
+    //D docForm.iLM_POST_Value_0.value = exercise_value[0];    // The activity evaluation coming from the iLM
+    //D // This is used to help the developer to debug his iLM
+    //D // It presents the file content that will be registered. 
+    //D alert('The file activity value is: ' + exercise_value[0] + '\nThe activity content is:\n' + exercise_answer[0]);
+    //D //uncomment_this docForm.submit(); // envia de fato o formulario
+    //D //uncomment_this return true;
+
+    }
+
+  function getEvaluationCallback (evaluation) {
+    evaluationResult = evaluation;
+    strAnswer = window.frames.iLM[index].getAnswer();
+    alert('getEvaluationCallback(...)' + evaluation + ', strAnswer=' + strAnswer);
+    comment = document.formEnvio.submission_comment.value;
+    //leo
+    if ((strAnswer==null || strAnswer=='' || strAnswer==-1) && (comment==null || comment=='')) { // undefined
+      alert('Activity sent without content.'); // 'Activity sent without content.'
+      return false; // error...
+      }
+    else {
+      //leo alert('getEvaluationCallback: enviando evaluationResult=' + evaluation + ', strAnswer=' + strAnswer);
+      document.formEnvio.iLM_PARAM_ArchiveContent.value = strAnswer;
+      document.formEnvio.iLM_PARAM_ActivityEvaluation.value = evaluationResult;
+      document.formEnvio.submit();
+      return true; // success
+      }
+    }
+
+    function openSolution (url_file, el_button) {
+        $(el_button).parent().find('iframe').attr('src', '../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=' + url_file + '&iLM_PARAM_SendAnswer=false&lang=en');
+      }
+//]]>
+</script>
+
+<!--
+  JavaScript code: final -------------------------------------------------------------------------------
+-->
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #03396c;">
+      <b><a class="navbar-brand" href="../">iVProgH</a></b>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../" 
+               title="Navigate to iVProgH homepage.">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../sobre_ivprog.html"
+               title="Know what iVProgH is and what iVProgH is for.">About</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="../ex_en/index.html"
+               title="See some examples and test iVProgH online.">Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../download.html"
+               title="Download a copy of iVProgH for your computer.">Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../manual_en/index.html" 
+               title="Access online iVProgH manual and learn about all the features.">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../bugs/report.html"
+               title="Send a message to the iVProgH team.">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="//www.usp.br/line/"
+               title="Meet the Laboratory of Informatics in Education of the Institute of Mathematics and Statistics of USP.">LInE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../docs/"
+               title="Get access to all iVProgH documentation.">Developers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../publicacoes.html"
+               title="Read the team publications about iVProgH.">Publications</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <a href="../../index.html"><img src="../img/img_flag_brazil.png"/></a>
+          <a href="../index.html"><img src="../img/img_flag_usa.png"/></a>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main">
+      <div class="jumbotron ivprogh-desc">
+        <div class="container">
+          <h1>Examples</h1>
+        </div>
+      </div>
+
+      <div class="container example-large-div autoeval-descript">
+        <div data-toggle="collapse" class="pointer" href="#area-autoeval-descript" aria-expanded="false" aria-controls="area-autoeval-descript"><span class="octicon octicon-info"></span>
+	     Understand the operation of the automatic valuer</div>
+        <div id="area-autoeval-descript" class="collapse">
+          <p>IVProg allows automatic exercises to be made available directly on Web pages. If the teacher has an installation of the Moodle manager with the <a href="www.matematica.br/ia">iTarefa</a> package, then the activity performed by the student will be recorded, as well as the grade assigned to the student's solution.</p>
+
+          <p>The automatic evaluation in the iVProg is made from a template, which must have been prepared by the teacher, providing data inputs and their respective outputs. When the student "click" on the button to evaluate their solution, iVProg uses the first list as inputs to the student's problem, comparing each generated output with those of the list of outputs.</p>
+
+          <p>To better understand the process, let's use an example algorithm that must sum separately all the numbers positive and negative signals entered by the user.</p>
+
+          <p><span class="octicon octicon-pin"></span><b>Problem:</b></p>
+          
+          <p>Make an algorithm that prompts the user to enter integer values, finalizing their execution when typed the value zero. At the end, your program should print the sum of all positive integers that were typed and then print the sum of all negative integers.</p>
+
+          <p><span class="octicon octicon-light-bulb"></span> <b> How can I prepare a exercise template with automatic evaluation in iVProg</b></p>
+
+          <p>The teacher can prepare any number of lists of entries and exits, for the above problem, we will use only 3 lists, shown in the table below. The first column has the number of the "input/output" pair, the second shows the list of inputs (separated by white space), in the third column are the expected outputs (for those inputs) and the last column has a short explanation about the pair.
+
+          <table class="table about-auto-eval">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Inputs</th>
+                <th scope="col">Outputs</th>
+                <th scope="col">Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>0</td>
+                <td>0 0</td>
+                <td>This is a tricky test, because if the first entry is zero, nothing will be added (then 0 and 0 should be printed)</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>1 -1 1 0</td>
+                <td> 2 -1 </td>
+                <td>It presents 2 positive and 1 negative values, with sums respectively 2 and -1</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>-1 -1 3 1 0</td>
+                <td>4 -2</td>
+                <td>It presents 2 positive and 2 negative values, with sums respectively 4 and -2</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>IVProg has a special interface for the teacher to enter each list of inputs and outputs.</p>
+
+          <p><span class="octicon octicon-light-bulb"></span> <b> How does iVProg automatically evaluate a student solution?</b></p>
+
+          <p>Assuming that the student has built an algorithm, when he "click" the button to evaluate your solution, iVProg:</p>
+
+          <ol>
+            <li>It takes the first input from the first list and submits it to the first reading in the student code (error if it does not exist), then the second input and so on until the last one.</li>
+            <li>The first output (print command) generated by the student code is compared to the first expected output if it matches a hit is recorded, if not an error.</li>
+            <li>Repeat steps 1 and 2 for each of the other lists of inputs/outputs and at the end an average of hits and errors is generated. <p>For example, if the student algorithm is wrong in 2 of the 6 outputs, its grade will be 1/3.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="container example-large-div autoeval-descript">
+        <div aria-expanded="false" aria-controls="area-autoeval-descript">
+             Try the exercises listed below, from example 1 through example 8. Example 9 illustrates how to construct a template for an exercise with automatic evaluation in <i>iVProgH</i>.<br/>To open the example, click on its title. You can hide it again by clicking on the same title.
+        </div>
+      </div>
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-1" aria-expanded="false" aria-controls="area-exemplo-1"><span class="octicon octicon-rocket"></span>
+            Example 1: Input and Output</div>
+        <div class="example-content collapse" id="area-exemplo-1">
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('../ex_en/exerc/exemplo_1_ler_e_imprimir_inteiro_solucao.ivph', this)">See solution</button>
+          <p class="text-reduced">
+            Exercise example with <i>automatic evaluation</i> in <i>iVProg</i>.
+          </p>
+          
+          <p class="text-reduced">
+            <b>Make a program that prompts the user for an integer value, then print the value typed by the user.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#' \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[1]" id="iLM[1]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_1_ler_e_imprimir_inteiro.ivph&iLM_PARAM_SendAnswer=false&lang=en&iLM_file=up"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                       title='Click here to see your code.'
+                       onclick='javascript:window.submit_iMA_Answer(1);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-2" aria-expanded="false" aria-controls="area-exemplo-2"><span class="octicon octicon-rocket"></span>
+            Example 2: Print the square of a number (integer)</div>
+        <div class="example-content collapse" id="area-exemplo-2">
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('../ex_en/exerc/exemplo_2_imprimir_quadrado_solucao.ivph', this)">See solution</button>
+          <p class="text-reduced">
+            Exercise example with <i>automatic evaluation</i> in <i>iVProg</i>.
+          </p>
+          
+          <p class="text-reduced">
+            <b>Construct an algorithm that prompts the user to enter a number (integer) and prints the square of that value.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#' \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[2]" id="iLM[2]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_2_imprimir_quadrado.ivph&iLM_PARAM_SendAnswer=false&lang=en&iLM_file=up"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                       title='Click here to see your code.'
+                       onclick='javascript:window.submit_iMA_Answer(2);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+
+       <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-3" aria-expanded="false" aria-controls="area-exemplo-3"><span class="octicon octicon-rocket"></span>
+            Example 3: Sum of two values</div>
+        <div class="example-content collapse" id="area-exemplo-3">
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('../ex_en/exerc/exemplo_3_soma_dois_valores_solucao.ivph', this)">See solution</button>
+          <p class="text-reduced">
+            Exercise example with <i>automatic evaluation</i> in <i>iVProg</i>.
+          </p>
+          
+          <p class="text-reduced">
+            <b>Construct an algorithm that receives two integers and prints the sum of these values.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#' \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[3]" id="iLM[3]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_3_soma_dois_valores.ivph&iLM_PARAM_SendAnswer=false&lang=en&iLM_file=up"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                       title='Click here to see your code.'
+                       onclick='javascript:window.submit_iMA_Answer(3);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-4" aria-expanded="false" aria-controls="area-exemplo-4"><span class="octicon octicon-rocket"></span>
+            Example 4: Arithmetic mean</div>
+        <div class="example-content collapse" id="area-exemplo-4">
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('../ex_en/exerc/exemplo_4_media_aritmetica_solucao.ivph', this)">See solution</button>
+          <p class="text-reduced">
+            Exercise example with <i>automatic evaluation</i> in <i>iVProg</i>.
+          </p>
+          
+          <p class="text-reduced">
+            <b>Construct an algorithm that receives two integers from the input, calculates the arithmetic mean of those numbers, and prints it.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#' \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[4]" id="iLM[4]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_4_media_aritmetica.ivph&iLM_PARAM_SendAnswer=false&lang=en&iLM_file=up"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                       title='Click here to see your code.'
+                       onclick='javascript:window.submit_iMA_Answer(4);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+       <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-5" aria-expanded="false" aria-controls="area-exemplo-5"><span class="octicon octicon-rocket"></span>
+            Example 5: Higher value</div>
+        <div class="example-content collapse" id="area-exemplo-5">
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('../ex_en/exerc/exemplo_5_maior_valor_solucao.ivph', this)">See solution</button>
+          <p class="text-reduced">
+            Exercise example with <i>automatic evaluation</i> in <i>iVProg</i>.
+          </p>
+          
+          <p class="text-reduced">
+            <b>Construct an algorithm that receives two integers from the input and prints the higher of the two numbers.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#' \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[5]" id="iLM[5]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_5_maior_valor.ivph&iLM_PARAM_SendAnswer=false&lang=en&iLM_file=up"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                       title='Click here to see your code.'
+                       onclick='javascript:window.submit_iMA_Answer(5);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-6" aria-expanded="false" aria-controls="area-exemplo-6"><span class="octicon octicon-rocket"></span>
+            Example 6: Sequence</div>
+        <div class="example-content collapse" id="area-exemplo-6">
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('../ex_en/exerc/exemplo_6_imprimir_de_1_a_10_solucao.ivph', this)">See solution</button>
+          <p class="text-reduced">
+            Exercise example with <i>automatic evaluation</i> in <i>iVProg</i>.
+          </p>
+          
+          <p class="text-reduced">
+            <b>Make an algorithm that prints the sequence of integers from 1 to 10.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#' \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[6]" id="iLM[6]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_6_imprimir_de_1_a_10.ivph&iLM_PARAM_SendAnswer=false&lang=en&iLM_file=up"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                       title='Click here to see your code.'
+                       onclick='javascript:window.submit_iMA_Answer(6);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-7" aria-expanded="false" aria-controls="area-exemplo-7"><span class="octicon octicon-rocket"></span>
+            Example 7: Print text</div>
+        <div class="example-content collapse" id="area-exemplo-7">
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('../ex_en/exerc/exemplo_7_imprimir_ivprogh_10_vezes_solucao.ivph', this)">See solution</button>
+          <p class="text-reduced">
+            Exercise example with <i>automatic evaluation</i> in <i>iVProg</i>.
+          </p>
+          
+          <p class="text-reduced">
+            <b>Build an algorithm that prints the word iVProgH 10 times.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#' \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[7]" id="iLM[7]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_7_imprimir_ivprogh_10_vezes.ivph&iLM_PARAM_SendAnswer=false&lang=en&iLM_file=up"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                       title='Click here to see your code.'
+                       onclick='javascript:window.submit_iMA_Answer(7);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-8" aria-expanded="false" aria-controls="area-exemplo-8"><span class="octicon octicon-rocket"></span>
+            Example 8: Add n values</div>
+        <div class="example-content collapse" id="area-exemplo-8">
+          <button type="button" class="btn btn-primary show-solution" onclick="openSolution('../ex_en/exerc/exemplo_8_somar_valores_ate_digitar_0_solucao.ivph', this)">See solution</button>
+          <p class="text-reduced">
+            Exercise example with <i>automatic evaluation</i> in <i>iVProg</i>.
+          </p>
+          
+          <p class="text-reduced">
+            <b>Make an algorithm that reads a sequence of integers, adding them until a value of zero is entered, at which point you must print the value of the sum and stop.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#'\ \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[8]" id="iLM[8]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=ex_en/exerc/exemplo_8_somar_valores_ate_digitar_0.ivph&iLM_PARAM_SendAnswer=false&lang=en&iLM_file=up"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                       title='Click here to see your code.'
+                       onclick='javascript:window.submit_iMA_Answer(8);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-9" aria-expanded="false" aria-controls="area-exemplo-9"><span class="octicon octicon-rocket"></span> Template: Building an Activity</div>
+        <div class="example-content collapse" id="area-exemplo-9">
+          <p class="text-reduced">
+            <b>In this example, construct an activity, inserting the test cases that will be used to evaluate the algorithm and configure the resources that will be made available to the student in iVProgH.</b>
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#'\ \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+                <iframe name="iLM[9]" id="iLM[9]" class="embed-responsive-item"
+                   src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_SendAnswer=true&lang=en"
+                   allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Send reply' class="btn btn-warning" 
+                      title='Click here to see your code.'
+                      onclick='javascript:window.submit_iMA_Answer(9);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+    </main>
+    <footer class="container text-center">
+      <a href="http://www.ime.usp.br/line">iVProgH</a> | 
+      <a href="http://www.ime.usp.br/line">LInE</a> |
+      <a href="http://www.matematica.br">iM&aacute;tica</a>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css">
+    <script type="text/javascript">
+      $('.example-content').on('shown.bs.collapse', function () {
+        this.parentNode.scrollIntoView();
+      });
+    </script>
+  </body>
+</html>

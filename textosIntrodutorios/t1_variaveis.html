@@ -1,0 +1,500 @@
+<!--
+MAC2166 - 2017 - Prof. Leo^nidas de Oliveira Branda~o
+-->
+
+<!DOCTYPE html>
+<html class='yui3-js-enabled' dir='ltr' xml:lang='pt-br' lang='pt-br'>
+ <head>
+  <title>Introdução às variáveis e expressões aritméticas</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+
+  <meta name='keywords' content='mac0122, material, professore, leonidas de oliveira brandao'>
+  <link rel='stylesheet' type='text/css' href='css_img_js_conf/all.css'>
+  <script id='firstthemesheet' type='text/css'>/** Required in order to fix style inclusion problems in IE with YUI **/</script>
+  <style type="text/css">
+   .tbCodeLinCol { border-collapse:collapse; }
+   .tbCodeLinCol th { background-color:#8aaada; }
+   .tbCodeLinCol td, .tbCodeLinCol th { padding:5px;border:1px solid #000; font: 10px/12px Arial, Helvetica, sans-serif; }
+   .tbCode td, .tb th { border: 0; font: 10px/12px Arial, Helvetica, sans-serif; }
+   .tableCd { border-collapse:collapse; }
+   .thBg th { background-color:#8aaada; }
+   .trCd td, .tbCd td, .tbCd th { vertical-align: top; padding:5px; border-right:1px solid #000;  font-family: courier }
+   .cmd { color: #0000AA; }
+   .def { color: #9D009D; }
+   .fnc { color: #008866; }
+   .head { color: #000000; }
+   .var { color: #009A00; }
+   .tipo { color: #005A5A; }
+   .com { color: #AA0000; }
+   .versao { font-size: .6em; }
+   .rodape { font-size: .8em; }
+   div.exemplo {color:#006f3f;}
+  </style>
+  <link rel='stylesheet' type='text/css' href='./css/codigos_css.css'>
+  <script>
+    function openTab(evt, tabName, divPai) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementById(divPai).getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementById(divPai).getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+    }
+  </script>
+ </head>
+
+<body id='page-mod-page-view' class='format-topics gecko lang-pt_br pagelayout-incourse'>
+
+<div id='page-wrapper'>
+  <header role='banner' class='pos-f-t navbar navbar-full navbar-light bg-faded navbar-static-top'>
+    <div class='container-fluid navbar-nav'>
+      <a href='index.html' class='navbar-brand'>Introdução</a><!-- botao fundo azul -->
+      <!-- user_menu -->      <div class='usermenu'>      <div class='action-menu moodle-actionmenu nowrap-items' id='action-menu-1' data-enhance='moodle-core-actionmenu'>      <div class='menubar' id='action-menu-1-menubar' role='menubar'>
+      <div class='dropdown'>        <a href='http://www.ime.usp.br/~leo' title='sitio pessoal autor' role='button'>          <span class='userbutton'>            <span class='usertext'>Leônidas de Oliveira Brandão</span>             <span class='avatars'>              <span class='avatar current'><img src='css_img_js_conf/icone_leo.png' alt='Imagem de Leônidas de Oliveira Brandão' title='Imagem de Leônidas de Oliveira Brandão' class='userpicture' role='presentation' height='35' width='35'></span>             </span>          </span>        </a>    </div>  </header>
+  <div id='page' class='container-fluid'>
+   <header id='page-header' class='row'>
+    <div class='col-xs-12 p-a-1'>
+     <div class='card'>
+      <div class='card-block'>
+       <h1>Material didático para Introdução à Programação</h1>
+       <!-- caminho -->
+       <div class='clearfix w-100 pull-xs-left' id='page-navbar'>
+        <div class='breadcrumb-nav'>
+         <nav role='navigation'>
+          <ol class='breadcrumb'>
+           <li class='breadcrumb-item'><a href='http://www.ime.usp.br/~leo/'>Página inicial</a></li>
+           <li class='breadcrumb-item'><a href='index.html' title='inicio material'>Material de apoio didático</a></li>
+          </ol>
+         </nav>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </header>
+
+<center><p>[
+  <a href="memoria" title="sobre memoria, bits e bytese">Memória</a> &nbsp; | &nbsp;
+  <a href="#variaveis" title="variaveis inteiras e reais">Variáveis</a> &nbsp; | &nbsp;
+  <a href="#expressoes" title="expressoes aritmetics">Expressões</a> &nbsp; | &nbsp;
+  <a href="#contexto" title="resultado de uma expressao depende do contexto">Contexto</a> &nbsp; &nbsp;
+ ]</p>
+</center>
+
+<span style="color: #0055AA;font-size:1.2em"><b>Introdução às variáveis e expressões aritméticas</b></span>
+<br/>&nbsp;
+
+
+<p>
+Nesta seção apresentaremos o conceito de variáveis e de expressões aritméticas.
+</p>
+
+
+<a name="variaveis">
+<span style="color: #0055AA;font-size:1.1em">Ideia de variável</span></a>
+
+<p>
+Ilustraremos a ideia e necessidade de variáveis a partir de um exemplo simples: como realizar o
+cálculo de gastos usando uma calculadora muito elementar.
+</p>
+
+<p>
+<img src="img/t1/img_calc.png"
+style="float: left; margin-right: 1%; margin-bottom: 0.5em;justify-content: center;" title="imagem calculadora"/>
+Imagine uma calculadora simples, como ilustrado ao lado, dispondo de apenas um mostrador e
+as 4 operações básicas (soma, subtração, multiplicação e divisão).
+</p>
+<p>
+Caso você deseje computar os seus gastos, deve digitar sequencialmente os valores
+gastos, um a um, intercalados com o operador soma <tt>+</tt>, sendo que ao final você deve teclar
+<tt>=</tt> para visualizar o resultado das somas. <!--  e obtermos na tela o valor total gasto. -->
+Vamos supor que os valores dos gastos foram
+<tt>5</tt>, <tt>2</tt>, <tt>3</tt>, <tt>5</tt> e <tt>3</tt>, ao final teriamos o valor 18.
+</p>
+
+<p>
+Mas como foi possível obter a soma de todos os valores? Isso só foi possível por existir um
+"acumulador" (<tt>AC</tt>) para armazenar o primeiro valor digitado e depois disso, esse mesmo
+"acumulador" teve um novo valor a ele adicionado (ou acumulado):
+<tt>AC := <b>5</b></tt>, depois
+<tt>AC := 5+<b>2</b> = 7</tt>. depois
+<tt>AC := 7+<b>3</b> = 10</tt>. depois
+<tt>AC := 10+<b>5</b> = 15</tt> e por último
+<tt>AC := 15+<b>3</b> = 18</tt>.
+</p>
+
+<p>
+Usaremos o exemplo acima (da calculadora) para apresentar a ideia de <i>variáveis</i>.
+A calculadora pode ser entendida como um dos componentes de um computador, um componente que realiza os cálculos.
+O recurso da calculadora que armazena os valores computados (que denotamos por <tt>AC</tt>) seria o
+equivalente a uma posição de memória em um computador <em>(um pedaço da memória que pode armazenar valores)</em>.
+
+<details>
+  <summary class="tab">Curiosidade</summary>
+  <p class="paraConhecerMais" style="width: 600px">Para se ter uma noção da diferença, deve-se notar que um computador moderno dispõe de vários registradores e um memória muitas
+  ordens de grandeza maiores, hoje compra-se computadores com ao menos <i>2 Gb</i> de memória <i>RAM</i>
+  (<i>Gb</i> = <i>giga bytes</i> = 1 bilhão de <i>bytes</i>)</p>
+</details>
+
+<p>
+Deve-se destacar que o valor armazenado na <strike>registrador ou </strike> memória pode ser alterado, podendo-se dizer
+que os valores na memória <i>variam</i>, dai o nome de <b style="color: #0000AA">variável</b> adotado para representar esses
+locais em linguagens de programação.
+Usualmente, pode-se usar qualquer combinação de letras e números (iniciando por uma letra) para compor o
+nome de uma variável.
+Exemplo de uma instrução alterando o valor da variável de nome <tt>x</tt> em uma linguagem de programação
+qualquer:
+<div class ="codigo">
+  <span class="codigo"><tt>x = b*b - 4 * a * c</span><br />
+  </tt> <tt>x</tt> recebe o resultado da expressão "o quadrado do
+  valor armazenado em <tt>b</tt> menos <tt>4</tt> vezes o conteúdo em <tt>a</tt> vezes o conteúdo em <tt>c</tt>".
+</div>
+<!--
+No exemplo acima, a calculadora faz o papel de um <i>unidade central de processamento</i> (ou <i>CPU</i> no termo em Inglês)
+e o "acumulador" é um <i>registrador</i> que serve para armazenar valores.
+Em um computador digital, existe um número razoável de registradores e o restante das informações devem ser armazenadas
+na <i>memória</i> do computador, que não é tão rápido quanto um registrador, mas é muito mais barata.
+O registrador ou posições de memória podem ter seus valores trocados ao longo da execução do programa (código)
+e por isso cada uma dessas posições pode ser entendida como uma <b>variável</b>.
+-->
+</p>
+
+<p>
+  Sendo assim podemos dizer que uma variável:
+  <ul>
+    <li>É um espaço de memória utilizado para guardar e manipular uma informação;</li>
+    <li>Pode ter seu valor alterado;</li>
+    <li>Em geral deve ter seu nome inicializada por uma letra seguido de qualquer número de caracteres,
+       excetuando-se caracteres especiais;</li>
+    <li>Deve ter um nome descritivo, de forma que o leitor possa entender facilmente para que ela serve.</li>
+  </ul>
+</p>
+
+<p>
+Assim, toda <i>linguagem de programação</i> possibilita a manipulação de variáveis. Por exemplo na linguagem
+<i>C</i> pode-se declarar uma variável do tipo inteiro com o comando
+<tt style="color: #0000AA">int AC = 5;</tt>
+(no exemplo, além de declarar uma variável de nome <tt>AC</tt>, também a iniciamos com o valor <tt>5</tt>).
+</p>
+<!------------------------------------------------------------>
+<div id="codigos1">
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'C', 'codigos1')">C</button>
+  <button class="tablinks" onclick="openTab(event, 'Python', 'codigos1')">Python</button>
+  <button class="tablinks" onclick="openTab(event, 'iVProg', 'codigos1')" id="defaultOpen">iVProg</button>
+</div>
+
+<!-- Tab content -->
+<div id="C" class="tabcontent">
+  <img src="img/t1/cod1_c.png"/>
+</div>
+
+<div id="Python" class="tabcontent">
+  <img src="img/t1/cod1_py.png"/>
+</div>
+
+<div id="iVProg" class="tabcontent" >
+  <img src="img/t1/decl_iVProg.png"/>
+</div>
+
+</div>
+<p>
+Portanto, <b>variável</b> é essencial para que possamos fazer com que o programa receba algum dado de nosso interesse.
+Mesmo em um <i>editor de texto</i> isso ocorre, o texto que digitamos é armazenado (de alguma forma, em variáveis!).
+</p>
+
+<details>
+  <summary class="tab" style="margin:0; width:200px">Para conhecer mais</summary>
+  <div class="paraConhecerMais">
+    <p>
+    Para conhecer um pouco mais sobre como é possível implementar esse conceito em computadores digitais, estude o
+    restante desse texto.
+    </p>
+
+
+    <a name="memoria">
+    <span style="color: #0055AA;font-size:1.1em">Memória, <i>bits</i> e <i>bytes</i></span></a>
+
+    <p>
+    Um elemento essencial à computação é o conceito de variável, que significa de um ponto de vista mais
+    próximo da linguagem da máquina (<i>baixo nivel</i>), a possibilidade de armazenar e recuperar diferentes valores
+    em determinada posição de memória.
+    </p>
+
+    <p>
+    Em última análise, os dados presentes na memória do computador é uma sequência de <i>bits</i> e um <i>bit</i>
+    corresponde a uma posição de memória que pode armazenar o valor 0 ou o valor 1. No início da computação moderna
+    a menor quantidade de <i>bits</i> que podia acessar eram 8, que foi denominado por <i>byte</i>.
+    </p>
+
+    <center><img src="img/t1/var_memoria1.jpg" title="ilustracao de 4 sequencias de 8 bits em memoria"/>
+    </center>
+
+    <p>
+    Desse modo, toda informação armazenada no computador é uma sequência de <i>bytes</i> e o tratamento de cada
+    que se dá para cada uma dessas sequências pode variar, por exmeplo, pode considerar a sequência <tt>0010</tt>
+    com uma letra ou como um inteiro. Ou seja, de acordo com o <b>contexto</b>, se ela estiver associada a uma
+    variável do tipo inteiro pode-se interpretar a sequência como um número inteiro, se for uma variável do
+    tipo caractere, como um caractere.
+    </p>
+
+    <p>
+    E qual a relação disso com variável? Bem, por exemplo, é necessário contar e, para fazer usando o computador
+    precisamos pegar uma sequência de <i>bytes</i> interpretá-lo como inteiro, somar 1 e registrar o valor
+    alterado. Isso é feito utilizando a mesma posição de memória, que está assim <i>variando</i>, dai o nome
+    <i>variável</i>.
+    </p>
+
+  </div>
+</details>
+<br />
+<br />
+
+<a name="variaveis">
+<span style="color: #0055AA;font-size:1.1em">Variáveis inteiras e reais</span></a>
+
+<p>
+De um ponto de vista mais elevado (<i>alto-nivel</i>), utilizando uma linguagem de programação como <i>C</i>, <i>Python</i>
+ou <i>iVProg</i>, uma variável é representada por um nome, começado por letra e sem caracteres especiais (exceto "barra baixa" '_'
+que é permitido) e que não seja o nome de um comando da linguaguem (denominado de modo geral por <i>palavra reservada</i>).
+</p>
+
+<table class="tg">
+  <tr>
+    <th class="tab_titulo">Válidos<br></th>
+    <th class="tab_titulo">Inválidos<br></th>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">abc<br></td>
+    <td class="tg-c3ow">ab c<br></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">variavel123<br></td>
+    <td class="tg-c3ow">vari<span style="font-weight:bold">á</span>vel123<br></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">var_1<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">1</span>_var<br></td>
+  </tr>
+</table>
+
+<p>
+Além disso uma variável deve ter um tipo associado, os tipos básicos que examinaremos nesta seção são o
+inteiro (<i>int</i>) e o flutuante (<i>float</i>), este último para representar os valores reais.
+</p>
+
+<p>
+Para explicar melhor a necessidade de tipos, suporemos que o computador considerado utilize para uma variável
+<i>int</i> e para uma do tipo <i>float</i>, respectivamente, 2 e 4 <i title="cada byte tem 8 bits">bytes</i>.
+</p>
+
+<p>
+Desse modo, quando o citado computador precisa devolver o valor armazenado em uma variável do tipo inteiro, ele
+acessará a posição de memória associada à variável, pegará a partir dessa posição os próximos 16 <i>bits</i> e
+o interpretará como um valor inteiro.
+</p>
+
+<p>
+Do ponto de vista prático, vejamos como se usa variáveis do tipo <i>int</i> e do tipo <i>float</i> nas linguagens
+<i>C</i> e <i>Python</i>.
+</p>
+<div id="codigos2">
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'C_2', 'codigos2')">C</button>
+    <button class="tablinks" onclick="openTab(event, 'Python_2', 'codigos2')">Python</button>
+    <button class="tablinks" onclick="openTab(event, 'iVProg_2', 'codigos2')" id="defaultOpen_2">iVProg</button>
+  </div>
+
+  <!-- Tab content -->
+  <div id="C_2" class="tabcontent">
+    <img src="img/t1/cod2_c.png"/>
+    <!--<p class="codigo">int n1, n2;<br />
+                      n1 = 1;<br />
+                      scanf("%d", &n2);<br />
+                      printf("n1=%d e n2=%d\n", n1, n2);</p>-->
+  </div>
+
+  <div id="Python_2" class="tabcontent">
+    <img src="img/t1/cod2_py.png"/>
+    <!--<p class="codigo"># desnecessário declarar em <i>Python</i><br />
+                      n1 = 1<br />
+                      n2 = int(input())<br />
+                      print("n1=", n1, " e n2=", n2)</p>-->
+  </div>
+
+  <div id="iVProg_2" class="tabcontent" >
+    <img src="img/t1/int_iVProg.png"/>
+  </div>
+
+</div>
+
+<p>
+Note as diferenças entre <i>C</i>, <i>Python</i> e <i>iVProg</i>:
+
+<table class="tg">
+  <tr>
+    <th class="tab_titulo"><br></th>
+    <th class="tab_titulo">C<br></th>
+    <th class="tab_titulo">Python</th>
+    <th class="tab_titulo">iVProg</th>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Finalizador de linha<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">;</span><br></td>
+    <td class="tg-c3ow">Não necessita<br></td>
+    <td class="tg-c3ow">Não necessita<br></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Declaração de variável<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">tipo</span> nome_variavel<br></td>
+    <td class="tg-c3ow">Não tem<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">tipo</span> nome_variavel<br></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Leitura de dados<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">scanf(..)</span> com formatador especial para forçar o
+                       computador a interpretar como inteiro, <span style="font-weight:bold">%d</span></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">input</span> submetido à outra função
+                       pré-definida do Python o <span style="font-weight:bold">int(..)</span>)<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">leia(..)</span><br></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Saida de dados<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">printf(..)</span>, também com o formatador %d para inteiro
+                        a primeira parte entra aspas duplas e a segunda<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">print(..)</span>, caracteres entre aspas separados por vírgula<br></td>
+    <td class="tg-c3ow"><span style="font-weight:bold">escreva(..)</span>, caracteres entre aspas separados pelo caractere da soma (+)<br></td>
+  </tr>
+</table>
+
+<!--<ul>
+ <li> De modo geral, todo comando em <i>C</i> precisa de ';' como finalizador.
+      </li>
+ <li> Na linha 1 percebe-se que tanto em <i>C</i> quanto no <i>iVProg</i> é obrigatório <b>declarar</b> as variáveis, enquanto que em <i>Python</i> não.
+   </li>
+ <li> Na linha 3 nota-se que <i>C</i> utiliza a função pré-definida de nome <i>scanf</i> para pegar valores digitados
+      pelo usuário enquanto <i>Python</i> usa o <i>input</i>. O <i>scanf</i> usa o formatador especial '%d' para forçar
+      o computador a interpretar os <i>bytes</i> como um inteiro, enquanto o <i>input</i> pega os <i>bytes</i>
+      digitados e o submete à outra função pré-definida <i>Python</i>, o <i>int(...)</i>, que converte os <i>bytes</i> lidos para um inteiro.
+      </li>
+ <li> Na linha 4 nota-se o mesmo tipo de diferença, <i>C</i> utiliza a função <i>printf</i> para imprimir também com
+      o formatador para inteiro '%d', além de separar em 2 blocos, o primeiro para formatar a saída, que é cercado
+      por aspas dupla e o segunda, uma lista de variáveis compatíveis com o formatador.
+      Já em <i>Python</i>, usa-se os caracteres entre aspas e as variáveis misturados, separador por vírgula.
+      </li>
+ <li> Vale destacar que a linha 4 apresenta a sintaxe do <i>Python</i> antes da versão 3, enquanto que a linha 5
+      apresenta o mesmo resultado mas para o <i>Python</i> a partir da sua versão 3.
+      </li>
+</ul>-->
+</p>
+
+
+<a name="expressoes">
+<span style="color: #0055AA;font-size:1.1em">Expressões aritméticas</span></a>
+
+<p>
+Do mesmo modo que em matemática é essencial efetuarmos operações aritméticas com valores numéricos,
+o mesmo ocorre com o computador, na verdade efetuar contas de modo
+rápido e "sem erro" foi a grande motivação para se construir os computadores.
+</p>
+
+<p>
+Neste, os agrupamentos de valores, variáveis e operadores aritméticos  recebem o nome de  <i>expressão aritmética</i>.
+De modo geral, podemos conceituar uma <i>expressão aritmética</i> <b>EA</b> como:
+<ol>
+ <li>EA := K: uma constante numérica é uma <i>expressão aritmética</i></li>
+ <li>EA := EA + EA | EA - EA | EA * EA | EA / EA: uma <i>expressão aritmética</i> seguida de um <b>operador binário</b>
+     (com 2 itens) e seguida por outra <i>expressão aritmética</i> é uma <i>expressão aritmética</i></li>
+</ol>
+Os <b>operadores artiméticos binários</b>, em <i>C</i>, <i>Python</i> e <i>iVProg</i> são:
+</p>
+
+<center><table class="tg">
+  <tr><th class="tab_titulo">Operação</td><th class="tab_titulo">Operador <th class="tab_titulo">Exemplo</td></tr>
+  <tr class="tg-c3ow"><td>soma         </td><td> +           <td> 2 + 4                          </td></tr>
+  <tr class="tg-c3ow"><td>subtração    </td><td> -           <td> n1 + 1                         </td></tr>
+  <tr class="tg-c3ow"><td>multiplicação</td><td > *           <td> 3 * n2                         </td></tr>
+  <tr class="tg-c3ow"><td>divisão      </td><td> /           <td> n1 / n2                        </td></tr>
+</table></center>
+
+<p>
+Note que foi usado espaço em branco entre os operando e operadores, mas isso não é obrigatório.
+</p>
+
+
+<a name="contexto">
+<span style="color: #0055AA;font-size:1.1em">O resultado de uma expressão aritmética depende do contexto</span></a>
+
+<p>
+É importante observar que dependendo do contexto o resultado de uma expressão é um ou outro, quer dizer,
+se os valores envolvidos forem todos eles inteiros, o resultado será inteiro, entretanto havendo um valor
+real, a resposta final será real.
+</p>
+
+<p>
+A importância disso fica clara ao examinar dois exemplos simples: <i>3 / 2 * 2</i> e <i>3.0 / 2 * 2</i>.
+Em várias linguagens de programação a primeira expressão resulta o valor <i>2</i>, enquanto a segunda <i>3.0</i>.
+A razão é que no primeiro caso todos valores são inteiros, então o cômputo é realizado com aritmética de precisão inteira,
+ou seja, ao realizar o primeiro cômputo <i>3/2</i>, o resultado é <i>1</i> (e não <i>1.5</i> como no segundo caso), daí
+o segundo operador é feito com os valores <i>1 * 2</i> resultando o valor <i>2</i>.
+</p>
+
+<div id="codigos3">
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'C_3', 'codigos3')">C</button>
+    <button class="tablinks" onclick="openTab(event, 'Python_3', 'codigos3')">Python</button>
+    <button class="tablinks" onclick="openTab(event, 'iVProg_3', 'codigos3')" id="defaultOpen_3">iVProg</button>
+  </div>
+
+  <!-- Tab content -->
+  <div id="C_3" class="tabcontent">
+    <img src="img/t1/cod3_c.png" width="600"/>
+  </div>
+  <div id="Python_3" class="tabcontent">
+    <img src="img/t1/cod3_py.png" width="600"/>
+  </div>
+
+  <div id="iVProg_3" class="tabcontent" >
+    <img src="img/t1/cod3_iVProg.png" width="600"/>
+  </div>
+</div>
+
+
+<p>
+Leônidas de Oliveira Brandão<br/>
+http://line.ime.usp.br</p>
+
+
+<p class="rodape">
+<b>Alterações</b>:<br/>
+2019/07/12: mudanças feitas a partir de observações dos alunos e adição do iVProg;
+2019/06/05: as seções inicial ("Ideia de variável") e final ("O resultado de uma expressão aritmética depende do contexto") foram estendidas;<br/>
+2019/06/04: adicionada nova seção (inicial) "Ideia de variável";<br/>
+2017/04/14: adicionados novos itens (como explicação adicional sobre expressões aritméticas).
+</p>
+
+</div><!-- id='page-wrapper' -->
+
+<br/><footer id='page-footer' class='bg-inverse'>  <div class='container'>    <div id='course-footer'></div>      <p class='helplink'>Material didático - Prof. Leônidas de Oliveira Brandão</p>  </div></footer>
+
+</body>
+<script> document.getElementById("defaultOpen").click();
+         document.getElementById("defaultOpen_2").click();
+         document.getElementById("defaultOpen_3").click();
+</script>
+</html>

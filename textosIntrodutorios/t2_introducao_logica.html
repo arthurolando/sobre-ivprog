@@ -1,0 +1,232 @@
+<!--
+Introdução elementar à Lógica
+http://saw.atp.usp.br/mod/page/view.php?id=13310
+
+https://www.ascii.cl/htmlcodes.htm
+
+style="border: 1px solid black ;"
+
+<style type="text/css">
+.tbLeo { border-collapse:collapse; }
+.tbLeo th { background-color:#8aaada; }
+.tbLeo td, .tbLeo th { padding:5px;border:1px solid #000; }
+</style>
+
+-->
+
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/QAPage">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Introdução elementar à Lógica</title>
+<style type="text/css">
+ .tbCodeLinCol { border-collapse:collapse; }
+ .tbCodeLinCol th { background-color:#8aaada; }
+ .tbCodeLinCol td, .tbCodeLinCol th { padding:5px;border:1px solid #000; font: 10px/12px Arial, Helvetica, sans-serif; }
+ .tableCd { border-collapse:collapse; }
+ .thBg th { background-color:#8aaada; }
+ .trCd td, .tbCd td, .tbCd th { vertical-align: top; padding:5px; border-right:1px solid #000;  font-family: courier }
+ .rodape { font-size: .8em; }
+</style>
+</head>
+
+<body>
+<link rel='stylesheet' type='text/css' href='./css/codigos_css.css'> <!-- css Bernardo-->
+<span style="color: #0055AA"><b>Introdução elementar à Lógica</b></span>
+
+<!--
+<p>
+<b>Alterações</b>:
+  2018/04/16 - primeira versão
+</p>
+
+&nbsp;<br/>
+-->
+
+<p>
+  Na seção apresento os princípios da lógica <i>booleana</i>, lembrando o que é <i>tabela verdade</i>
+  e as leis de De Morgan.
+  <!--
+  Augustus De Morgan -  27 June 1806 – 18 March 1871 - https://en.wikipedia.org/wiki/Augustus_De_Morgan
+  https://www.ime.usp.br/~bianconi/recursos/lo.pdf
+  -->
+</p>
+
+<span style="color: #0055AA"><b>Sentenças lógicas e conjuntos</b></span>
+
+<p>
+  A lógica é essencial para a matemática como ciência, ela ajuda a estruturar a linguagem matemática.
+  Pode-se considerar cada afirmação matemática como uma sentança lógica, um teorema pode ser visto como uma
+  sentença do tipo <i>A implica B</i>.
+</p>
+
+<p>
+  De outra parte, cada sentença lógica pode ser examinada sob o de vista de conjuntos.
+  No exemplo <i>A implica B</i>, se entendermos <i>A</i> e <i>B</i> como conjuntos, a implicação indica que
+  o conjunto <i>A</i> está contido no conjunto <i>B</i>. Isso está ilustrado na figura <i>1.a</i>.
+</p>
+
+<p>
+  Existem três operadores básicos para lógica, a <i>negação</i>, a <i>conjunção</i> e a <i>disjunção</i>,
+  respectivamente os operadores <b>não</b>, <b>e</b> e <b>ou</b>.
+  </p>
+
+  <p>
+    Representação dos operadores lógicos nas linguagens C, Python e iVProg:
+    <center><table class="tg">
+      <tr><th class="tab_titulo">Operador</td><th class="tab_titulo">C <th class="tab_titulo">Python</td> <th class="tab_titulo">iVProg</td></tr>
+      <tr class="tg-c3ow"><td>não         </td>                  <td> !                  <td> not                      </td><td> nao   </td></tr>
+      <tr class="tg-c3ow"><td>e           </td>                  <td> &&                 <td> and                      </td><td> e   </td></tr>
+      <tr class="tg-c3ow"><td>ou          </td>                  <td> ||                 <td> or                       </td><td> ou   </td></tr>
+    </table></center>
+  </p>
+
+<details>
+  <summary class="tab" style="margin:0; width:200px">Para conhecer mais</summary>
+  <div class="paraConhecerMais">
+    <p>
+      Assim a sentença <i>não A</i> pode ser entendida como o complemento do conjunto <i>A</i>, ilustrado na figura <i>1.b</i>.
+      E podemos compor as sentenças, por exemplo, criando a sentença <i>não A e B</i>, ou seja, como conjunto, os elementos
+      que não estão em <i>A</i> e que simultaneamente estão em <i>B</i>, como ilustrado na figura <i>1.c</i>.
+    </p>
+
+    <p>
+    A figura <i>1.a</i> apresenta o conjunto <i>B</i> (azul mais claro), contendo o conjunto <i>A</i>.
+    A figura <i>1.b</i> apresenta o <b>complemento</b> ao conjunto <i>A</i> (azul mais claro), ou seja,
+    os elementos que não estão em <i>A</i>.
+    A figura <i>1.c</i> mostra a interseção (equivalente à disjunção) entre o complemento ao conjunto <i>A</i> e o conjunto <i>B</i>
+    (azul mais claro), ou seja, os elementos que estão no complemento de <i>A</i> com aqueles que
+    estão em <i>B</i>.
+    <center>
+      <img src="img/t2/img_conj_a_contido_b.png" title="1.a: imagem ilustrando conjunto A contido no conjunto B"/>
+      <img src="img/t2/img_conj_nao_a.png" title="1.b: imagem ilustrando conjunto nao A" />
+      <img src="img/t2/img_conj_nao_a_e_b.png" title="1.c: imagem ilustrando conjunto nao A e B" />
+    </center>
+    </p>
+  </div>
+</details>
+<br />
+<br />
+
+
+<a name="explog"><span style="color: #0050A0">Tabela verdade</span></a>
+
+<p>
+  Do ponto de vista da lógica, cada sentença deve ser ou <i>verdadeira</i> ou </i>falsa</i>
+  (isto é, pode ocorrer apenas uma das duas opções - um "ou exclusivo").
+  Assim, dada uma sentença formada com <i>k</i> itens lógicos (ou sentenças elementares),
+  pode-se fazer uma tabela com <i>k+1</i> colunas, sendo a primeira formada pelo item 1,
+  a segunda pelo item 2 e assim por diante. A coluna <i>k+1</i> representa a sentença completa.
+  Nesse caso a tabela terá <i>2<sup>k</sup></i> linhas, cada linha terá uma <i>combinação</i>
+  possível para os valores <i>verdadeiro</i> ou </i>falso</i>.
+  O valor lógico na última coluna representará o resultado da frase.
+</p>
+
+<p>
+  Por exemplo, se a sentença tem um único item, existem duas linhas e a última coluna é precisamente o valor da primeira coluna.
+  Se a sentença tiver dois itens, então teremos 4 linhas e o valor lógico na última coluna é o resultado.
+  (isto é, pode ocorrer apenas uma das duas opções - um "ou exclusivo").
+  Assim, dada uma sentença formada com <i>k</i> itens lógicos (ou sentenças elementares),
+  pode-se fazer uma tabela com <i>k+1</i> colunas, sendo a primeira formada pelo item 1,
+  a segunda pelo item 2 e assim por diante. A coluna <i>k+1</i> representa a sentença completa.
+  Nesse caso a tabela terá <i>2<sup>k</sup></i> linhas, cada linha terá uma <i>combinação</i>
+  possível para os valores <i>verdadeiro</i> ou </i>falso</i>.
+</p>
+
+<p>
+  As tabelas abaixo representam as sentenças das operações básicas <i>não A</i>, <i>A e B</i> e <i>A ou B</i>.
+  Simplificaremos escrevendo "verd" para "verdadeiro" (<i>1</i> em <i>C</i> e <i>true</i> em <i>Python</i>)
+  "fals" para "falso" (<i>0</i> em <i>C</i> e <i>false</i> em <i>Python</i>).
+  <center>
+  <table><tr>
+    <td>
+    <table class="tbCodeLinCol">
+     <tr><th>A</th> <th>não A</th></tr>
+     <tr><td>verd</td><td>fals</td></tr>
+     <tr><td>fals</td><td>verd</td></tr>
+    </table></td>
+    <td> &nbsp; </td>
+    <td>
+    <table class="tbCodeLinCol">
+     <tr><th>A</th> <th>B</th> <th>A e B</th></tr>
+     <tr><td>verd</td><td>verd</td><td>verd</td></tr>
+     <tr><td>verd</td><td>fals</td><td>fals</td></tr>
+     <tr><td>fals</td><td>verd</td><td>fals</td></tr>
+     <tr><td>fals</td><td>fals</td><td>fals</td></tr>
+    </table></td>
+    <td> &nbsp; </td>
+    <td>
+    <table class="tbCodeLinCol">
+     <tr><th>A</th> <th>B</th> <th>A ou B</th></tr>
+     <tr><td>verd</td><td>verd</td><td>verd</td></tr>
+     <tr><td>verd</td><td>fals</td><td>verd</td></tr>
+     <tr><td>fals</td><td>verd</td><td>verd</td></tr>
+     <tr><td>fals</td><td>fals</td><td>fals</td></tr>
+    </table></td>
+    <td> &nbsp; </td>
+    </tr>
+  </table>
+  </center>
+</p>
+
+<p>
+  Portanto, a negação inverte o valor lógico, a conjunção resulta em verdadeiro se, e somente se ambos
+  os itens são verdadeiro e a disjunção resulta falso se, e somente se ambos os itens forem falsos.
+</p>
+
+<p>
+  Note que tanto a disjunção quanto a conjunção são operações comutativas e associativas.
+  Comutativas:
+    <i>A e B</i> é o mesmo que <i>B e A</i> (produz a mesma tabela verdade);
+    <i>A ou B</i> é o mesmo que <i>B ou A</i>.
+  Associativas:
+    <i>A e (B e C)</i> é o mesmo que <i>(A e B) e C</i>;
+    <i>A ou (B ou C)</i> é o mesmo que <i>(A ou B) ou C</i>.
+</p>
+
+
+<a name="exp-py"><span style="color: #0050A0">Leis de De Morgan</span></a>
+
+<p>
+  Do mesmo modo que na aritmética podemos compor expressões com diferentes operadores (como '+' e '-'),
+  também podemos compor sentenças misturando os três operadores.
+  Para isso é interessante perceber que valem as seguintes equivalências, denominadas
+  <i><a href="https://en.wikipedia.org/wiki/Augustus_De_Morgan" title="examinar WikiPedia sobre Augustus De Morgan">leis de De Morgan</a></i>:
+  <center>
+    <b>não (A e B)</b> &equiv; <b>(não A) ou (não B)</b><br/>
+    <b>não (A ou B)</b> &equiv; <b>(não A) e (não B)</b><br/>
+  </center>
+</p>
+
+<p>
+  Agora, tente montar as tabelas verdades para cada par de senteça. Observe que cada uma produz o mesmo resultado de seu par.
+</p>
+
+
+
+<p>
+  Algumas fontes para aprofundamento:
+  na <i>WikiPedia</i> examinar os vocábulos
+  <a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws" title="seguir para o vocabulo De_Morgan na WikiPedia em Ingles">
+  De Morgan's laws</a> ou
+  <a href="https://pt.wikipedia.org/wiki/Teoremas_de_De_Morgan" title="seguir para o vocabulo De_Morgan na WikiPedia em Portugues">
+  Teoremas de De Morgan</a>.
+  Se desejar aprofundar o entendimento sobre a linguagem matemática
+  pegue a apostila do professor
+  <a href="https://www.ime.usp.br/~bianconi/recursos/lo.pdf" title="pegar a apostila sobre logica de Bianconi">
+  Ricardo Bianconi</a>.
+</p>
+
+<p>
+<a href="https://www.ime.usp.br/~leo" title="seguir para a pagina">Leônidas de Oliveira Brandão</a><br/>
+<a href="http://www.ime.usp.br/~leo" title="seguir para a pagina do LInE">http://line.ime.usp.br</a>
+</p>
+
+
+<div class="rodape">
+  Versão 1.5. 2019/07/14: adição do iVProg;
+  Versão 1. 2018/04/16
+</div>
+
+</body>

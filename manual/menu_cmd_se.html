@@ -1,0 +1,53 @@
+<!--
+Free Education, Private Data
+http://line.ime.usp.br
+http://www.ime.usp.br/line
+http://www.matematica.br
+http://www.usp.br/line/ivprog
+-->
+
+<meta charset="UTF-8">
+
+<div style="font-family: Arial">
+
+<div class="w3-item"><img src="img/icn_menu_funcaodevolve.png" title="ícone para inserir comando de seleção (se (CONDICAO) C1; senao C2)" class="w3-icon" style="border:1pt solid #001A66"/></div>
+
+<h3>Comando <tt>Se (CONDICAO_eh_Verdadeira) Então COMANDO1</tt></h3>
+
+<p>
+Usando uma <i>expressão lógica</i>, esse comando permite selecionar a execução de um conjunto de comandos (pode ser apenas um)
+de acordo com o resultado da expressão lógica <tt>EL</tt>.
+Simbólicamente: <i>Se</i> <tt>EL</tt> resultar verdadeiro, <i>então</i> execute comandos.
+<br/>
+Opcionalmente pode-se utilizar um complemento do tipo <i>senão</i>, ou seja, se a
+expressão lógica resultar falso, um segundo conjunto de comandos será executado.
+Simbolicamente: <br/>
+<tt>Se (EL_resultar_verdadeiro), então EXECUTE_COMANDOS_VERDADEIRO, senão EXECUTE_COMANDOS_FALSO</tt>.
+</p>
+
+<p>
+No exemplo da fig. 1 a expressão lógica <tt>EL</tt> é para verificar se o valor guardado na variável <tt>n</tt> é igual à constante <tt>10</tt>.
+Ali usamos apenas um comando subordinado a cada opção de fluxo, mas poderia-se se usar vários ou mesmo nenhum comando subordinado ao <tt>se</tt>
+ou ao <tt>senão</tt>.
+<!-- se <tt>EL</tt> resultar <i>verdadeiro</i> (ou seja, foi digitado o valor <tt>10</tt>), -->
+</p>
+
+<div class="img-div">
+<center>
+  <img src="img/pt_ex_impressao.png" title="Exemplo de uso do comando de seleção SE">
+  <br/>
+  <span class="img-label">Fig. 1. Exemplo de programa com comando de seleção.</span>
+</center>
+</div>
+
+<p>
+No código acima é usado uma variável inteira e o usuário deve digitar um valor inteiro.
+Se o valor digitado for <i>10</i>, então será <i>impressa</i> a mensagem <tt>O valor digitado foi exatamente 10.</tt>.
+<br/>
+Por outro lado, se for digitado qualquer valor distinto de <i>10</i> a mensagem a ser impressa será
+<tt>O valor digitado foi diferente de 10.</tt>.
+<br/>
+Experimente melhorar o código acima imprimindo, no segundo caso, também o valor digitado pelo usuário (variável <tt>n</tt>).
+</p>
+
+</div>

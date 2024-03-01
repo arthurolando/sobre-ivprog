@@ -1,0 +1,294 @@
+
+<!--
+ 
+ http://www.matematica.br
+
+ This resource could be freely used, read, modified, and redistributed, citing this notes in your version.
+ If you has contributions to this "open resource", I would be glade to know it.
+ If you integrate you own educational software to this resource and want share it, please, let me know it.
+
+ LInE coordinator: Prof. Dr. Leônidas de Oliveira Brandão - www.ime.usp.br/~leo - leo@ime.usp.br
+  __   ____  _____         ____  ______         _ _ ___ ___ 
+ |  | | |  \| |  _|  ---  | |  \/  |  _|  ---  | | |  _| _ |
+ |  |_| |     |  _| |   | | |      |  _| |   | | | |_  |  _|
+ |____|_|_|\__|___|  ---  |_|_|\/|_|___|  ---  |___|___|_|  
+
+-->
+
+<!-- 
+
+ LInE  : free interactive tools to teach/learn (Laboratory of Informatics in Education)
+ iMath : free interactive tools and contents to teach/learn Math
+
+ A model to read and write content files from an iLM.
+ 
+ How to:
+ 1. Open your browser (preferable Firefox - Java do not work in Chrome!)
+ 2. Point it to this file under a Web server, with something like: http://localhost/ilm_example/index.html
+ 3. Solver the activity
+ 4. Click on the button "Send answer"
+ 5. The server will register the learner answer in the file: ./content_repository/last_answer.ihn
+ 6. You can verify the learner answer pointing the browser to: http://localhost/ilm_example/last_answer.html
+
+
+ What is iLM:
+ - iLM stands for "interactive Learning Module into the Internet".
+ - Any software designed by educational purpose could be an iLM, since it implements one public method (accessible by JavaScript)
+   and implement any method to read a content from an URL address.
+   + An iLM must read its content getting it by using an specific HTML parameter 'iLM_PARAM_Assignment', like in
+        <param name="iLM_PARAM_Assignment" value="content_repository/exerc_ihanoi_3d.ihn">
+   + An iLM must provides a public method using the name 'getAnswer()', like the Java example bellow
+        public String getAnswer () { ... }
+   + An iLM could provides automatic evaluation, in this case it must implement a public method under the name 'getEvaluation()':
+        public float getEvaluation () { ... }
+     returning 0 => the learner exercise is not correct; 1 => the exercise is quite correct (between 0-1 to partial grade)
+ - The technology used to implement the iLM could be amy one that could be integrated to the Web browser, topically "Applet Java" or "HTML5/CSS/JavaScript".
+
+
+ This example:
+ In this example I used an specific iLM, the iHanoi implemented with Java AWT (to increase portability)
+ 
+ - iHanoi.jar            -- iLM instance, here the <<iHanoi>> "applet"
+   iTangram2.jar         -- other iLM instance, here the <<iTangram2>> "applet"
+
+ - index.html            -- The initial Web file representing any exercise, it load the iLM "applet" and provides "send" button, and a
+                            JavaScript code to register the learner answer, under the file: 'content_repository/<<exerc_ihanoi_3d.ihn>>'
+
+ - content_repository/   -- It will play the role of the content repository, the learner answer will be registered in it, the inital content of it is:
+   + iHanoi
+     activity_ihanoi_1d.ihn  --   the iLM exercise from iHanoi, an exercise of iHanoi with 1 discs
+     activity_ihanoi_2d.ihn  --   the iLM exercise from iHanoi, an exercise of iHanoi with 2 discs
+     activity_ihanoi_3d.ihn  --   the iLM exercise from iHanoi, an exercise of iHanoi with 3 discs
+     example_ihanoi_4d.ihn   --   other example of iHanoi file, this one with 4 discs and all the movements registered (the minimum)
+   + iTangram2
+     activity_itangram1.itg2 --   one iLM exercise from iTangram2, in this the learner is challenged to build a square
+     activity_itangram2.itg2 --   other iLM exercise from iTangram2, this one challenges the learner to build a rectangle
+
+ - ilm_server/           -- A diretory playing the role of the LMS (like Moodle with iAssign)
+   + read.php               --   PHP script to read file in the repository, with parameter it allow to read specific file: 
+                                 http://localhost/ilm_example/read.php?id=1&file=ihanoi_4d.ihn -- will open the iLM with the file <<ihanoi_4d.ihn>>
+   + write.php              --   PHP script to register file in the content repository, it will be called by 'index.html' do register the learner answer
+
+ - images/               -- images to be used by this HTML files
+
+
+ Leônidas de Oiveira Brandão
+ leo@ime.usp.br
+ http://www.matematica.br
+ http://line.ime.usp.br
+
+-->
+
+<META name="Author" content="Leônidas de Oliveira Brandão - leo@ime.usp.br">
+<META name="description" content="iMática: páginas de Matemática na Internet,
+      sua Matemática interativa, história da Matemática, material didático,
+      problemas Matemáticos, curiosidades, programas gratuitos, download"> 
+<META name="keywords" content=" história da Matemática, material didático,
+      problemas Matemáticos, curiosidades, programas gratuitos, download">
+
+<html>
+ <SCRIPT LANGUAGE = "JavaScript">
+ /* Copyleft by L.O.Brandão  [ use and cite ] */
+    function enableDisableImage (image, number) {
+      if (number == "2") nome_image = "images/b-" + image + "-b.gif";
+      else               nome_image = "images/b-" + image + "-a.gif";
+      document [image].src = nome_image;
+    }
+</SCRIPT>
+
+<!--
+ -------------------------------------------------------------------------------
+ JavaScript code: starting point
+ This JavaScript code could be inserted in any LMS to get the iLM content and send it to the server.
+ In this example it use a single "applet" instance, here from iVProg2.
+-->
+<script Language="JavaScript">
+function submit_iMA_Answer () {
+  var docForm = document.formEnvio;
+  // Prepared to be used with more than 1 "applet'
+  var exercise_answer = new Array(3); // answer: to get the learner answer
+  var exercise_value = new Array(3);  // value from the iLM automatic evaluator
+  var doc = document.iMA_0; //  -----------------------------------------------------------
+  try {
+    exercise_answer[0] = doc.getAnswer();    // answer: it must be first (usually the iLM first get the answer to compute the evaluation grade)
+    exercise_value[0] = doc.getEvaluation(); // value from the iLM automatic evaluator
+  } catch (Exception) { alert("Error!"); }
+
+  docForm.iLM_POST_Archive_0.value = exercise_answer[0]; // Content coming from the iLM
+  docForm.iLM_POST_Value_0.value = exercise_value[0];    // The activity evaluation coming from the iLM
+
+  // This is used to help the developer to debug his iLM
+  // It presents the file content that will be registered.
+  alert('The file activity value is: ' + exercise_value[0] + '\nThe activity content is:\n' + exercise_answer[0]);
+
+  docForm.submit(); // envia de fato o formulario
+  return true;
+  }
+</script>
+<!--
+ JavaScript code: final
+ ------------------------------------------------------------------------------- 
+-->
+
+ <head>
+  <title>iVProg2 - interactive Visual Programming in the Internet</title>
+ </head>
+
+ <body background="images/bg-fundo.gif" bgcolor="#ffffff"
+       link=#003366 vlink=#0000aa alink=#2222aa><!-- bgcolor="#aaccee"-->
+
+ <font face="Arial,Helvetica" color=#000000>
+
+ <map name="cabecalho.map">
+ <area SHAPE="rect" COORDS="360,0,520,50" HREF="../index.html">
+ <area SHAPE="rect" COORDS="10,0,50,50" HREF="../index.html">
+ </map>
+ <map name="cabecalho2.map">
+ <area SHAPE="rect" COORDS="10,0,50,50" HREF="../index.html">
+ </map>
+
+ <table width=100%>
+  <tr><td><font face="Arial,Helvetica,sans-serif" color=#280099>    
+  <tr><td align=left>
+      <a href="/index.html">
+      <img SRC="images/logo_imatica.jpg" align=center border=0
+          alt="iMÁTICA - www.matematica.br"
+          usemap="#cabecalho.map"></a>
+  </font></td></tr>
+ </table>
+
+<p>
+
+<center>
+<h2><b>iVProg2 iLM --- activity 1</b></h2>
+</center>
+
+
+<!--
+ -------------------------------------------------------------------------------
+ Form: begning
+ Formulário: início
+-->
+<form name='formEnvio' id='formEnvio' method='post' action='./ilm_server/write.php?activity=ivprog2&id=1' enctype='multipart/form-data'>
+
+<center>
+<div align='left'>
+<b>Activity</b>: The Hanoi puzzle has as mininum number of movements given by the following description function<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   f(1) = 1, and f(n) = 2*f(n-1)+1, if n&gt;1. <br/>
+   Using iVProg2, try to implement the algorithm that ask for the user/learner to enter a natural value N (N>0) and your
+   algorithm prints the values of f(1), f(2), and so on, until f(N).<br/>
+   When your algorithm is ready, before sending it to the server, verify the solution with the iVProg top-left button 
+   <img src="images/ivprog_icon_check_answer.png" title="the top-left most icon of iVProg2 - check the solution"/>.<br/>
+<a href="http://www.matematica.br/ivprog2" title="click here to see iVProg2 home page">Access to the iVProg2 Web page</a>.
+</div>
+<br/>
+
+<!--
+ 1. Variables to JavaScript get the session values from iVProg2
+    (Variáveis para o JavaScript pegar valores da sessão do iVProg2)
+-->
+<input type='hidden' name='iLM_POST_Archive_0' value='' >
+<input type='hidden' name='iLM_POST_Value_0' value='' >
+
+<!--
+Put you name here to compose the file name to be registered: 
+<input type='text' name='iLM_POST_name' value=''>
+-->
+
+<!--
+ 2. Called by iVProg2 (Java "applet")
+    (Chamado do iVProg2: applet Java)
+
+ In 'value' of 'iLM_PARAM_Assignment': you must put the iLM content file URL
+-->
+ <applet name="iMA_0" codebase="." archive="iVProg2.jar" code="erro_usp.ime.line.ivprog.Ilm.class" WIDTH=800 HEIGHT=500>
+     <param name="lang" value="pt">
+     <param name="iLM_PARAM_Assignment" value="content_repository/activity_ivprog2_simula_form_recursiva_hanoi.ivp2">
+  </applet> 
+
+
+<br/>
+
+<!--
+ ------------------------------------------------------------------------------- 
+ JavaScript button to access the iLM methods getAnswer() and getEvaluation(), then send the learner answer
+-->
+<input type='button' name='Submit' value='Enviar resposta' onclick='submit_iMA_Answer();'>
+
+
+
+<div align="left">
+<p>
+<b>About the Hanoi puzzle:</b><br/>
+The Towers of Hanoi problem was initially proposed by the French mathematician
+FranÃ§ois Ãdouard Anatole Lucas, in 1883. Lucas proposed an curious legend to his
+"invention": the Tower of Brahma (or Towers of Hanoi) was created at beginning
+of the world, with 3 rods (sticks), the first one with 64 concentric discs.<br/>
+The "world creator" also created a community of monkeys with a single task,
+to move all the discs from the first rod ("A") to the destination one ("C").
+The creator established that the world will reaches its end when the monkeys
+finished their job. However, the monkeys must respect 3 laws:<br/>
+ &nbsp; 1. never put a bigger disc over any smaller one;<br/>
+ &nbsp; 2. it is possible to move a single disc per time;<br/>
+ &nbsp; 3. any disc is under movement or rest in one of the 3 rods.<br/>
+Here is the challenge: try to find an scheme (algorithm) to perform the job using
+the minimum number of disc movement. By doing so, you could estimate the time
+the world has until its ending (in accordance to the legend!!).<br/>
+To solve the second problem of the puzzle (estimate the remaining time), you can
+admit the a constant time move any single disc (e.g. 1 second). Try to find a
+formula that represent the number of movements by using "n" discs (function).
+</p>
+
+<br/>
+</div>
+</center>
+
+<!--
+ ------------------------------------------------------------------------------- 
+ Formulário: fim
+-->
+</form>
+
+<p>
+ You can see:
+   <a href="http://www.matematica.br/ivprog2" title="click here to go to the iHanoi web page">iVProg2 Web page</a>,
+   <a href="http://www.matematica.br/ia" title="click here to go to the iAssign web page">iAssign Web page</a>, and 
+   <a href="https://moodle.org/plugins/view.php?plugin=mod_iassign" title="click here to see iAssign in Moodle.org">iAssign in Moodle.org</a>.
+</p>
+
+ 
+<!-- Footer --------------------------------------------------------------------->
+
+ <center>
+ <table width=100%>
+  <tr><td width=100% background="images/fundo_linha.jpg"></td></tr>
+ </table>
+ </center>
+
+
+ <br>
+ 
+ <!--
+ <hr noshade width=100% size=1>
+ -->
+ <table border="0" width="100%">
+ <tr><td align="left">
+     <font face="Arial, Helvetica, sans-serif" size="-1">
+      <a href="http://www.ime.usp.br">
+       Instituto de Matemática e Estatística</a><br>
+
+      <a href="http://www.usp.br">
+       Universidade de São Paulo</a></font>
+    </td>
+
+    <td align="right">
+     <font face="Arial, Helvetica, sans-serif" size="-1">
+      <a href="http://www.matematica.br" title="click here to see one of the iMath home">iMath</a> <br>
+      <a href="http://line.ime.usp.br" title="click here to see one of the LInE home">LInE</a> <br>
+    </td>
+ </tr>
+ </table>
+
+</body>
+</html>

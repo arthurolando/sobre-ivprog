@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<head>
+    <title>Tutorial iVProg - LInE (free educational software and contents)</title>
+    <link rel="shortcut icon" href="../iVProg_141_49.png"> <!-- icone iVProg -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/line_ivprog.css" rel="stylesheet" />
+</head>
+
+<body>
+
+ <header>
+  <div class="header-left" title="iVProg"><b style="color:#FF0;">i</b><b style="color:#5080FA;">V</b><b style="color:#50FAB0;">P</b><b>rog</b></div>
+  <div class="header-center">
+   <ul>
+    <li > <b><a href="../" title="Navegue para a página inicial do site do iVProg.">Home</a></b> </li> 
+    <li > <b><a href="../ex_pt/index.html" title="Veja alguns exemplos e teste o iVProg online.">Exemplos</a></b> </li> 
+    <li > <b><a href="vetores.html" title="Veja como construir vetores no iVProg.">Vetores</a></b> </li>
+    <li > <b><a href="../bugs/report.html" title="Envie uma mensagem para a equipe do iVProg.">Contato</a></b> </li> 
+    <li > <b><a href="//www.usp.br/line/" title="Conheça o Laboratório de Informática na Educação do Instituto de Matemática e Estatística da USP.">LInE</a></b> </li>
+    <!-- <li > <b><a href="../docs/" title="Tenha acesso a toda a documentação do iVProg.">Desenvolvedores</a></b> </li> -->
+    <li > <b><a href="../publicacoes.html" title="Leia as publicações da equipe a respeito do iVProg.">Publicações</a></b> </li>
+   </ul>
+  </div>
+  <div class="header-right">
+    <img src="../img/img_flag_brazil.png" title="Lingua Portuguesa"/>
+    <a href="../en/index.html"><img src="../img/img_flag_usa.png" title="Change to English language"/></a>
+    <!--<button>Buy now</button>-->
+  </div>
+ </header>
+
+
+ <!-- iVProg: cabecalho --->
+ <section class="header2">
+  <a href="index.html" ><img src="img/icn_home.png" width="30px" title="Voltar para o inicio" /> </a>
+  <i class="font-xxlarge" title="tutorial iVProg">
+     Tutorial <b style="color:#FF0;">i</b><b style="color:#5080FA;">V</b><b style="color:#50FAB0;">P</b><b>rog</b></i>
+ </section>
+ <!-- iVProg: cabecalho --->
+
+ <!-- iVProg: principal --->
+ <section class="main-content">
+ <div id="mainDiv">
+ <div class="paragrafo1">
+
+   <h1>iVProg</h1>
+   <p class="text-reduced">
+   O <b>iVProg</b> (<i>Programação Visual interativa na Internet</i>) é um dos sistemas educacionais de código livre do
+   <a href="http://line.ime.usp.br" title="pagina LInE no IME-USP">LInE</a>, sendo destinado ao ensino e à aprendizagem
+   de <b>algoritmos</b> e <b>programação</b>.
+   O <i>iVProg</i> implementa o conceito de <b>Programação Visual (PV)</b> que emprega ícones e simplifica a construção de códigos,
+   reduzindo a necessidade do aprendiz conhecer detalhes de <i>linguagens de programação</i>.
+   </p>
+   
+   <p class="text-reduced">
+   O <b>iVProg</b> dispoe de um
+   <a href="autoeval/index.html" title="saiba mais sobre"><b>avaliador automático</b></a>
+   para exercícios e pode facilmente ser integrado ao ambiente <i>Moodle</i> a partir do pacote
+   <a href="http://www.matematica.br/ia" title="pagina do iTarefa no iMatica"><b>iTarefa</b></a>.
+   A primeira versão do <i>iVProg</i> foi implementada em <i>Java</i> em 2009,
+   <a href="legacy/index.html" title="primeiras versoes do iVProg">confira aqui as versões anteriores do <i>iVProg</i></a>.
+   </p>
+
+   <h1>Construção de vetores no <i>iVProg</i></h1>
+
+   <p class="text-reduced">
+   Ilustraremos a criação de vetor a partir de um exemplo simples, um vetor com os 10 primeiros pares, ao final imprimindo também um
+   elemento em posição arbitrária para mostrar como indexar um posição a partir de uma expressão (é necessário uma variável auxiliar,
+   pois a interface gráfica do <i>iVProg</i> permite apenas variáveis simples).
+   </p>
+
+   <p class="text-reduced">
+   1. Inicialmente, clicando no botão <img src="img/img_botao_criar_variavel.png" title="botão criar nova variável">, crie uma veriável,
+      que "nascerá" com o tipo <i>inteiro</i> e com nome <i>variavel_0</i>.
+      Se necessário, "clique" sobre o nome da variável para alterar seu nome, digamos para <i>vet</i>, como na figura abaixo.
+      <div class="img-center"><img src="img_vet/img_array_01.png" title="imagem"></div>
+   </p>
+
+   <p class="text-reduced">
+   2. Inicialmente, "clicando" no botão <img src="img/img_botao_criar_variavel.png" title="botão criar nova variável">, crie uma veriável,
+      (que "nascerá" com o tipo <i>inteiro</i>).
+      <div class="img-center"><img src="img_vet/img_array_02.gif" title="imagem"></div>
+      <br/>
+      Veja miniaturas das 4 imagens do <i>Gif</i> animado:
+      <a href="img_vet/img_array_02_01.gif" title="ver mini-imagem 1">1</a>,
+      <a href="img_vet/img_array_02_02.gif" title="ver mini-imagem 2">2</a>,
+      <a href="img_vet/img_array_02_03.gif" title="ver mini-imagem 3">3</a> e
+      <a href="img_vet/img_array_02_04.gif" title="ver mini-imagem 4">4</a>.
+   </p>
+
+   <p class="text-reduced">
+   3. Ao transformar a variável <i>vet</i> em vetor, ela terá inicialmente duas posições (<i>vet[0]</i> e <i>vet[1]</i>).
+      Para criar mais elementos, deve-se "clicar" no botão <tt style="background:#e03997; color:#ffffff">+</tt> 
+      do lado direito da última posição do vertor para criar novas posições para o vetor (aumentar sua dimensão).
+      Analogamente, se decidir reduzir a dimensão, deve-se "clicar" no botão <tt style="background:#e03997; color:#ffffff">-</tt>.
+      Imagem dos dois botões: <img src="img_vet/img_botao_aumentar_reduzir_vetor.png" title="botão criar nova variável">.
+      <br/>
+      Abaixo a imagem de como ficaria o vetor <i>vet</i> com 10 posições (desde <i>vet[0]</i> até <i>vet[9]</i>).
+      <div class="img-center"><img src="img_vet/img_array_03.png" title="imagem"></div>
+   </p>
+
+   <p class="text-reduced">
+   4. Para usar o vetor, deve-se definir o seu índice, por exemplo, na imagem abaixo apresentamos um laço para definir o valor
+      na posição <tt>i</tt> do vetor.
+      Durante a construção da atribuição ao <tt>vet[i]</tt> deve-se selecionar o índice <tt>i</tt>.
+      <br/>
+      <div class="img-center"><img src="img_vet/img_array_04.png" title="imagem"></div>
+   </p>
+
+   <p class="text-reduced">
+   5. A imagem abaixo apresenta a situação final do laço definindo <tt>vet[i]</tt> com o valor <tt>j+2</tt>,
+      sendo <tt>j</tt> incrimentado de duas unidades a cada passo
+      (ou seja, <tt>vet[i]</tt> terá o <i>i+1</i>-ésimo número par).
+      <br/>
+      <div class="img-center"><img src="img_vet/img_array_05.png" title="imagem"></div>
+   </p>
+
+   <p class="text-reduced">
+   6. A imagem abaixo ilustra a necessidade de usarmos uma variável auxiliar para pegar posições específicas do vetor,
+      uma vez que a interface visual do <i>iVProg</i> não permite a construção de uma expressão aritmética dentro do indexador de vetor.
+      Assim, usamos <tt>j</tt> recebendo <tt>i-5</tt> (o <tt>i</tt> sai do laço <tt>repita_para</tt> com o valor <tt>10</tt>),
+      para indexar <tt>vet[i-5]</tt> (resultando em <tt>vet[5]</tt> naquela posição do código).
+      <br/>
+      <div class="img-center"><img src="img_vet/img_array_06.png" title="imagem"></div>
+   </p>
+
+   <p>
+   Alguns exercícios envolvendo <b>vetores</b>.</p>
+   <a class="button-exerc" href="./exerc_vetor_4_1.html" title="clique para testar">Exerc. 4.1 &raquo;</a>: Imprimir ordem inversa<br/><br/>
+   <a class="button-exerc" href="./exerc_vetor_4_2.html" title="clique para testar">Exerc. 4.2 &raquo;</a>: Encontrar maior dentre 5 fixados (dentre N)<br/><br/>
+   <a class="button-exerc" href="./exerc_vetor_4_3.html" title="clique para testar">Exerc. 4.3 &raquo;</a>: Buscar valor em conjunto 5 fixados (dentre N)<br/><br/>
+   <a class="button-exerc" href="./exerc_vetor_4_4.html" title="clique para testar">Exerc. 4.4 &raquo;</a>: Média e desvio padrão<br/>
+
+        </div>
+
+   </div><!-- paragrafo1 -->
+   </div><!-- mainDiv -->
+ </section><!-- class="header2" -->
+
+  <footer style="width: 100%; display: flex; align-items: center; justify-content: center">
+      <a href="http://www.ime.usp.br/line">iVProg</a> | 
+      <a href="http://www.ime.usp.br/line">LInE</a> |
+      <a href="http://www.matematica.br">iM&aacute;tica</a>
+  </footer>
+
+  </body>
+</html>

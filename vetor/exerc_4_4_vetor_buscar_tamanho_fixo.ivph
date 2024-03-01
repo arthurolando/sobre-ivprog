@@ -1,0 +1,45 @@
+ {  
+ "testcases" : [ 
+{ 
+ "input": ["45", "-12", "30", "25", "25", "25"], 
+ "output": ["3"]
+},
+{ 
+ "input": ["45", "-12", "30", "25", "25", "21"], 
+ "output": ["INEXISTENTE"]
+},
+{ 
+ "input": ["1", "2", "3", "4", "5", "1"], 
+ "output": ["0"]
+},
+{ 
+ "input": ["1", "2", "3", "4", "5", "5"], 
+ "output": ["4"]
+},
+{ 
+ "input": ["4", "4", "4", "4", "4", "4"], 
+ "output": ["0"]
+},
+{ 
+ "input": ["4", "4", "4", "4", "3", "3"], 
+ "output": ["4"]
+},
+{ 
+ "input": ["4", "4", "4", "4", "3", "-3"], 
+ "output": ["INEXISTENTE"]
+},
+{ 
+ "input": ["4", "4", "4", "4", "3", "-4"], 
+ "output": ["INEXISTENTE"]
+}
+] ,
+"settings_programming_type": 
+[{"name":"programming_type","value":"visual"}],
+"settings_data_types": 
+[{"name":"integer_data_type","value":"on"},{"name":"real_data_type","value":"on"},{"name":"text_data_type","value":"on"},{"name":"boolean_data_type","value":"on"},{"name":"void_data_type","value":"on"}],
+"settings_commands": 
+[{"name":"commands_read","value":"on"},{"name":"commands_write","value":"on"},{"name":"commands_comment","value":"on"},{"name":"commands_attribution","value":"on"},{"name":"commands_functioncall","value":"on"},{"name":"commands_iftrue","value":"on"},{"name":"commands_repeatNtimes","value":"on"},{"name":"commands_while","value":"on"},{"name":"commands_dowhile","value":"on"},{"name":"commands_switch","value":"on"}],
+"settings_functions": 
+[{"name":"functions_creation","value":"on"},{"name":"functions_move","value":"on"}],
+"settings_filter": 
+[] } 

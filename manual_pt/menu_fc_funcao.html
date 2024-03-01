@@ -1,0 +1,77 @@
+<!--
+Free Education, Private Data
+http://line.ime.usp.br
+http://www.ime.usp.br/line
+http://www.matematica.br
+http://www.usp.br/line/ivprog
+-->
+
+<meta charset="UTF-8">
+<link rel='stylesheet' type='text/css' href='css/line_ivprog.css'>
+
+<div style="font-family: Arial" class="line-item">
+
+<img src="img/pt_btn_funcao.png" title="botão para criar nova função" /> <!-- class="line-icon" /-->
+ 
+<h3>Função</h3>
+
+<p>
+De modo geral as linguagens de programação possibilita que se codifique trechos na forma de uma
+<i>função</i> (ou um <i>procedimento</i>), podendo chamar esses trechos em qualquer ponto do código.
+Isso possibilita uma melhor organização do programa, tornando-o mais <i>modular</i>.
+<br/>
+O <i>iVprog</i> implementa essa possibilidade de <i>modularização</i> por meio de <i>funções</i>,
+que comportam-se como as funções matemáticas.
+</p>
+
+<div class="img-div">
+<center>
+  <img src="img/pt_funcao.png" title="Estrutura para declarar uma função">
+  <br/>
+    <span class="img-label">Fig. 1. Interface do <i>iVProg</i> para declarar uma função (ainda com o nome padrão).</span>
+</center>
+</div>
+
+<ol>
+  <li> <b>Tipo da função:</b> define o tipo de "devolução" da função</li>
+  <li> <b>Nome da função:</b> define o nome da função</li>
+  <li> <b>Adicionar parâmetro:</b> adiciona um novo parâmetro à função</li>
+  <li> <b>Tipo do parâmetro:</b> define o tipo do parâmetro</li>
+  <li> <b>Nome do parâmetro:</b> define o nome do parâmetro</li>
+</ol>
+
+<p>
+<b>Exemplo</b>. Na figura 2 apresentamos um código definindo uma função de nome <i>fatorial</i> devolvendo um valor
+<i>inteiro</i> (portanto <i>função do tipo inteiro</i>).
+No programa que chama <i>fatorial</i> é solicitado que o
+<i title="aquele que executa/usa o seu programa">usuário</i> digite um valor inteiro, então a função é invocada
+para computar esse valor (imprimindo-o).
+<br/>
+<div class="img-div">
+<center>
+  <img src="img/img_escreva_funcao_3.png" title="Código definindo uma função de nome fatorial">
+  <br/>
+    <span class="img-label">Fig. 2. Exemplo da definição de uma função (<i>fatorial</i>) e uma chamada dessa função.</span>
+</center>
+</div>
+
+<a name="sintaxe" href="img/pt_menu_fc_funcao_portugol.png"
+   title="Clique para ver a interface textual do iVProg com esse código"><h4>Portugol. Código textual correspondente</h4></a>
+  <pre><def>programa</def> {
+  <def>funcao</def> vazio inicio (  )  {
+    <verm>inteiro</verm> n &lt;- 0
+    <verd2>leia</verd2>(n)
+    <verd2>escreva</verd2>(fatorial(n), "\n")
+    }
+<def>funcao</def> <verm>inteiro</verm> fatorial (<verm>inteiro</verm> pn) {
+    <verm>inteiro</verm> fat &lt;- 1
+    <verm>inteiro</verm> i &lt;- 2
+    <azul2>enquanto_verdadeiro</azul2> (i &lt;= pn) {
+      fat &lt;- fat * i
+      i &lt;- i + 1
+      }
+    <def>devolva</def> fat
+    }
+  }</pre>
+
+</div>

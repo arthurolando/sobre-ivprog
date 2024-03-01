@@ -1,0 +1,53 @@
+<!--
+Free Education, Private Data
+http://line.ime.usp.br
+http://www.ime.usp.br/line
+http://www.matematica.br
+http://www.usp.br/line/ivprog
+-->
+
+<meta charset="UTF-8">
+
+<div style="font-family: Arial">
+
+<div class="w3-item"><img src="img/icn_menu_funcaodevolve.png" title="icon to insert command to select command (if (CONDITION) C1; else C2)" class="w3-icon" style="border:1pt solid #001A66"/></div>
+
+<h3>Command <tt>If (CONDITION_is_TRUE) Then COMMAND1</tt></h3>
+
+<p>
+Using a <i>Logical Expression (LE) </i>, this command lets you select the execution of a set of commands (it can be just one)
+according to the logical result of the expression <tt>LE</tt>.
+Symbolically: <i>If</i> <tt>LE</tt> to be true, <i>then</i> execute commands.
+<br/>
+Optionally, a <i>else</i> can be used, that is, if the
+logical expression results false, a second set of commands will be executed.
+Symbolically:<br/>
+<tt>IF (LE_results_true) then EXECUTE_TRUE_COMMANDS, else EXECUTE_FALSE_COMMANDS</tt>.
+</p>
+
+<p>
+In the example in fig. 1 the logical expression <tt>LE</tt> is to verify if the value registered on variable <tt>n</tt> is equal to the constante <tt>10</tt>.
+It was used only one command under each flow option, but it is possible to use several or even none under <tt>if</tt>
+or under the <tt>else</tt> flow option.
+
+</p>
+
+<div class="img-div">
+<center>
+  <img src="img/en_ex_impressao.png" title="Example of use of if-else command">
+  <br/>
+  <span class="img-label">Fig. 1. Example of program with if-else command.</span>
+</center>
+</div>
+      
+<p>
+In the above code it is used an integer variable and the user must enter an integer value.
+If the value is <i>10</i>, then the message <tt>The entered value was precisely 10.</tt>.
+<br/>
+On the other hand, if the user enter any value but <i>10</i>, the message to be presented will be
+<tt>The entered value was not 10.</tt>.
+<br/>
+Try to improve this code printing, on the second case, also the entered value (variable <tt>n</tt>).
+</p>
+
+</div>

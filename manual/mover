@@ -1,0 +1,26 @@
+# mudancas
+mv atribuicao.html           menu_cmd_atribuicao.html
+mv chamada-funcao.html       menu_cmd_chamada-funcao.html
+mv comando-enquanto.html     menu_cmd_enquanto.html
+mv comando-escolha.html      menu_cmd_escolha.html
+mv comando-faca.html         menu_cmd_faca.html
+mv comando-repita.html       menu_cmd_repita.html
+mv comando-se.html           menu_cmd_se.html
+mv comandos.html             menu_cmd_comandos.html
+mv comentario.html           menu_cmd_comentario.html
+mv desfazer.html             menu_bf_desfazer.html
+#mv download.html            download.html
+mv escrever.html             menu_cmd_escrever.html
+mv executar.html             menu_bf_executar.html
+mv exportar.html             menu_bf_exportar.html
+mv funcao.html               menu_fc_funcao.html
+mv gravar.html               menu_bf_gravar.html
+mv importar.html             menu_bf_importar.html
+mv leitura.html              menu_cmd_leitura.html
+mv novo.html                 menu_bf_novo.html
+mv refazer.html              menu_bf_refazer.html
+mv retorno.html              menu_cmd_retorno.html
+mv textual.html              menu_fp_textual.html
+mv variavel-global.html      menu_var_variavel-global.html
+mv variavel-local.html       menu_var_variavel-local.html
+mv visual.html               menu_fp_visual.html

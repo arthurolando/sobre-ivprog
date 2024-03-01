@@ -1,0 +1,13 @@
+<span ng-click="edit()" class="normal">
+		<span ng-show="type=='arrayInt'">{{getVetValue()}}</span>
+		<span ng-show="type=='arrayFloat'">{{getVetValue()| number:4}}</span>
+		<span ng-show="type=='arrayString'">{{getVetValue()}}</span>
+		<span ng-show="type=='arrayBoolean'">
+			<span ng-show="vetvalue">Verdadeiro</span>
+			<span ng-hide="vetvalue">Falso</span>
+		</span>
+		<span ng-show="type=='array'">{{getVetValue()}}</span>
+</span>
+<span class="control-group form-group">
+	<input ng-model="vetvalue" type="text" class="input-edit input form-control input-sm" />
+</span>

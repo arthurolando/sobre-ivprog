@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>iVProg :: Quick tutorial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="attribution_files/w3.css">
+    <link href="attribution_files/bootstrap.css" rel="stylesheet">
+    <link href="attribution_files/style.css" rel="stylesheet">
+<style>
+  .main-img-div img {
+    width: 90%;
+    margin: 10px;
+  }
+  .img-div {
+    margin: auto auto !important;
+    width: 50%;
+  }
+  .img-div img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .img-label {
+    display: block;
+    text-align: center;
+    font-style: italic;
+  }
+  .icon_32x32 {
+    width: 32px;
+    height: 32px;
+  }
+  .image {
+    opacity: 1;
+    display: block;
+    width: 50px;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    float:left;
+    margin-top:25px;
+  }
+  .image:hover {opacity: 0.5;}
+  body {font-family: sans-serif, arial}
+  .w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
+  #conteudo { width: 95%; height: 300px;}
+</style>
+
+</head>
+
+
+<body>
+
+<div id="cabecalho" class="w3-container" style=" background-color:#001A66;color: white;">
+  <br/> &nbsp; <br/>
+  <a href="file:///home/leo/projetos/iMA/ima/ivprog_html5/2018/www-ivprog/manual_pt/index.html"><img src="attribution_files/icn_home.png" title="Voltar para o inicio"> </a>
+  <i class="w3-xxxlarge" style="margin-left: 5%">iVProg :: Quick tutorial</i>
+</div>
+
+<div class="w3-container" style="padding:32px" id="conteudo"><div class="w3-item"><img src="attribution_files/img_cmd_attribution.png" title="icone opcao comando atribuicao" class="w3-icon"></div>
+
+<h3>Attribution</h3>
+
+<p>
+This is the command used to attribute value to a variable.
+You can use a single expression (attribute a constant or the value of a single variable, or even, the value returned by a function call).
+However, you also can use a binary expression (<tt>EXP OP EXP</tt>) or an expression enclosed by parenthesis (<tt>(EXP)</tt>).
+</p>
+
+<p>
+Bellow is ilustrated the flow to build a binary expression and attribute its result to an integer variable (<tt>r</tt>).
+In this example, the variable <tt>r</tt> will receive the rest of the integer division of <tt>a</tt> by <tt>b</tt>.
+
+</p><ol>
+ <li><b>Open the command menu:</b> pass the "mouse" over the icon (bellow indicate), that the menu will be presented<br/>
+     Select the option "attribution".<br/>
+     <img src="attribution_files/img_cmd_attribution_01.png" title="step 1: image indicating abertura do bloco de comando " /><br/>
+     This will result in a box, indicating the command, that must be positioned (in the code) where you desire the attribution.
+     <hr style="border-top: 1px solid #0000aa; background: transparent;" width="100%" /></li>
+ <li>As a result, will be created a graphical command presented in the next figure.<br/>
+     <img src="attribution_files/img_cmd_attribution_02.png" title="step 2: image indicating resultado apos selecao de comando atribuicao"/>
+     <hr style="border-top: 1px solid #0000aa; background: transparent;" width="100%" /></li>
+ <li><b>Define the variable to receive the expression result (left side of the attribution):</b><br/>
+     First, in the left item, get the option "select a variable".
+     The will <i>iVProg</i> present all the variable already declared.<br/>
+      <img src="attribution_files/img_cmd_attribution_03.png" title="step 3: image showing the selecao de variavel (lado left da atribuicao)"/><br/>
+     In the example bellow, the variable "r" was selected.<br/>
+      <img src="attribution_files/img_cmd_attribution_04.png" title="step 4: image with the result  da selecao da variavel r para receber atribuicao">
+     <hr style="border-top: 1px solid #0000aa; background: transparent;" width="100%" /></li>
+ <li><b>Define the expression (right side of the attribution):</b><br/>
+     In the current version of <i>iVProg</i>, expressions are linearly build, to add a new operator/operand, click over the following button
+      <img src="attribution_files/button_add_operation.png" title="add operator/operand" />.
+     If you need parenthesis, click over the next button
+      <img src="attribution_files/button_add_parenthesis.png" title="put parenthesis" />
+     and select its starting and ending point.<br/>
+     See an example to build the expression <tt>r &lt;- a % b</tt>:
+     <ol>
+      <li>Select the first item ("Variable a")<br/>
+       <img src="attribution_files/img_cmd_attribution_05.png"
+            title="step 4.1: image indicating initial options to build expression, selecting variable a"/></li>
+      <li>Add a new operator/operand clicking over the "add operator/operand" button:<br/>
+       <img src="attribution_files/img_cmd_attribution_06.png" title="step  4.2: image with variable a - click over 'add operator/operand' button"><br/>
+       <img src="attribution_files/img_cmd_attribution_07.png" title="step  4.2: as a results a new operator/operand is presented"></li>
+      <li>Select binary operator "remainder of integer division" (<tt>%</tt>)<br/>
+       <img src="attribution_files/img_cmd_attribution_08.png" title="step  4.3: image indicating all possible operators (choose '%')"><br/>
+       <img src="attribution_files/img_cmd_attribution_09.png" title="step  4.3: image with the result after to choose operator '%'"></li>
+      <li>Select the next operand (variable <tt>b</tt>)<br/>
+       <img src="attribution_files/img_cmd_attribution_10.png" title="step  4.4: image presenting the menus to select 'variable b'"><br/>
+       <img src="attribution_files/img_cmd_attribution_11.png" title="step  4.4: image with the result, expression 'a % b'"></li>
+</ol>
+</li></ol>
+
+<p></p>
+
+<hr style="border-top: 1px solid #0000aa; background: transparent;" width="100%" />
+
+<p></p>
+
+<p>
+After these steps the attribution command is complete, bellow is presented the <i>iVProg</i> interface with the "main" function,
+with integer variables "a", "b" and "r" (respectively initiated with 5, 4, and 0).
+In the next command is the result of the above process, the expression
+<b><tt>r &lt;- a % b</tt></b>.
+</p>
+<center>
+  <img src="attribution_files/img_cmd_attribution_12.png" title="step  5: image with the result  final da expressao, mostrando todo o contexto do codigo ">
+</center>  
+
+<p>&nbsp;</p>
+
+<hr style="border-top: 1px solid #0000aa; background: transparent;" width="100%" />
+
+<p></p>
+
+<p><b>Removing:</b> You can remove any pair "operator/operand", dragging down the "operand", as indicated bellow
+(let's suppose was added an extra item, the "+ Select"):
+<img src="attribution_files/img_cmd_attribution_13.png" title="how to remove '+ Select' item"><br/>
+<img src="attribution_files/img_cmd_attribution_14.png" title="how to remove: image indicating all possible operators (choose '%')"><br/>
+
+</p>
+
+
+</div>
+
+
+</body></html>

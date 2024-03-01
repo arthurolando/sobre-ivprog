@@ -1,0 +1,31 @@
+ {  
+ "testcases" : [ 
+{ 
+ "input": ["10", "20"], 
+ "output": ["15.0"]
+},
+{ 
+ "input": ["5", "6"], 
+ "output": ["5.5"]
+},
+{ 
+ "input": ["70", "100"], 
+ "output": ["85.0"]
+},
+{ 
+ "input": ["97", "100"], 
+ "output": ["98.5"]
+},
+{ 
+ "input": ["300", "500"], 
+ "output": ["400.0"]
+}
+] ,
+"settings_data_types": 
+[{"name":"integer_data_type","value":"on"},{"name":"real_data_type","value":"on"},{"name":"text_data_type","value":"on"},{"name":"boolean_data_type","value":"on"},{"name":"void_data_type","value":"on"}],
+"settings_commands": 
+[{"name":"commands_read","value":"on"},{"name":"commands_write","value":"on"},{"name":"commands_comment","value":"on"},{"name":"commands_attribution","value":"on"},{"name":"commands_functioncall","value":"on"},{"name":"commands_iftrue","value":"on"},{"name":"commands_repeatNtimes","value":"on"},{"name":"commands_while","value":"on"},{"name":"commands_dowhile","value":"on"},{"name":"commands_switch","value":"on"}],
+"settings_functions": 
+[{"name":"functions_creation","value":"on"},{"name":"functions_move","value":"on"}] } 
+::algorithm::
+{"functions":[{"type":"function","name":"inicio","return_type":"void","return_dimensions":0,"parameters_list":[],"is_main":true,"is_hidden":false,"variables_list":[{"type":"integer","name":"val1","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},{"type":"integer","name":"val2","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},{"type":"real","name":"media","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0}],"function_comment":{"type":"comment","comment_text":"Esta é a função principal..."},"commands":[{"type":"reader","variable_value_menu":{"type":"var_value","variable_and_value":1,"content":{"type":"integer","name":"val1","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":false,"dimensions":0,"dom_object":{"0":{},"length":1}}},{"type":"reader","variable_value_menu":{"type":"var_value","variable_and_value":1,"content":{"type":"integer","name":"val2","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":false,"dimensions":0,"dom_object":{"0":{},"length":1}}},{"type":"attribution","variable":{"type":"var_value","variable_and_value":1,"content":{"type":"real","name":"media","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":false,"dimensions":0,"dom_object":{"0":{},"length":1}},"expression":["(",{"type":"var_value","variable_and_value":7,"content":{"type":"integer","name":"val1","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":true,"dimensions":0,"dom_object":{"0":{},"length":1}},{"type_op":"exp_arithmetic","item":"plus"},{"type":"var_value","variable_and_value":7,"content":{"type":"integer","name":"val2","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":true,"dimensions":0,"dom_object":{"0":{},"length":1}},")",{"type_op":"exp_arithmetic","item":"division"},{"type":"var_value","variable_and_value":7,"content":"2.0","row":null,"column":null,"include_constant":true,"dimensions":0,"dom_object":{"0":{},"length":1}}]},{"type":"writer","content":[{"type":"var_value","variable_and_value":7,"content":{"type":"real","name":"media","value":0,"dimensions":0,"is_constant":false,"rows":0,"columns":0},"row":null,"column":null,"include_constant":true,"dimensions":0,"dom_object":{"0":{},"length":1}}]}]}],"globals":[]}

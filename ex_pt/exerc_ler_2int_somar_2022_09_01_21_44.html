@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>iVProg - LInE (free educational software and contents)</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+  </head>
+
+<!--
+Exercicio feito com iVProg versao "2022_09_01 21_44"
+Ler 2 inteiros e imprimir sua soma
+exerc_ivprog_2022_09_01_ler_2int_somar.ivph
+  -->
+  
+<!--
+   -------------------------------------------------------------------------------
+  JavaScript code: starting point
+  This JavaScript code could be inserted in any LMS to get the iLM content and send it to the server.
+  In this example it use a single "applet" instance, here from iHanoi.
+ -->
+<script Language="JavaScript">
+  //<![CDATA[
+  var strAnswer = '';
+  var evaluationResult = '';
+  var comment = '';
+
+  function submit_iMA_Answer (index) {
+    // alert('./ex_pt/index.html: window.frames=' + window.frames);
+    // alert('./ex_pt/index.html: window.frames.iLM=' + window.frames.iLM);
+
+    var name = 'iLM[' + index + ']'; // alert('name='+name);
+    window.frames[name].getEvaluation();
+    var strAnswer = window.frames[name].getAnswer();
+    alert('Copie o código ivph a seguir (para usá-lo com o iVProg): ' + strAnswer);
+
+    //DEBUG
+    //D var strFrames = "";
+    //D var arrFrames = parent.document.getElementsByTagName("IFRAME");
+    //D for (var i=0; i<arrFrames.length; i++) {
+    //D   strFrames += ', ' + arrFrames[i].name; // if (arrFrames[i].contentWindow === window) alert("yay!");
+    //D   } // acho 'window.frames' de nome 'iLM'!!!
+    //D if (index<10)
+    //D alert('./ex_pt/index.html: window.frames=' + strFrames);
+
+    // alert('window.frames.iLM=' + window.frames.iLM); // undefined
+
+    //D var docForm = document.formEnvio;
+    //D // Prepared to be used with more than 1 "applet'
+    //D var exercise_answer = new Array(3); // answer: to get the learner answer
+    //D var exercise_value = new Array(3);  // value from the iLM automatic evaluator
+    //D // var doc = document.formEnvio; // ----------------------------------------------------------
+    //D // var doc = javascript:window.jsAnalyseAnswer();
+    //D try {
+    //D   alert('submit_iMA_Answer(): evaluationResult=' + evaluationResult);
+    //D   exercise_answer[0] = doc.getAnswer();    // answer: it must be first (usually the iLM first get the answer to compute the evaluation grade)
+    //D   exercise_value[0] = doc.getEvaluation(); // value from the iLM automatic evaluator
+    //D } catch (Exception) { alert("Error!"); }
+    //D docForm.iLM_POST_Archive_0.value = exercise_answer[0]; // Content coming from the iLM
+    //D docForm.iLM_POST_Value_0.value = exercise_value[0];    // The activity evaluation coming from the iLM
+    //D // This is used to help the developer to debug his iLM
+    //D // It presents the file content that will be registered. 
+    //D alert('The file activity value is: ' + exercise_value[0] + '\nThe activity content is:\n' + exercise_answer[0]);
+    //D //uncomment_this docForm.submit(); // envia de fato o formulario
+    //D //uncomment_this return true;
+
+    }
+
+  function getEvaluationCallback (evaluation) {
+    evaluationResult = evaluation;
+    strAnswer = window.frames.iLM[index].getAnswer();
+    alert('getEvaluationCallback(...)' + evaluation + ', strAnswer=' + strAnswer);
+    comment = document.formEnvio.submission_comment.value;
+    //leo
+    if ((strAnswer==null || strAnswer=='' || strAnswer==-1) && (comment==null || comment=='')) { // undefined
+      alert('Activity sent without content.'); // 'Activity sent without content.'
+      return false; // error...
+      }
+    else {
+      //leo alert('getEvaluationCallback: enviando evaluationResult=' + evaluation + ', strAnswer=' + strAnswer);
+      document.formEnvio.iLM_PARAM_ArchiveContent.value = strAnswer;
+      document.formEnvio.iLM_PARAM_ActivityEvaluation.value = evaluationResult;
+      document.formEnvio.submit();
+      return true; // success
+      }
+    }
+
+    function openSolution (url_file, el_button) {
+        $(el_button).parent().find('iframe').attr('src', '../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=' + url_file + '&iLM_PARAM_SendAnswer=false&lang=pt');
+      }
+//]]>
+</script>
+
+<!--
+  JavaScript code: final -------------------------------------------------------------------------------
+-->
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #03396c;">
+      <b><a class="navbar-brand" href="../">iVProg</a></b>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../" 
+               title="Navegue para a página inicial do site do iVProg.">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../sobre_ivprog.html"
+               title="Conheça resumidamente o que é e para que serve o iVProg.">Conheça</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="../ex_pt/index.html"
+               title="Veja alguns exercicios e teste o iVProg em linha.">Exercicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../download.html"
+               title="Faça uma cópia do iVProg para sua máquina.">Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../manual_pt/index.html" 
+               title="Acesse um manual online do iVProg e conheça todos os recursos.">Ajuda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../bugs/report.html"
+               title="Envie uma mensagem para a equipe do iVProg.">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="//www.usp.br/line/"
+               title="Conheça o Laboratório de Informática na Educação do Instituto de Matemática e Estatística da USP.">LInE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../docs/"
+               title="Tenha acesso a toda a documentação do iVProg.">Desenvolvedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../publicacoes.html"
+               title="Leia as publicações da equipe a respeito do iVProg.">Publicações</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <a href="../index.html"><img src="../img/img_flag_brazil.png"/></a>
+          <a href="../en/index.html"><img src="../img/img_flag_usa.png"/></a>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main">
+      <div class="jumbotron ivprogh-desc">
+        <div class="container">
+          <h1>Exerc&iacute;cios</h1>
+        </div>
+      </div>
+
+      <div class="container example-large-div autoeval-descript">
+        <div data-toggle="collapse" class="pointer" href="#area-autoeval-descript" aria-expanded="false" aria-controls="area-autoeval-descript"><span class="octicon octicon-info"></span>
+	     Entenda o funcionamento do avaliador automático</div>
+        <div id="area-autoeval-descript" class="collapse">
+          <p>O iVProg permite a disponibilização de exercícios com avaliação automática diretamente em páginas Web.
+          Se o professor dispuser de uma instalação do gerenciador Moodle com o pacote <a href="www.matematica.br/ia">iTarefa</a>, então a atividade realizada pelo aluno será registrada, assim como a nota atribuida à solução do aluno.</p>
+
+          <p>A avaliação automática no iVProg é feita a partir de um modelo (gabarito), que deve ter sido preparado pelo professor,
+          prevendo entradas de dados e suas respectivas saídas. Quando o aluno "clicar" no botão para avaliar sua solução,
+          o iVProg usa a primeira lista como entradas para o problema do aluno, comparando cada saída gerada com aquelas da
+          lista de saídas.</p>
+
+          <p>Para compreender melhor o processo, vamos usar um exemplo de algoritmo que deve somar separadamente todos os números
+          positivos e negativos digitados pelo usuário.</p>
+
+          <p><span class="octicon octicon-pin"></span><b>Problema:</b></p>
+          
+          <p>Fazer um algoritmo que solicite que o usuário digite valores inteiros, finalizando sua execução quando for digitado
+          o valor zero. Ao final, seu programa deve imprimir a soma de todos os inteiros positivos que foram digitados e a seguir,  imprimir a soma de todos os inteiros negativos.</p>
+
+          <p><span class="octicon octicon-light-bulb"></span>
+           <b>Como posso preparar um gabarito para exercício com avaliação automática no iVProg</b></p>
+
+          <p>O professor pode preparar um número qualquer de listas de entradas e de saídas, para o problema acima, usaremos apenas 3 listas,
+          ilustradas na tabela abaixo. A primeira coluna tem o numero do par "entradas/saidas", a segunda apresenta a lista de entradas
+          (separadas por espaço em branco), no terceira coluna estão as saídas esperadas (para aquelas entradas) e na última coluna uma
+          explicação curta sobre o par.
+
+          <table class="table about-auto-eval">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Entradas</th>
+                <th scope="col">Saídas</th>
+                <th scope="col">Comentários</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>0</td>
+                <td>0 0</td>
+                <td>Esse é um teste capcioso, pois se a primeira entrada for zero, nada será somado (daí deve-se imprimir 0 e 0)</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>1 -1 1 0</td>
+                <td> 2 -1 </td>
+                <td>Apresenta 2 valores positivos e 1 negativo, com somas respectivamente 2 e -1</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>-1 -1 3 1 0</td>
+                <td>4 -2</td>
+                <td>Apresenta 2 valores positivos e 2 negativo, com somas respectivamente 4 e -2</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>O iVProg dispõe de uma interface especial para que o professor digite cada lista de entrada e sua respectiva lista de saídas.</p>
+
+          <p><span class="octicon octicon-light-bulb"></span> <b>Como o iVProg avalia automaticamente uma solução do aluno?</b></p>
+
+          <p>Supondo que o aluno tenha construído um algoritmo, quando ele "clicar" no botão para avaliar
+          sua solução, o iVProg:</p>
+
+          <ol>
+            <li>Pega a primeira entrada da primeira lista e submete ao primeiro de leitura presente no código do aluno (se não existir, erro), depois a segunda entrada e assim por diante até a última.</li>
+            <li>A primeira saída (comando de impressão) gerada pelo código do aluno é comparada com a primeira saída esperada, se coincidir
+               é registrado um acerto, senão um erro.</li>
+            <li>Repete-se os passos 1 e 2 para cada uma das demais listas de entradas/saídas e ao final é gerada uma média de acertos e erros.
+               <p>Por exemplo, se o algoritmo do aluno errar em 2 das 6 saídas, sua nota será 1/3.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="container example-large-div autoeval-descript">
+        <div aria-expanded="false" aria-controls="area-autoeval-descript">
+             Experimente os exercícios listados abaixo, de exemplo 1 até exemplo 8.
+             O exemplo 9 ilustra como construir um gabarito para um exercício com avaliação automática no <i>iVProg</i>.<br/>
+             Para abrir o exemplo, "clique" sobre seu título. Você pode ocultá-lo novamente "clicando" sobre o mesmo título.
+        </div>
+      </div>
+
+      <!-- Para cada exemplo, copiar toda a DIV abaixo e não alterar as classes dos elementos :) -->
+      <div class="container example-large-div">
+        <div class="text-count-example" data-toggle="collapse" href="#area-exemplo-1" aria-expanded="false" aria-controls="area-exemplo-1"><span class="octicon octicon-rocket"></span>
+          Exerc&iacute;cio 1:
+<!-- Exercicio: o seu titulo -->
+         Ler 2 inteiros e imprimir sua soma/div>
+        <div class="example-content collapse" id="area-exemplo-1">
+          <button type="button" class="btn btn-primary show-solution" title="clique aqui para o enunciado e iVProg aparecerem"
+                  onclick="openSolution('../ex_pt/exerc/exerc_ivprog_2022_09_01_ler_2int_somar.ivph', this)">Ver solução</button>
+          <p class="text-reduced">
+            Exemplo de exercício com <i>avaliação automática</i> no <i>iVProg</i>.
+          </p>
+
+          <p class="text-reduced">
+<!-- Exercicio: o seu enunciado -->
+            Fa&ccedil;a um programa que solicite que o usuário digite 2 valores inteiros e depois imprima a sua soma (sem qualquer mensagem adicional!)
+          </p>
+
+          <div class="container text-center">
+            <form name='formEnvio' id='formEnvio' method='post' action='#' \
+                  enctype='multipart/form-data'>
+              <div class="embed-responsive embed-responsive-16by9"> <!-- 4by3 -->
+<!-- Exercicio: colocar apos "../ex_pt/exerc/" o nome do arquivo: exerc_ivprog_2022_09_01_ler_2int_somar.ivph -->
+<!-- Exercicio: versao para 'iframe' com apenas o exercicio
+                        src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=../ex_pt/exerc/exerc_ivprog_2022_09_01_ler_2int_somar.ivph&iLM_PARAM_SendAnswer=false&lang=pt"
+-->
+<!-- Exercicio: versao para 'iframe' do exercicio com o codigo base
+                        src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=../ex_pt/exerc/exerc_ivprog_2022_09_01_ler_2int_somar_com_codigo.ivph&iLM_PARAM_SendAnswer=false&lang=pt"
+-->		
+                <iframe name="iLM[1]" id="iLM[1]" class="embed-responsive-item"
+                        src="../ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=../ex_pt/exerc/exerc_ivprog_2022_09_01_ler_2int_somar_com_codigo.ivph&iLM_PARAM_SendAnswer=false&lang=pt"
+                        allowfullscreen></iframe><br/>
+              </div>
+               <input type='button' name='Submit' value='Enviar resposta' class="btn btn-warning" 
+                       title='Clique aqui para visualizar seu codigo.'
+                       onclick='javascript:window.submit_iMA_Answer(1);' /><!-- chama funcao iMA-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- Este é o final da DIV que deve ser copiada para cada exemplo -->
+
+    </main>
+    <footer class="container text-center">
+      <a href="http://www.ime.usp.br/line">iVProg</a> | 
+      <a href="http://www.ime.usp.br/line">LInE</a> |
+      <a href="http://www.matematica.br">iM&aacute;tica</a>
+    </footer>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/octicons.min.css">
+    <script type="text/javascript">
+      $('.example-content').on('shown.bs.collapse', function () {
+        this.parentNode.scrollIntoView();
+      });
+    </script>
+  </body>
+</html>

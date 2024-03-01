@@ -1,0 +1,11 @@
+From: ./mod/iassign/ilm_security.php<br/>
+id=52<br/>
+view=<br/>
+token=dadbec13fb2e01516ab4d249bd3b90d9
+Auxiliary information: user.id=3, user.name=aluno 1
+4: NOT update->view=2
+dadbec13fb2e01516ab4d249bd3b90d9=dadbec13fb2e01516ab4d249bd3b90d9?
+ 52, 1488645754
+File:
+{\"mapping\":{},\"src\":{\"programName\":\"firstProgram\",\"functions\":[{\"isMain\":true,\"name\":\"Principal\",\"vars\":{},\"params\":{},\"type\":\"main\",\"nodes\":[],\"$$hashKey\":\"006\"}]},\"testCases\":[{\"input\":\"1\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"008\"},{\"input\":\"2\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"00A\"},{\"input\":\"3\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"00C\"},{\"input\":\"4\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"00E\"},{\"input\":\"5\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"00G\"}]}
+Content iLM file: |{\"mapping\":{},\"src\":{\"programName\":\"firstProgram\",\"functions\":[{\"isMain\":true,\"name\":\"Principal\",\"vars\":{},\"params\":{},\"type\":\"main\",\"nodes\":[],\"$$hashKey\":\"006\"}]},\"testCases\":[{\"input\":\"1\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"008\"},{\"input\":\"2\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"00A\"},{\"input\":\"3\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"00C\"},{\"input\":\"4\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"00E\"},{\"input\":\"5\",\"output\":\"1 2\",\"currentIndex\":0,\"$$hashKey\":\"00G\"}]}|

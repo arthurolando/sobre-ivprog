@@ -1,0 +1,12 @@
+programa { 
+
+	funcao vazio inicio (  )  {
+		inteiro a <- 3
+		inteiro b <- 4
+		real c <- 5.00
+		real cos <- 0.00
+		cos <-  ( b * b + c * c - a * a )  /  ( 2 * b * c ) 
+		escreva ( cos, "\n" ) 
+	}
+
+}

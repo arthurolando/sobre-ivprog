@@ -1,0 +1,61 @@
+/* Alinhamento da aba e conteúdo */
+.container-abas {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    text-align: center;
+}
+/* Oculta o marcador radio */
+input.abas {
+    display: none;
+}
+/* Dimensões da área da aba */
+input.abas + label + div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 68px;
+    width: 99%;
+    height: 88%;
+    opacity: 0;
+    transition: opacity ease-in-out .3s;
+}
+/* Conteúdo para exemplo */
+div p{
+    font-family: sans-serif;
+    font-size: 4rem;
+    color: white;
+}
+/* Comportamento da área da aba quando estiver selecionada */
+input.abas:checked + label + div {
+    opacity: 1;
+    z-index: 1000;
+}
+/* Dimensões da aba*/
+input.abas + label {
+    line-height: 28px;
+    padding: 5px 45px;
+    cursor: pointer; /* Seta se transforma numa mãozinha */
+    transition: ease-in-out .3s;
+    border-radius: 5px 5px 0 0;
+}
+/* Comportamento da aba quando passar o cursor sobre ela */
+input.abas:hover + label {
+    background-image: linear-gradient(#0073ec, #000);
+    color: #ffffff;
+}
+/* Comportamento da aba quando estiver selecionada */
+input.abas:checked + label {
+    background-image: linear-gradient(#0073ec, #000);
+    color: #ffffff;
+}
+/* Características complementares da aba */
+label {
+    background-color: silver;
+    text-decoration-line: none;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 2rem;
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>iVProg - LInE (free educational software and contents)</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+  </head>
+
+<body>
+
+<!-- iVProg: cabecalho --->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #03396c;">
+      <b><a class="navbar-brand" href="./">iVProg</a></b>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../" 
+               title="Navegue para a página inicial do site do iVProg.">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../sobre_ivprog.html"
+               title="Conheça resumidamente o que é e para que serve o iVProg.">Conheça</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../ex_pt/index.html"
+               title="Veja alguns exemplos e teste o iVProg online.">Exemplos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../download.html"
+               title="Faça uma cópia do iVProg para sua máquina.">Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../manual_pt/index.html" 
+               title="Acesse um manual online do iVProg e conheça todos os recursos.">Ajuda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../bugs/report.html"
+               title="Envie uma mensagem para a equipe do iVProg.">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="//www.usp.br/line/"
+               title="Conheça o Laboratório de Informática na Educação do Instituto de Matemática e Estatística da USP.">LInE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../docs/"
+               title="Tenha acesso a toda a documentação do iVProg.">Desenvolvedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../publicacoes.html"
+               title="Leia as publicações da equipe a respeito do iVProg.">Publicações</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <a href="../index.html"><img src="../img/img_flag_brazil.png"/></a>
+          <a href="../en/index.html"><img src="../img/img_flag_usa.png"/></a>
+        </div>
+      </div>
+    </nav>
+<!-- iVProg: cabecalho --->
+
+    <main role="main">
+      <div class="jumbotron ivprogh-desc">
+        <div class="container">
+          <h1>iVProg</h1>
+          <p class="text-reduced">
+	  <!-- xxxxxxxxxxxx -->
+          <b>Exercício.</b>
+          4.5 Computar a média e desvio padrão de notas
+          </p>
+        </div>
+      </div>
+      <div class="container ivprog-container">
+
+      <p>Fazer um programa que solicita um natual N (N&gt;0) e a seguir N valores reais representando as notas de uma turma (alunos). Seu programa deve computar a média e o desvio padrão das notas e imprimí-los, nessa ordem.</p>
+      <p><span style="color: #0000ff;"><em><strong>Lembrete</strong></em> 1: A <strong>média (aritmética)</strong> de N valores em um vetor <tt>vet[.]</tt> é 
+      <tt>med=(vet[0]+vet[1]+...+vet[N-1])/N</tt>. Já o <strong>desvio padrão</strong> desses N valores em <tt>vet[.]</tt> é dado pela expressão:
+      <tt>(((vet[0]-med)*(vet[0]-med)+...+(vet[N-1]-med)*(vet[N-1]-med))/N)<sup>1/2</sup></tt>. (ou seja,&nbsp; se definirmos
+      <span><tt>parcial=(vet[0]-med)*(vet[0]-med)+...+(vet[N-1]-med)*(vet[N-1]-med))/N</tt></span>, então o desvio padrão é a raíz quadrada de <span><span><tt>parcial</tt></span></span>).</span></p>
+      <p><span style="color: #005588;"><em><strong>Dica 1</strong></em>: Para esse exercício é essencial que utilize tipo real (para a variável que acumula a soma dos elementos de <tt>vet[.]</tt>),
+      para a média e para o desvio padrão.</span></p>
+      <p><span style="color: #005588;"><em><strong>Dica 2</strong></em>. Além disso será preciso utilizar vetor e como, no <em>iVProg</em>, é necessário definir o vetor com uma dimensão máxima,
+      declare o vetor para as notas com 5 elementos.</span></p>
+      <p><span style="color: #005588;"><em><strong>Dica 3</strong></em>: Como é necessário computar a raíz quadrada de um valor real, ao construir sua expressão, utilize a opção
+      <tt>Selecione | Função | Matemática | raiz_quadrada</tt> (ou seja, após "clicar" no <tt>Selecione</tt>, siga opção <tt>Função</tt>, daí a opção <tt>Matemática</tt> e por último a opção que pega a função
+      <tt>raiz_quadrada</tt> - mas é necessário definir sobre qual real será aplicada a função).</span></p>
+      <p><span style="color: #008855;"><em><strong>Exemplos</strong></em>: <b>(1)</b>. Se <tt>N=1</tt> e <tt>vet</tt> receber <tt>{ 6.0 }</tt> deverá ser impresso na primeira linha <tt>6.0</tt>
+      e na seguinte <tt>0.0</tt> (respectivamente, a média e o desvio). <b>(2)</b>. Se <tt>N=5</tt> e <tt>vet</tt> receber <tt>{ 6.0, 6.0, 7.0, 8.0, 8.0 }</tt> deverá ser impresso na primeira
+      linha <tt>7.0</tt> e na seguinte <tt>2.0</tt>. <b>(3)</b>. Se <tt>N=5</tt> e <tt>vet</tt> receber <tt>{ 2.0, 4.0, 6.0, 8.0, 10.0 }</tt> deverá ser impresso na primeira linha <tt>6.0</tt> e
+      na seguinte <tt>6.32455532</tt>.</span></p>
+      <p><span style="color: #008000;"><em>Entrada esperada</em>: um número inteiro N seguido de N valores reais.<br> <em>Saída esperada</em>: um número real com a média dos elementos do vetor
+      (que terá N elementos) e na linha seguinte outro real (o desvio padrão dos N elementos).</span></p>
+
+        <div class="embed-responsive embed-responsive-4by3"><!-- embed-responsive-16by9 -->
+	  <!-- xxxxxxxxxxxx -->
+          <iframe class="embed-responsive-item"
+           src="../ivprogh/index.html?iLM_PARAM_SendAnswer=false&iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=../vetor/exerc_4_5_vetor_media_desvio_padrao.ivph"
+           allowfullscreen>
+          </iframe>
+	  <!--
+            src="ivprogh/index.html?iLM_PARAM_AssignmentURL=true&iLM_PARAM_Assignment=../ex_pt/exerc/exemplo_fatorial.ivph"
+	  -->
+        </div>
+      </div>
+
+      </div>
+
+    </main>
+    <footer class="container text-center">
+      <a href="http://www.ime.usp.br/line">iVProg</a> | 
+      <a href="http://www.ime.usp.br/line">LInE</a> |
+      <a href="http://www.matematica.br">iM&aacute;tica</a>
+    </footer>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/octicons.min.css"><!-- https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css -->
+  </body>
+</html>

@@ -1,0 +1,41 @@
+ {  
+ "testcases" : [ 
+{ 
+ "input": ["-10", "20", "-10", "30", "40"], 
+ "output": ["0", "-10"]
+},
+{ 
+ "input": ["30", "20", "10", "30", "10"], 
+ "output": ["2", "10"]
+},
+{ 
+ "input": ["10", "20", "-10", "30", "40"], 
+ "output": ["2", "-10"]
+},
+{ 
+ "input": ["30", "20", "40", "30", "10"], 
+ "output": ["4", "10"]
+},
+{ 
+ "input": ["10", "20", "30", "40", "-10"], 
+ "output": ["4", "-10"]
+},
+{ 
+ "input": ["10", "30", "20", "40", "10"], 
+ "output": ["0", "10"]
+},
+{ 
+ "input": ["40", "30", "40", "10", "20"], 
+ "output": ["3", "10"]
+}
+] ,
+"settings_programming_type": 
+[{"name":"programming_type","value":"visual"}],
+"settings_data_types": 
+[{"name":"integer_data_type","value":"on"},{"name":"real_data_type","value":"on"},{"name":"text_data_type","value":"on"},{"name":"boolean_data_type","value":"on"},{"name":"void_data_type","value":"on"}],
+"settings_commands": 
+[{"name":"commands_read","value":"on"},{"name":"commands_write","value":"on"},{"name":"commands_comment","value":"on"},{"name":"commands_attribution","value":"on"},{"name":"commands_functioncall","value":"on"},{"name":"commands_iftrue","value":"on"},{"name":"commands_repeatNtimes","value":"on"},{"name":"commands_while","value":"on"},{"name":"commands_dowhile","value":"on"},{"name":"commands_switch","value":"on"}],
+"settings_functions": 
+[{"name":"functions_creation","value":"on"},{"name":"functions_move","value":"on"}],
+"settings_filter": 
+[] } 

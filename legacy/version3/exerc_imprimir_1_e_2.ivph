@@ -1,0 +1,1 @@
+{"mapping":{},"src":{"programName":"firstProgram","functions":[{"isMain":true,"name":"Principal","vars":{},"params":{},"type":"main","nodes":[],"$$hashKey":"006"}]},"testCases":[{"input":"1","output":"1 2","currentIndex":0,"$$hashKey":"008"},{"input":"2","output":"1 2","currentIndex":0,"$$hashKey":"00A"}]}

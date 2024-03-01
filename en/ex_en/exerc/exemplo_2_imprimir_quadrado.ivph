@@ -1,0 +1,25 @@
+{
+"testcases" : [ 
+{ 
+ "input": ["2"], 
+"output": ["4"]
+},
+{ 
+ "input": ["-10"], 
+"output": ["100"]
+},
+{ 
+ "input": ["25"], 
+"output": ["625"]
+},
+{ 
+ "input": ["-40"], 
+"output": ["1600"]
+}
+] ,
+"settings_data_types": 
+[{"name":"integer_data_type","value":"on"}],
+"settings_commands": 
+[{"name":"commands_read","value":"on"},{"name":"commands_write","value":"on"},{"name":"commands_comment","value":"on"}],
+"settings_functions": 
+[] }

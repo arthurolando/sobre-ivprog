@@ -1,0 +1,13 @@
+programa { 
+
+	funcao vazio inicio (  )  {
+		inteiro a <- 3
+		inteiro b <- 4
+		inteiro c <- 5
+		real cos <- 0.00
+		// Problema: como a,b,c sao inteiros a expressao gerando 'cos' e' tratada como inteiro, logo a divisao resulta no quociente inteiro
+		cos <-  ( b * b + c * c - a * a )  /  ( 2 * b * c ) 
+		escreva ( cos, "\n" ) 
+	}
+
+}
