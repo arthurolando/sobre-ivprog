@@ -1,0 +1,112 @@
+<!--
+Free Education, Private Data
+http://line.ime.usp.br
+http://www.ime.usp.br/line
+http://www.matematica.br
+http://www.usp.br/line/ivprog
+-->
+<section>
+    <div style="font-family: Arial" class="w3-item">
+        <img src="img/icn_fp_textual.png" title="icone modo de programacao" class="w3-icon" />
+        <h3>Ambiente textual</h3>
+        <p>
+            Construir algoritmos utilizando a interface para digitar o código (na forma de texto), utilizando a sintaxe <i>Portugol</i>.
+            <!--
+            Mas as interfaces <i>Visual</i> e <i>Textual</i> são intercambiáveis,
+            pode-se construir um programa via modo <i>Textual</i> e de depois, ao
+            "clicar" no ícone 
+            <img src="img/icn_fp_visual.png" title="icone modo de programacao visual" class="line-icon"/>
+            obtém-se o equivalente no modo visual.
+            -->
+        </p>
+        <p>
+            <ul>
+                <li>
+                    <img src="img/icn_menu_variaveis.png" title="icone para criar novas variáveis" class="line-icon" />
+                    Para criar novas variáveis deve-se declarar o <tt>tipo</tt>, o nome da variável e eventual inicialização com o sinal de atribuição
+                    <tt>&lt;-</tt>, por exemplo: <tt><verm>inteiro</verm> n &lt;- 1</tt>
+                </li>
+                <li>
+                    <img src="img/icn_menu_comandos.png" title="icone para inserir comandos no código" class="line-icon"/>
+                    Cada comando tem sua própria sintaxe, como ilustramos a seguir. Nos exemplo, o que está em letras maiúsculas são
+                    nomes ou expressões que o programador pode escolher:
+                    <ul>
+                        <li>
+                            <tt><def>funcao</def> TIPO NOME (PARAMETROS) { COMANDO1 ... COMANDOk }</tt>:
+                            O <tt>TIPO</tt> pode ser <tt><verm>inteiro</verm></tt> ou <tt><verm>real</verm></tt> (dentre outras opções);
+                            O <tt>NOME</tt> poder ser qualquer nome, desde que composto de letras e números e não coincida com o nome de qualquer
+                            <i>palavra reservada</i> (como <tt><def>funcao</def></tt>, <tt><verm>inteiro</verm></tt>, <tt><verm>real</verm></tt>...);
+                            Os parâmetros pode ser em qualquer quantidade, desde que separados por vírgulo (como <tt><verm>inteiro</verm> a, <verm>inteiro</verm> b</tt>);
+                            E dentro da função pode-se declarar variáveis locais e quantos comandos desejar;
+                            Se a função tiver um tipo qualquer (não for <tt>vazio</tt>), então ao final deverá haver um comando do tipo
+                            <tt><def>devolva</def> EXPRESSAO</tt>.
+                        </li>
+                        <li>
+                            <tt><verd2>leia</verd2>(VARIAVEL)</tt>: Comando para "ler" algum valor a ser digitado pelo usuário (quando o programa estiver pronto e for executado).
+                            O valor digitado será armazenado na variável.
+                            No exemplo <tt><verd2>leia</verd2>(n)</tt>, o valor digitado será guardado na variável de nome <tt>n</tt>.
+                        </li>
+                        <li>
+                            <tt><verd2>escreva</verd2>(VARIAVEL)</tt>: Comando para "escrever" o valor guardado na variável providenciada.
+                            No exemplo <tt><verd2>escreva</verd2>(fat)</tt>, o valor armazenado na variável <tt>fat</tt> será impresso no <tt>terminal</tt>.
+                        </li>
+                        <li>
+                            <tt><azul2>repita_enquanto</azul2> (CONDICAO) { COMANDO1 ... COMANDOk }</tt>: Comando para repetição com condição de entrada.
+                            Se a condição resultar valor lógico <i>verdadeiro</i>, então executa-se o primeiro comando sob o <i>bloco de repetição</i>
+                            e assim por diante até o último (<tt>COMANDOk</tt>).
+                            Neste momento, volta-se para a verificação da <i>condição de continuação</i>, como indicado no diagrama da fig. 2.
+                        </li>
+                        <li>
+                            <tt><azul2>repita_para</azul2> VARIAVEL_INT de VALOR_INICIAL ate VALOR_FINAL [passo +VALOR_PASSO] { COMANDO1 ... COMANDOk }</tt>:
+                            Comando para repetir determinado <i>bloco</i> um número pré-fixado de vezes, definido pelo <tt>VALOR_INICIAL</tt> e
+                            <tt>VALOR_FINAL</tt>.
+                            Neste comando deve existir uma variável "contadora" (<tt>VARIAVEL_INT</tt>), que deve começar com o valor definido em
+                            <tt>VALOR_INICIAL</tt>.
+                            Uma vez que o <i>bloco de repetição</i> é executado completamente, a variável "contadora" é automaticamente incrementada
+                            (de uma unidade ou, se houve, pelo valor definido no <tt>VALOR_PASSO</tt>), daí verifica se <tt>VARIAVEL_INT &lt; VALOR_FINAL</tt>,
+                            em caso afirmativo, inicia novamente a execução do <i>bloco de repetição</i>.
+                        </li>
+                        <!-- <li><tt></tt>:
+                        </li> -->
+                    </ul>
+                </li>
+                <li>
+                    <img src="img/icn_bf_roda.png" title="icone para roda seu código" class="line-icon"/>
+                    Uma vez que seu programa está pronto, "clique" neste botão para iniciar sua execução.
+                    Fique atento aos comandos para entrada de dados que usou, um cursor ficará piscando na área do <i>terminal</i>
+                    esperando que digite o valor correspondente.
+                    <a onclick="carregar('menu_bf_executar.html')" href="#"
+                        title="Execute o código de seu programa: menu_bf_executar.html">Saiba mais
+                    </a>
+                </li>
+                <li>
+                    <img src="img/icn_bf_avalia.png" title="icone para avaliar - se for exercícios" class="line-icon"/>
+                    Se o <i>iVProg</i> carregou um exercício este botão estará habilitado, então após construir o programa que
+                    resolve o problema proposto, "clique" neste botão para saber se seu programa atinge o objetivo ou não
+                    (o <i>iVProg</i> disparará o processo de avaliação automática).
+                    <a onclick="carregar('menu_bf_avaliar.html')" href="#"
+                        title="Se exercício, verifica se seu programa está como o esperado: menu_bf_avaliar.html">Saiba mais
+                    </a>
+                </li>
+            </ul>
+            <figure>
+                <img src="img/pt_menu_pf_textual_1.png" title="Imagem de codigo Portugol para computar o fatorial de inteiro dado" />
+                <figcaption>Fig. 1. Imagem do iVProg usando a interface para Programação Visual: código para imprimir o fatorial de num natural qualquer, a ser digitado pelo usuário.</figcaption>
+            </figure>
+        </p>
+        <p>
+            <figure>
+                <img src="img/pt_fluxo_laco_enquanto_entrada.png" title="Imagem do diagrama de fluxo de um comando repita_enquanto" width="20%" />
+                <br/>
+                <figcaption>Fig. 2. Diagrama de fluxo ilustrando o laço de repetição <tt><azul2>repita_enquanto</azul2></tt>.</figcaption>
+            </figure>
+        </p>
+        <p>
+            <figure>
+                <img src="img/pt_fluxo_laco_n_vezes.png" title="Imagem do diagrama de fluxo de um comando repita_enquanto" width="20%" />
+                <br/>
+                <figcaption>Fig. 3. Diagrama de fluxo ilustrando o laço de repetição <tt><azul2>repita_enquanto</azul2></tt>.</figcaption>
+            </figure>
+        </p>
+    </div>
+</section>

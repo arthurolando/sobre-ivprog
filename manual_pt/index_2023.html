@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="../iVProg_141_49.png"> <!-- icone iVProg -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="css/line_ivprog_2024.css" rel="stylesheet" />
+    <link href="css/line_ivprog.css" rel="stylesheet" />
     <!-- link rel="stylesheet" href="css/w3.css" / -->
     <!-- link href="../css/bootstrap.min.css" rel="stylesheet" / -->
     <!-- link href="../css/style.css" rel="stylesheet" / -->
@@ -91,7 +91,8 @@ function carregar (pagina) { // carregar pagina
 
 
  <header>
-  <div class="navbar">
+  <div class="header-left" title="iVProg"><b style="color:#FF0;">i</b><b style="color:#5080FA;">V</b><b style="color:#50FAB0;">P</b><b>rog</b></div>
+  <div class="header-center">
    <ul>
     <li > <b><a href="../" title="Navegue para a página inicial do site do iVProg.">Home</a></b> </li> 
     <li > <b><a href="../ex_pt/index.html" title="Veja alguns exemplos e teste o iVProg online.">Exemplos</a></b> </li> 
@@ -102,30 +103,30 @@ function carregar (pagina) { // carregar pagina
     <li > <b><a href="../publicacoes.html" title="Leia as publicações da equipe a respeito do iVProg.">Publicações</a></b> </li>
    </ul>
   </div>
-  <div class="lang-btn">
+  <div class="header-right">
     <img src="../img/img_flag_brazil.png" title="Lingua Portuguesa"/>
     <a href="../en/index.html"><img src="../img/img_flag_usa.png" title="Change to English language"/></a>
     <!--<button>Buy now</button>-->
   </div>
  </header>
  
- <!-- <section class="header2">
- 
- </section> -->
-<article>
+ <section class="header2">
+  <a href="index.html" ><img src="img/icn_home.png" width="30px" title="Voltar para o inicio" /> </a>
+  <i class="font-xxlarge" title="tutorial iVProg">
+     Tutorial <b style="color:#FF0;">i</b><b style="color:#5080FA;">V</b><b style="color:#50FAB0;">P</b><b>rog</b></i>
+ </section>
 
-  <section>
-  <div class="sidebar">
-  <div class="home-icon">
-    <a href="index_2024.html" class="main_anchor" title="Tutorial IvProg"  > 
-        Tutorial <b style="color:#FF0;">i</b><b style="color:#5080FA;">V</b><b style="color:#50FAB0;">P</b><b>rog</b></i>
-    </a>
-  </div>
-  <ul>
-   <li id="link1-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title="Formas de programação: visual ou textual"> Formas </a>
+<!-- D
+</a><br/><hr/></li>
+-->
+
+ <section class="header2">
+  <div class="header-center">
+  <ul class="navBar">
+   <li id="link1-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title="Formas de programação: visual ou textual"> &nbsp; &nbsp; Formas &nbsp; &nbsp; </a>
     <div class="dropDownContent">
-     <a onclick="carregar('menu_fp_visual.html')" href="#" title="Modo de programação Visual: comandos via ícones: menu_fp_visual.html"> &nbsp; &nbsp; Visual &nbsp; &nbsp; </a>
-     <a onclick="carregar('menu_fp_textual.html')" href="#" title="Modo de programação textual: programação tradicional: menu_fp_textual.html"> &nbsp; &nbsp; Textual</a>
+     <a onclick="carregar('menu_fp_visual.html')" href="#" title="Modo de programação Visual: comandos via ícones: menu_fp_visual.html">Visual</a>
+     <a onclick="carregar('menu_fp_textual.html')" href="#" title="Modo de programação textual: programação tradicional: menu_fp_textual.html">Textual</a>
     </div></li>
    <li id="link2-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title="Barra de ferramentas: visual, textual, rodar, avaliar, ...">Ferramentas</a>
     <div class="dropDownContent">
@@ -160,23 +161,14 @@ function carregar (pagina) { // carregar pagina
      <a onclick="carregar('menu_cmd_pare.html')" href="#" title="Pare: quebrar laço ou escolha - menu_cmd_pare.html">Pare &nbsp; &nbsp; &nbsp; &nbsp;</a>
      <a onclick="carregar('menu_cmd_caso.html')" href="#" title="Caso: item de múltipla escolha - menu_cmd_caso.html">Caso &nbsp; &nbsp; &nbsp; &nbsp;</a>
     </div></li>
-   <li id="link5-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title=""> Função </a>
-    <div class="dropDownContent">
-     <a onclick="carregar('menu_fc_funcao.html')" href="#" title="Estrutura da função: menu_fc_funcao.html"> &nbsp; &nbsp; Sobre &nbsp; &nbsp;</a>
-    </div></li>
-    <!--  APENAS ILUSTRATIVO AINDA -->
-   <li id="link6-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title=""> Exemplo &nbsp; &nbsp;</a>
-    <div class="dropDownContent">
-     <a onclick="carregar('menu_fc_funcao.html')" href="#" title="Estrutura da função: menu_fc_funcao.html">Sobre</a>
-    </div></li>
-   <li id="link7-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title=""> Vetores &nbsp; &nbsp;</a>
+   <li id="link5-D" class="navBar dropDownBtn"><a href="#" class="main_anchor" title=""> &nbsp; &nbsp; Função &nbsp; &nbsp;</a>
     <div class="dropDownContent">
      <a onclick="carregar('menu_fc_funcao.html')" href="#" title="Estrutura da função: menu_fc_funcao.html">Sobre</a>
     </div></li>
    </ul>
-  </div>
+   </div>
  </section>
- 
+
  <section class="main-content">
  <div id="mainDiv">
  <div class="paragrafo1">
@@ -199,7 +191,7 @@ function carregar (pagina) { // carregar pagina
  <!-- div class="placeholder"></div -->
  </div>
  </section>
-</article>
+
 </div>
 
 </body>

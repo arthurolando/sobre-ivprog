@@ -1,0 +1,83 @@
+<!--
+Free Education, Private Data
+http://line.ime.usp.br
+http://www.ime.usp.br/line
+http://www.matematica.br
+http://www.usp.br/line/ivprog
+-->
+
+<section>
+  <div style="font-family: Arial">
+    <div class="line-item">
+      <img src="img/icn_bf_roda.png" title="icone opcao rodar codigo" class="line-icon"/>
+    
+      <h3> Executar</h3>
+      <p> Executa as instruções contidas no código do programa <i>iVProg</i>. Inicia-se sempre pela função <tt>inicio</tt>.</p>
+      
+      <p> Na figura 1 apresentamos um exemplo de código (para computar fatorial de natural) e um exemplo de <i>simulação</i> de execução.</p>
+      
+      <p>
+      <center>
+      <img src="img/pt_ex_prog_fatorial.png" title="Imagem de exemplo de programa visual para computar fatorial usando comando repita_enquanto" width="60%" />
+      <br/>
+      <i>Fig. 2. Exemplo de program visual para computar fatorial usando um laço <tt><azul2>repita_enquanto</azul2></tt>.</i>
+      </center>
+      </p>
+      
+      <p>
+        Ao "clicar" no botão para executar <img src="img/icn_bf_roda.png" title="icone opcao rodar codigo" class="line-icon"/>,
+        produz-se a seguinte sequência de execução:
+        
+        <table>
+          <tr>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <pre>&nbsp;
+                      1. <verm>inteiro</verm> n &lt;- 0, fat &lt;- 1, i &lt;-2
+                      2. <verd2>leia</verd2>(n) <cyan>// digitado 3___________</cyan>
+                      3. repita enquanto (2&lt;=3) <cyan>//_______</cyan>
+                      4. fat recebe 1 * 2 <cyan>//_____________</cyan>
+                      5. i recebe 2 + 1  <cyan>//______________</cyan>
+                      6. repita enquanto (3&lt;=3) <cyan>//_______</cyan>
+                      7. fat recebe 2 * 3 <cyan>//_____________</cyan>
+                      8. i recebe 3 + 1 <cyan>//_______________</cyan>
+                      9. repita enquanto (4&lt;=3) <cyan>//_______</cyan>
+                      10. <verd2>escreva</verd2>(fat) <cyan>// fat=6 __________</cyan>
+                    </pre>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td> 
+              &nbsp; 
+              &nbsp; 
+            </td>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <pre>
+                        n | fat | i
+                        0 |   1 | 2
+                        3 |     |
+                          |     |
+                          |   2 |
+                          |     | 3
+                          |     |
+                          |   6 |
+                          |     | 4
+                          |     |
+                          |     |
+                    </pre>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </>
+        </table>
+      </p>
+      </div>
+    </div>    
+</section>
