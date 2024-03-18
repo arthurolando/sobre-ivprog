@@ -6,67 +6,71 @@ http://www.matematica.br
 http://www.usp.br/line/ivprog
 -->
 
-<meta charset="UTF-8">
-
-<div style="font-family: Arial">
-
-<div class="w3-item"><img src="img/icn_menu_chamafuncao.png" title="ícone opção de chamada de função" class="w3-icon" style="border:1pt solid #001A66"/></div>
-
-<h3>Chamada de Função</h3>
-
-<p>
-O comando <def>devolva</def> está associado a definição de uma <i>função</i> (e portanto à <i>palavra-reservada</i>
-<def>funcao</def>).
-Se a função associada ao comando <def>devolva</def> <b>não</b> for <i>vazia</i> (ou seja, <i>devolve</i> algum tipo),
-então ele deve ter um parâmetro compatível ao tipo da função.
-</p>
-
-<p>
-Um efeito importante do comando <def>devolva</def> é que ao ser executado, o <i>fluxo de execução</i> voltará
-para o ponto em que a função corrente foi invocada.
-</p>
-
-<p>
-Um exemplo é a construção da função <i title="fatorial(0)=1 e fatorial(n)=n*fatorial(n-1), se n&gt;0">fatorial</i>.
-Essa é uma função que tem <i>domínio</i> no corpo dos naturais e sua imagem é igualmente um valor natural.
-Como geralmente as linguagens não tem um <i>tipo de variável</i> <i>natural</i>, usaremos o tipo padrão
-<verm>inteiro</verm>.
-</p>
-
-<p>
-A figura 1 ilustra a construção da expressão inteira para o comando <def>devolva</def>, no caso
-devolvendo o valor armazenado na variável <i>fat</i>.  
-</p>
-
-  <div class="img-div">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="img/pt_menu_cmd_chamada-funcao_devolva.png"
-         title="Imagem estática do iVProg com exemplo de construção da expressão para o comando 'devolva'">
-   <br/>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <span class="img-label">Fig. 1. Imagem ilustrando construção do comando <def>devolva</def> (devolverá <i>fat</i>).</span>
+<section>
+  <meta charset="UTF-8">
+  <div style="font-family: Arial">
+  
+    <div class="w3-item">
+      <img src="img/icn_menu_chamafuncao.png" title="ícone opção de chamada de função" class="w3-icon" style="border:1pt solid #001A66"/>
+    </div>
+  
+    <h3>Chamada de Função</h3>
+  
+    <p>
+      O comando <def>devolva</def> está associado a definição de uma <i>função</i> (e portanto à <i>palavra-reservada</i>
+      <def>funcao</def>).
+      Se a função associada ao comando <def>devolva</def> <b>não</b> for <i>vazia</i> (ou seja, <i>devolve</i> algum tipo),
+      então ele deve ter um parâmetro compatível ao tipo da função.
+    </p>
+  
+    <p>
+      Um efeito importante do comando <def>devolva</def> é que ao ser executado, o <i>fluxo de execução</i> voltará
+      para o ponto em que a função corrente foi invocada.
+    </p>
+  
+    <p>
+      Um exemplo é a construção da função <i title="fatorial(0)=1 e fatorial(n)=n*fatorial(n-1), se n&gt;0">fatorial</i>.
+      Essa é uma função que tem <i>domínio</i> no corpo dos naturais e sua imagem é igualmente um valor natural.
+      Como geralmente as linguagens não tem um <i>tipo de variável</i> <i>natural</i>, usaremos o tipo padrão
+      <verm>inteiro</verm>.
+    </p>
+  
+    <p>
+      A figura 1 ilustra a construção da expressão inteira para o comando <def>devolva</def>, no caso
+      devolvendo o valor armazenado na variável <i>fat</i>.  
+    </p>
+  
+      <div class="img-div">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="img/pt_menu_cmd_chamada-funcao_devolva.png"
+            title="Imagem estática do iVProg com exemplo de construção da expressão para o comando 'devolva'">
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="img-label">Fig. 1. Imagem ilustrando construção do comando <def>devolva</def> (devolverá <i>fat</i>).</span>
+      </div>
+      <br/>
+    
+      <p>
+      O código abaixo (em <i>Portugol</i>) é o correspondente textual ao código visual na figura 1.
+      </p>
+      <br/>
+  
+    <a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
+      <pre><def>programa</def> {
+      <def>funcao</def> vazio inicio (  )  {
+        <verm>inteiro</verm> n &lt;- 0
+        <verd2>leia</verd2>(n)
+        <verd2>escreva</verd2>(fatorial(n)), "\n")
+        }
+      <def>funcao</def> <verm>inteiro</verm> fatorial (<verm>inteiro</verm> pn) {
+        <verm>inteiro</verm> fat &lt;- 1
+        <verm>inteiro</verm> i &lt;- 2
+        <azul2>enquanto_verdadeiro</azul2> (i &lt;= pn) {
+          fat &lt;- fat * i
+          i &lt;- i + 1
+          }
+        <def>devolva</def> fat
+        }
+      }</pre>
   </div>
-  <br/>
- 
-  <p>
-  O código abaixo (em <i>Portugol</i>) é o correspondente textual ao código visual na figura 1.
-  </p>
-  <br/>
-
- <a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
-  <pre><def>programa</def> {
-  <def>funcao</def> vazio inicio (  )  {
-    <verm>inteiro</verm> n &lt;- 0
-    <verd2>leia</verd2>(n)
-    <verd2>escreva</verd2>(fatorial(n)), "\n")
-    }
-  <def>funcao</def> <verm>inteiro</verm> fatorial (<verm>inteiro</verm> pn) {
-    <verm>inteiro</verm> fat &lt;- 1
-    <verm>inteiro</verm> i &lt;- 2
-    <azul2>enquanto_verdadeiro</azul2> (i &lt;= pn) {
-      fat &lt;- fat * i
-      i &lt;- i + 1
-      }
-    <def>devolva</def> fat
-    }
-  }</pre>
+</section>

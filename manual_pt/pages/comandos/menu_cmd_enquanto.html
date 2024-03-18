@@ -10,78 +10,75 @@ http://www.usp.br/line/ivprog
 
 <div style="font-family: Arial">
 
-<div class="w3-item"><img src="img/icn_menu_repita.png" title="ícone para inserir comando do tipo 'repita enquanto (CONDICAO)'" class="w3-icon" style="border:1pt solid #001A66"/></div>
+  <div class="w3-item">
+    <img src="img/icn_menu_repita.png" title="ícone para inserir comando do tipo 'repita enquanto (CONDICAO)'" class="w3-icon" style="border:1pt solid #001A66"/>
+  </div>
 
-<h3>Comando <tt>Repita Enquanto (CONDICAO_eh_verdadeira) COMANDO1</tt></h3>
-
-<p>
-O comando <b>enquanto</b> é uma comando para possibilitar <i>repetições</i>, sendo portanto um
-<b>comando de repetição</b> (ou <b>laço</b>).
-<p>
-
-<p>
-Esse é um comando de <i>repetição com condição de entrada</i>, o que significa que, <i>enquanto</i>
-a expressão lógica <tt>CONDICAO_eh_verdadeira</tt> resultar <i>verdadeiro</i>, os comandos subordinados a este
-<i>laço</i> serão executados.
-os co
-</p>
-
-<p>
-A figura 1 ilustra o <i>fluxo de execução</i> do comando <b><azul2>repita_enquanto</azul2></b>.
-<br/>
-1. O círculo na parte superior indica o <i>ponto de entrada</i> do <i>laço</i>.
-<br/>
-
-2. Ao iniciar sua execução a <i>condição lógica</i> é computada, se resultar <i>verdadeiro</i> seu primeiro
-comando subordinado é executado e assim por diante até o último.
-Por outro lado, se resultar <i>falso</i>, interrompe-se a execução do <i>laço</i>, passando a execução para
-o primeiro comando após o último comando subordinado ao <i>laço</i> <azul2>repita_enquanto</azul2>
-(indicado pelo círculo na parte inferior da figura 1).
-<br/>
-Após o último comando do <i>laço</i> ser executado, automaticamente a execução retoma o passo 2
-(ou seja, volta a testa a <i>condição</i>).
-</p>
-
-  <div class="img-div"><center>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="img/pt_fluxo_laco_enquanto_entrada.png"
-         title="Imagem ilustrando o fluxo de execução de um comando de repetição com condição de entrada">
-   <br/>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <span class="img-label">Fig. 1. Imagem ilustrando um comentário ainda com valor padrão na área de código.</span>
-  </center></div>
-
-<p>
-Usaremos um exemplo simples para ilustrar o comando <azul2>repita_enquanto</azul2>, um código que enumera
-os primeiros naturais, imprimindo uma mensagem ao chegar ao valor 5.
-No exemplo foi adicionado uma instrução de <i>quebra de laço</i>, o comando <azul2>pare</azul2>: ao
-ser executado, interrompe a execução do <i>laço</i>, seguindo para a primeira instrução após o mesmo
-(representado pelo círculo inferior na figura 1).
-</p>
-
-<div class="img-div">
-  <center>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <img src="img/pt_ex_pare_cmd.png" title="Exemplo de uso do comando repita enquanto">
-   <br/>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="img-label">Fig. 1. Exemplo de uso do comando <tt><azul2>repita_enquanto</azul2></tt>.</span>
-  </center>
-</div>
-  
-<p>
-O exemplo acima realiza uma iteração da variável <tt>i</tt> de <i>0</i> até <i>n-1</i>, se <tt>n</tt> for maior que <i>5</i>,
-o comando <tt><azul2>pare</azul2></tt> será executado quanto <tt>i</tt> tiver o valor <i>5</i>.
-Neste momento, a mensagem <tt>Nesta iteracao i=5</tt> será impressa no <i>terminal</i> e o laço
-<tt><azul2>repita_enquanto</azul2></tt> será
-interrompido.
-</p>
-
+  <h3>Comando <tt>Repita Enquanto (CONDICAO_eh_verdadeira) COMANDO1</tt></h3>
 
   <p>
-  O código abaixo (em <i>Portugol</i>) é o correspondente textual ao código visual na figura 1.
+    O comando <b>enquanto</b> é uma comando para possibilitar <i>repetições</i>, sendo portanto um
+    <b>comando de repetição</b> (ou <b>laço</b>).
+  <p>
+
+  <p>
+    Esse é um comando de <i>repetição com condição de entrada</i>, o que significa que, <i>enquanto</i>
+    a expressão lógica <tt>CONDICAO_eh_verdadeira</tt> resultar <i>verdadeiro</i>, os comandos subordinados a este
+    <i>laço</i> serão executados.
+    os co
+  </p>
+
+  <p>
+    A figura 1 ilustra o <i>fluxo de execução</i> do comando <b><azul2>repita_enquanto</azul2></b>.
+    <br/>
+    1. O círculo na parte superior indica o <i>ponto de entrada</i> do <i>laço</i>.
+    <br/>
+
+    2. Ao iniciar sua execução a <i>condição lógica</i> é computada, se resultar <i>verdadeiro</i> seu primeiro
+    comando subordinado é executado e assim por diante até o último.
+    Por outro lado, se resultar <i>falso</i>, interrompe-se a execução do <i>laço</i>, passando a execução para
+    o primeiro comando após o último comando subordinado ao <i>laço</i> <azul2>repita_enquanto</azul2>
+    (indicado pelo círculo na parte inferior da figura 1).
+    <br/>
+    Após o último comando do <i>laço</i> ser executado, automaticamente a execução retoma o passo 2
+    (ou seja, volta a testa a <i>condição</i>).
+  </p>
+  <div class="img-div">
+    <center>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="img/pt_fluxo_laco_enquanto_entrada.png"
+            title="Imagem ilustrando o fluxo de execução de um comando de repetição com condição de entrada">
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="img-label">Fig. 1. Imagem ilustrando um comentário ainda com valor padrão na área de código.</span>
+    </center>
+  </div>
+  <p>
+    Usaremos um exemplo simples para ilustrar o comando <azul2>repita_enquanto</azul2>, um código que enumera
+    os primeiros naturais, imprimindo uma mensagem ao chegar ao valor 5.
+    No exemplo foi adicionado uma instrução de <i>quebra de laço</i>, o comando <azul2>pare</azul2>: ao
+    ser executado, interrompe a execução do <i>laço</i>, seguindo para a primeira instrução após o mesmo
+    (representado pelo círculo inferior na figura 1).
+  </p>
+  <div class="img-div">
+    <center>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="img/pt_ex_pare_cmd.png" title="Exemplo de uso do comando repita enquanto">
+    <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="img-label">Fig. 1. Exemplo de uso do comando <tt><azul2>repita_enquanto</azul2></tt>.</span>
+    </center>
+  </div> 
+  <p>
+    O exemplo acima realiza uma iteração da variável <tt>i</tt> de <i>0</i> até <i>n-1</i>, se <tt>n</tt> for maior que <i>5</i>,
+    o comando <tt><azul2>pare</azul2></tt> será executado quanto <tt>i</tt> tiver o valor <i>5</i>.
+    Neste momento, a mensagem <tt>Nesta iteracao i=5</tt> será impressa no <i>terminal</i> e o laço
+    <tt><azul2>repita_enquanto</azul2></tt> será
+    interrompido.
+  </p>
+  <p>
+    O código abaixo (em <i>Portugol</i>) é o correspondente textual ao código visual na figura 1.
   </p>
   <br/>
-
  <a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
  <pre><def>programa</def> {
   <def>funcao</def> vazio inicio (  )  {
@@ -99,5 +96,4 @@ interrompido.
     <verd2>escreva</verd2>("Este eh o primeiro comando apos o laco!", "\n")
     }
   }</pre>
-
 </div>

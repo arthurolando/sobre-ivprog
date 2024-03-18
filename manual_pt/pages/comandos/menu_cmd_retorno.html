@@ -10,90 +10,94 @@ http://www.usp.br/line/ivprog
 
 <div style="font-family: Arial">
 
-<div class="w3-item"><img src="img/icn_menu_funcaodevolve.png" title="ícone para inserir comando de devolução em função" class="w3-icon" style="border:1pt solid #001A66"/></div>
+  <div class="w3-item">
+    <img src="img/icn_menu_funcaodevolve.png" title="ícone para inserir comando de devolução em função" class="w3-icon" style="border:1pt solid #001A66"/>
+  </div>
 
-<h3>Devolva</h3>
+  <h3>Devolva</h3>
 
-<p>
-Esse comando é utilizado para indicar um valor a ser <b>devolvido</b> por uma função.
-O tipo do dado a ser devolvido <b>tem</b> se compatível com o tipo declarado da função,
-por exemplo, uma função declarada do "tipo <verm>inteiro</verm>" tem que devolver um valor inteiro.
-Vide
-<a onclick="carregar('menu_cmd_chamada-funcao.html')"
-   href="#" title="Chamada de função: menu_cmd_chamada-funcao.html">chamada de função</a>.
-</p>
+  <p>
+    Esse comando é utilizado para indicar um valor a ser <b>devolvido</b> por uma função.
+    O tipo do dado a ser devolvido <b>tem</b> se compatível com o tipo declarado da função,
+    por exemplo, uma função declarada do "tipo <verm>inteiro</verm>" tem que devolver um valor inteiro.
+    Vide
+    <a onclick="carregar('menu_cmd_chamada-funcao.html')"
+      href="#" title="Chamada de função: menu_cmd_chamada-funcao.html">chamada de função</a>.
+  </p>
 
-<p>
-Uma vez que o comando <def>devolva</def> é encontrado, a execução da função é interrompida, retornando
-a execução para o ponto imdiatamente após o ponto em que foi invocada.
-O código na figura 1 ilustra isso: usar a função <i>fatorial</i> para computar a
-<i>combinação de n elementos, tomado-se apenas k deles</i> (<i>combinação de n, k-a-k</i>).
-<br/>
-<p>
-Sabemos que para a combinação de <i>n, k-a-k</i> é <i>n!/((n-k)!*k!)</i>.
-</p>
+  <p>
+    Uma vez que o comando <def>devolva</def> é encontrado, a execução da função é interrompida, retornando
+    a execução para o ponto imdiatamente após o ponto em que foi invocada.
+    O código na figura 1 ilustra isso: usar a função <i>fatorial</i> para computar a
+    <i>combinação de n elementos, tomado-se apenas k deles</i> (<i>combinação de n, k-a-k</i>).
+    <br/>
+  </p>
+  <p>
+    Sabemos que para a combinação de <i>n, k-a-k</i> é <i>n!/((n-k)!*k!)</i>.
+  </p>
 
-<p>
-A figura 1 apresenta o código ilustrando os <i>pontos de retornos</i> para as 3 chamadas da
-função <i>fatorial</i>, dentro do comando <verd2>escreva</verd2>, com a expressão
-<tt>fatorial(n) / (fatorial(aux) * fatorial(k))</tt>.
-Primeiro é computado <tt>fatorial(n)</tt> e seu <i>ponto de retorno</i> está indicado pela seta laranja 1,
-depois é computado <tt>fatorial(aux)</tt> (note que o <i>iVProg</i> só permite uma variável como parâmetro daí
-usou-se <tt>aux = n-k</tt>) e seu <i>ponto de retorno</i> está indicado pela seta laranja 2,
-por último computa-se <tt>fatorial(k)</tt> (retorno indicado pela seta 3), com o último resultado
-completa-se o cálculo e o valor final será impresso.
-</p>
+  <p>
+    A figura 1 apresenta o código ilustrando os <i>pontos de retornos</i> para as 3 chamadas da
+    função <i>fatorial</i>, dentro do comando <verd2>escreva</verd2>, com a expressão
+    <tt>fatorial(n) / (fatorial(aux) * fatorial(k))</tt>.
+    Primeiro é computado <tt>fatorial(n)</tt> e seu <i>ponto de retorno</i> está indicado pela seta laranja 1,
+    depois é computado <tt>fatorial(aux)</tt> (note que o <i>iVProg</i> só permite uma variável como parâmetro daí
+    usou-se <tt>aux = n-k</tt>) e seu <i>ponto de retorno</i> está indicado pela seta laranja 2,
+    por último computa-se <tt>fatorial(k)</tt> (retorno indicado pela seta 3), com o último resultado
+    completa-se o cálculo e o valor final será impresso.
+  </p>
 
-  <div class="img-div"><center>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="img/pt_menu_cmd_retorno.png"
-         title="Imagem estática do iVProg com código ilustrando ponto de devolução de função">
-   <br/>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <span class="img-label">Fig. 1. O comando <verd2>escreva</verd2> invoca
-     <tt>fatorial(n)</tt>, depois <tt>fatorial(n-k)</tt> e por últim <tt>fatorial(k)</tt>.</span>
-  <center></div>
+  <div class="img-div">
+    <center>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="img/pt_menu_cmd_retorno.png"
+            title="Imagem estática do iVProg com código ilustrando ponto de devolução de função">
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="img-label">Fig. 1. O comando <verd2>escreva</verd2> invoca
+        <tt>fatorial(n)</tt>, depois <tt>fatorial(n-k)</tt> e por últim <tt>fatorial(k)</tt>.</span>
+    <center>
+  </div>
   <br/>
 
-<porque>
-<b>Para quem deseja saber mais</b>: 
-Para cada uma das <i>k</i> posições, pode-se tomar qualquer dos <i>n</i> elementos,
-o que resultaria <i>F=n*(n-1)*(n-2)*...*(n-k+1) = n!/(n-k)!</i> sequências distintas (de <i>k</i> elementos);
-<br/>
-Entretanto no valor <i>F</i> aparecem <i>k!</i> cópias de cada lista com <i>k</k> elementos
-(suas <i>permutações</i>), então o resultado final deve ser dividido por <i>k!</i>
-resultando na expressão acima.
-</porque>
- 
+  <porque>
+    <b>Para quem deseja saber mais</b>: 
+    Para cada uma das <i>k</i> posições, pode-se tomar qualquer dos <i>n</i> elementos,
+    o que resultaria <i>F=n*(n-1)*(n-2)*...*(n-k+1) = n!/(n-k)!</i> sequências distintas (de <i>k</i> elementos);
+    <br/>
+    Entretanto no valor <i>F</i> aparecem <i>k!</i> cópias de cada lista com <i>k</k> elementos
+    (suas <i>permutações</i>), então o resultado final deve ser dividido por <i>k!</i>
+    resultando na expressão acima.
+  </porque>
+  
   <p>
-  O código abaixo (em <i>Portugol</i>) é o correspondente textual ao código visual na figura 1.
+    O código abaixo (em <i>Portugol</i>) é o correspondente textual ao código visual na figura 1.
   </p>
   <br/>
 
- <a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
-  <pre><def>programa</def> {
-  <def>funcao</def> vazio inicio (  )  {
-    <verm>inteiro</verm> n &lt;- 0
-    <verm>inteiro</verm> k &lt;- 0
-    <verm>inteiro</verm> aux &lt;- 0
-    <verd2>leia</verd2>(n)
-    <verd2>leia</verd2>(k)
-    aux &lt;- n - k
-    <verd2>escreva</verd2>(fatorial(n) / (fatorial(aux) * fatorial(k))), "\n")
-    }
-<def>funcao</def> <verm>inteiro</verm> fatorial (<verm>inteiro</verm> pn) {
-    <verm>inteiro</verm> fat &lt;- 1
-    <verm>inteiro</verm> i &lt;- 2
-    <azul2>enquanto_verdadeiro</azul2> (i &lt;= pn) {
-      fat &lt;- fat * i
-      i &lt;- i + 1
+  <a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
+    <pre><def>programa</def> {
+    <def>funcao</def> vazio inicio (  )  {
+      <verm>inteiro</verm> n &lt;- 0
+      <verm>inteiro</verm> k &lt;- 0
+      <verm>inteiro</verm> aux &lt;- 0
+      <verd2>leia</verd2>(n)
+      <verd2>leia</verd2>(k)
+      aux &lt;- n - k
+      <verd2>escreva</verd2>(fatorial(n) / (fatorial(aux) * fatorial(k))), "\n")
       }
-    <def>devolva</def> fat
-    }
-  }</pre>
+  <def>funcao</def> <verm>inteiro</verm> fatorial (<verm>inteiro</verm> pn) {
+      <verm>inteiro</verm> fat &lt;- 1
+      <verm>inteiro</verm> i &lt;- 2
+      <azul2>enquanto_verdadeiro</azul2> (i &lt;= pn) {
+        fat &lt;- fat * i
+        i &lt;- i + 1
+        }
+      <def>devolva</def> fat
+      }
+    }</pre>
 
-<!--
-menu_cmd_retorno_combinacao.ivph
-  -->
-
+  <!--
+  menu_cmd_retorno_combinacao.ivph
+    -->
 </div>

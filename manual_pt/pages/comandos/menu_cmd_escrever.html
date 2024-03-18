@@ -9,66 +9,66 @@ http://www.usp.br/line/ivprog
 <meta charset="UTF-8">
 
 <div style="font-family: Arial">
+  <div class="w3-item">
+    <img src="img/icn_menu_saida.png" title="ícone para inserir comando para saída de dados (escrever)" class="w3-icon" style="border:1pt solid #001A66"/>
+  </div>
+  <h3>Saída de Dados (impressão)</h3>
+  <p>
+    O comando <verd2>escreva</verd2> é um comando essencial, utilizado para apresentar resultados (informar) o
+    <i title="aquele que executa/usa o seu programa">usuário</i>.
+    Esse comando deve ter parâmetros que podem ser expressões envolvendo variáveis,
+    ele lança os valores desses parâmetros no
+    <i title="A área de fundo preto, na parte inferiro da interface">console/terminal</i>
+    do <i>iVProg</i>.
+  </p>
 
-<div class="w3-item"><img src="img/icn_menu_saida.png" title="ícone para inserir comando para saída de dados (escrever)" class="w3-icon" style="border:1pt solid #001A66"/></div>
+  <p>
+    No <i>iVProg</i> é único comando para <i>saída de dados</i>, mas as <i>linguagem tradicionais</i> dispõem
+    de recusos para enviar saída para outros dispositivos de saída, como <i>impressora</i> ou <i>disco rígido</i>.
+  </p>
 
-<h3>Saída de Dados (impressão)</h3>
-<p>
-O comando <verd2>escreva</verd2> é um comando essencial, utilizado para apresentar resultados (informar) o
-<i title="aquele que executa/usa o seu programa">usuário</i>.
-Esse comando deve ter parâmetros que podem ser expressões envolvendo variáveis,
-ele lança os valores desses parâmetros no
-<i title="A área de fundo preto, na parte inferiro da interface">console/terminal</i>
-do <i>iVProg</i>.
-</p>
+  <p>
+    O exemplo abaixo ilustra, além da <i>saída de dados</i>, uma <i>entrada de dados</i> e um comando de <i>seleção</i>
+    No código existe uma variável <i>inteira</i> e como primeira instrução um comando para <i>entrada de dados</i>
+    (a variável <i>n</i> receberá o valor digitado pelos usuário).
+    Se o valor digitado for <i>10</i> uma mensagem especial será impressa no <i>console/terminal</i>,
+    caso contrário haverá outra <i>saída</i> (<i>O valor digitado foi diferente de 10.</i>).
+  </p>
 
-<p>
-No <i>iVProg</i> é único comando para <i>saída de dados</i>, mas as <i>linguagem tradicionais</i> dispõem
-de recusos para enviar saída para outros dispositivos de saída, como <i>impressora</i> ou <i>disco rígido</i>.
-</p>
+  <div class="img-div">
+    <center>
+      <img src="img/pt_ex_impressao.png" title="Exemplo de uso do comando de impressão">
+      <br/>
+        <span class="img-label">Fig. 1. Exemplo de programa com dois comandos de impressão/saída de dados.</span>
+    </center>
+  </div>
 
-<p>
-O exemplo abaixo ilustra, além da <i>saída de dados</i>, uma <i>entrada de dados</i> e um comando de <i>seleção</i>
-No código existe uma variável <i>inteira</i> e como primeira instrução um comando para <i>entrada de dados</i>
-(a variável <i>n</i> receberá o valor digitado pelos usuário).
-Se o valor digitado for <i>10</i> uma mensagem especial será impressa no <i>console/terminal</i>,
-caso contrário haverá outra <i>saída</i> (<i>O valor digitado foi diferente de 10.</i>).
-</p>
+  <p>
+    No código acima é usado uma variável inteira e o usuário deve digitar um valor inteiro.
+    Se o valor digitado for <i>10</i>, então será <i>impressa</i> a mensagem <tt>O valor digitado foi exatamente 10.</tt>.
+    <br/>
+    Por outro lado, se for digitado qualquer valor distinto de <i>10</i> a mensagem a ser impressa será
+    <tt>O valor digitado foi diferente de 10</tt>.
+    <br/>
+    Experimente melhorar o código acima imprimindo, no segundo cado, também o valor digitado pelo usuário (variável <tt>n</tt>).
+  </p>
 
-<div class="img-div">
-<center>
-  <img src="img/pt_ex_impressao.png" title="Exemplo de uso do comando de impressão">
+  <p>
+    O código abaixo (em <i>Portugol</i>) é o correspondente textual ao código visual na figura 1.
+  </p>
   <br/>
-    <span class="img-label">Fig. 1. Exemplo de programa com dois comandos de impressão/saída de dados.</span>
-</center>
-</div>
 
-<p>
-No código acima é usado uma variável inteira e o usuário deve digitar um valor inteiro.
-Se o valor digitado for <i>10</i>, então será <i>impressa</i> a mensagem <tt>O valor digitado foi exatamente 10.</tt>.
-<br/>
-Por outro lado, se for digitado qualquer valor distinto de <i>10</i> a mensagem a ser impressa será
-<tt>O valor digitado foi diferente de 10</tt>.
-<br/>
-Experimente melhorar o código acima imprimindo, no segundo cado, também o valor digitado pelo usuário (variável <tt>n</tt>).
-</p>
-
-<p>
-  O código abaixo (em <i>Portugol</i>) é o correspondente textual ao código visual na figura 1.
-</p>
-<br/>
-
-<a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
- <pre><def>programa</def> {
-  <def>funcao</def> vazio inicio (  )  {
-    <verm>inteiro</verm> n &lt;- 0
-    <azul2>leia</azul2> ( n )
-    <azul2>se</azul2> (n == 10) {
-      <verd2>escreva</verd2>("O valor digitado foi 10", "\n")
-    <azul2>senao</azul2> 1 :
-      <verd2>escreva</verd2>("O valor digitado foi diferente de 10", "\n")
+  <a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
+  <pre><def>programa</def> {
+    <def>funcao</def> vazio inicio (  )  {
+      <verm>inteiro</verm> n &lt;- 0
+      <azul2>leia</azul2> ( n )
+      <azul2>se</azul2> (n == 10) {
+        <verd2>escreva</verd2>("O valor digitado foi 10", "\n")
+      <azul2>senao</azul2> 1 :
+        <verd2>escreva</verd2>("O valor digitado foi diferente de 10", "\n")
+        }
       }
-    }
-  }</pre>
+    }</pre>
 
 </div>

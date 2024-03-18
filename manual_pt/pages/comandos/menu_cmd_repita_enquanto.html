@@ -10,79 +10,80 @@ http://www.usp.br/line/ivprog
 
 <div style="font-family: Arial">
 
-<div class="w3-item"><img src="img/icn_menu_repita.png" title="ícone para inserir comando do tipo 'repita enquanto (CONDICAO)'" class="w3-icon" style="border:1pt solid #001A66"/></div>
+  <div class="w3-item">
+    <img src="img/icn_menu_repita.png" title="ícone para inserir comando do tipo 'repita enquanto (CONDICAO)'" class="w3-icon" style="border:1pt solid #001A66"/>
+  </div>
 
-<h3>Comando <tt>Repita Enquanto (CONDICAO_eh_verdadeira) COMANDO1</tt></h3>
+  <h3>Comando <tt>Repita Enquanto (CONDICAO_eh_verdadeira) COMANDO1</tt></h3>
 
-<p clear=”left”>
-Comando de repetição (<b>laço</b>) com <i>condição de entrada</i>.
-Útil para executar determinada <i>sequência de instruções</i> (<b>bloco de repetição</b>) repetidas vezes.
-Com este tipo de laço o <i>bloco de repetição</i> será executado enquanto a <i>condição de entrada</i> for satisfeita.
-</p>
+  <p clear=”left”>
+    Comando de repetição (<b>laço</b>) com <i>condição de entrada</i>.
+    Útil para executar determinada <i>sequência de instruções</i> (<b>bloco de repetição</b>) repetidas vezes.
+    Com este tipo de laço o <i>bloco de repetição</i> será executado enquanto a <i>condição de entrada</i> for satisfeita.
+  </p>
+  <p>
+    <table clear="left" width="100%">
+    <tr><td>
+      <table align="left" valign="top">
+      <tr><td>
+        <a name="sintaxe"><h4>Sintaxe</h4></a>
+        A sintaxe desse comanto em <i>Portugol</i> é: <br/>
+        <tt>repita_enquanto ( CONDICAO )  { <br/>
+        &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
+        &nbsp;&nbsp;}</tt>
+        <br/>
+        <a name="sintaxe"><h4>Exemplo.</h4></a>
+        Dado <i>n</i> (a ser digitado pelo usuário), imprimir os <i>n</i> primeiros naturais.
+        <pre>programa { 
+      funcao vazio inicio (  )  {
+        inteiro n &lt;- 0
+        inteiro i &lt;- 1
+        leia ( n ) 
+        repita_enquanto ( i &lt; n )  {
+          escreva ( i )
+          i &lt;- i+1
+          }
+        }
+      }</pre>
+        <br/>
+        <a name="visual"><h4>Exemplo Visual.</h4></a>
+        <br/>
+        O exemplo de código visual no <i>iVProg</i>, na fig. 2, tem duas variáveis, <tt>n</tt> para o usuário digitar um
+        valor inteiro e o <tt>i</tt> para servir de contador.
+        Durante a repetição do <i>laço enquanto</i>, se o contador chegar ao valor constante <tt>5</tt>, então a condição
+        <tt>i==5</tt> será verdadeira e, desse modo, será executado o o comando <tt>escreva("Achei o valor 5. Pare!")</tt>
+        e a seguir é executado o comando de "quebra de laço", seguindo para o primeiro comando fora do laço, no caso o
+        comando <tt>escreva("Final do laco com i=" + i)</tt> (imprime <tt>Final do laco com i=5</tt>).
+        <br/>
+        Por outro lado, se o valor digitado for estritamente menor que <tt>5</tt>, nunca entrará no comando de seleção
+        <tt>se/senão</tt>.
+      </td></tr>
+      </table>
+      </td>
+      <td>
+      <table align="right" valign="top" width="500px;">
+        <tr><td align="center"><img src="img/pt_fluxo_laco_enquanto_entrada.png" title="" class="" width="60%" /></td></tr>
+        <tr><td><i>Fig. 1. Diagrama de fluxo de execução do laço do tipo 'repita enquanto'.</i></td></tr>
+      </table>
+    </td></tr>
+    </table>
+  </p>
 
-<table clear="left" width="100%">
- <tr><td>
-   <table align="left" valign="top">
-   <tr><td>
-     <a name="sintaxe"><h4>Sintaxe</h4></a>
-     A sintaxe desse comanto em <i>Portugol</i> é: <br/>
-     <tt>repita_enquanto ( CONDICAO )  { <br/>
-     &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
-     &nbsp;&nbsp;}</tt>
-     <br/>
-     <a name="sintaxe"><h4>Exemplo.</h4></a>
-     Dado <i>n</i> (a ser digitado pelo usuário), imprimir os <i>n</i> primeiros naturais.
-     <pre>programa { 
-  funcao vazio inicio (  )  {
-    inteiro n &lt;- 0
-    inteiro i &lt;- 1
-    leia ( n ) 
-    repita_enquanto ( i &lt; n )  {
-      escreva ( i )
-      i &lt;- i+1
-      }
-    }
-  }</pre>
-     <br/>
-     <a name="visual"><h4>Exemplo Visual.</h4></a>
-     <br/>
-     O exemplo de código visual no <i>iVProg</i>, na fig. 2, tem duas variáveis, <tt>n</tt> para o usuário digitar um
-     valor inteiro e o <tt>i</tt> para servir de contador.
-     Durante a repetição do <i>laço enquanto</i>, se o contador chegar ao valor constante <tt>5</tt>, então a condição
-     <tt>i==5</tt> será verdadeira e, desse modo, será executado o o comando <tt>escreva("Achei o valor 5. Pare!")</tt>
-     e a seguir é executado o comando de "quebra de laço", seguindo para o primeiro comando fora do laço, no caso o
-     comando <tt>escreva("Final do laco com i=" + i)</tt> (imprime <tt>Final do laco com i=5</tt>).
-     <br/>
-     Por outro lado, se o valor digitado for estritamente menor que <tt>5</tt>, nunca entrará no comando de seleção
-     <tt>se/senão</tt>.
-   </td></tr>
-   </table>
-   </td>
-   <td>
-   <table align="right" valign="top" width="500px;">
-     <tr><td align="center"><img src="img/pt_fluxo_laco_enquanto_entrada.png" title="" class="" width="60%" /></td></tr>
-     <tr><td><i>Fig. 1. Diagrama de fluxo de execução do laço do tipo 'repita enquanto'.</i></td></tr>
-   </table>
- </td></tr>
-</table>
-</p>
 
+  <br />
 
-<br />
-
-<div class="img-div">
-  <center>
-   <img src="img/pt_ex_pare_cmd.png" title="Exemplo de uso do comando repita enquanto" width="60%" >
-   <br/>
-   <span class="img-label">Fig. 2. Exemplo de uso do comando <tt>repita enquanto</tt>.</span>
-  </center>
-</div>
-  
-<p>
-O exemplo acima realiza uma iteração da variável <tt>i</tt> de <i>0</i> até <i>n-1</i>, se <tt>n</tt> for maior que <i>5</i>,
-o comando <tt>pare</tt> será executado quanto <tt>i</tt> tiver o valor <i>5</i>.
-Neste momento, a mensagem <tt>Achei o valor 5. Pare!</tt> será impressa no <i>terminal</i> e o laço <tt>repita enquanto</tt> será
-interrompido.
-</p>
-
+  <div class="img-div">
+    <center>
+      <img src="img/pt_ex_pare_cmd.png" title="Exemplo de uso do comando repita enquanto" width="60%" >
+      <br/>
+      <span class="img-label">Fig. 2. Exemplo de uso do comando <tt>repita enquanto</tt>.</span>
+    </center>
+  </div>
+    
+  <p>
+    O exemplo acima realiza uma iteração da variável <tt>i</tt> de <i>0</i> até <i>n-1</i>, se <tt>n</tt> for maior que <i>5</i>,
+    o comando <tt>pare</tt> será executado quanto <tt>i</tt> tiver o valor <i>5</i>.
+    Neste momento, a mensagem <tt>Achei o valor 5. Pare!</tt> será impressa no <i>terminal</i> e o laço <tt>repita enquanto</tt> será
+    interrompido.
+  </p>
 </div>

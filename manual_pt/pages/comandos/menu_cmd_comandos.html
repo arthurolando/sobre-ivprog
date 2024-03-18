@@ -7,71 +7,67 @@ http://www.usp.br/line/ivprog
 -->
 
 <meta charset="UTF-8">
-
 <div style="font-family: Arial">
-
-<div class="w3-item"><img src="img/icn_menu_comandos.png" title="ícone para escolher o comando" class="w3-icon icon_32x32" style="border:1pt solid #001A66"/>
-</div>
-
-<h3>Comandos</h3>
-<p> 
-Os comandos são utilizados para criar a estrutura lógica de um programa.
-Na interface visual do <i>iVProg</i>, os comandos podem ser inseridos no código a partir do botão
-<img src="img/icn_cmd.png" title="Ícone utilizado para selecionar/construir comandos - basta passar o mouse sobre"
-     width="50px" class="w3-icon icon_32x32" style="display:inline-block"/>,
-basta passar o "mouse" sobre esse botão, aparecerá a lista dos comandos que podem ser utilizados,
-como ilustrado na figura 1.
-    são   
-No <i>iVProg</i> você poderá adicionar os seguintes comandos:</p>
-<ul>
-  <li> <b>Comandos principais</b>
-    <ul>
-      <li>entrada de dados (leitura);</li>
-      <li>saídas de dados (impressão);</li>
-      <li>inserção de comentário;</li>
-      <li>atribuição (definir valor para alguma variável);</li>
-      <li>chamar função (usada para gerar um valor);</li>
-      <li>comando de seleção;</li>
-      <li>comando de repetição fixo (laço do tipo <i>para</i>);</li>
-      <li>comando de repetição com condição de entrada (laço do tipo <i>repita enquanto</i>);</li>
-      <li>comando de repetição com condição de saída (laço do tipo <i>repita até que</i>);</li>
-      <li>comando de seleção dentre várias opções;</li>
-      <li>comando de devolução (usado em funções).</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="img-div"><center>
-  <img src="img/btn_cmd.png" /><br/>
-  <span class="img-label">Fig. 1. Principais comandos do <i>iVProg</i>, destando a mensagem que aparece ao deixar o
-    "mouse" sobre a primeira opção.</span>
-  </center>
-</div>
-
-<ul>
-  <li> <b>Comandos contextuais</b>
-  <br/>
-    Os comandos de repetição admitem um comando especial para "quebrar" a repetição, quer dizer, se ele for executado
-    o laço é interrondido (<tt><Azul2>Pare</Azul2></tt>).<br/>
-    Outro comando especial é o <tt><azul2>caso</azul2></tt>, que deve ser usado dentro de um comando de <tt>escolha</tt>, como na figura 2.
-    <ul>
-      <li><Azul2>Pare</Azul2></li>
-      <li><azul2>caso</azul2></li>
-      <!--li>caso contrário</li -->
-    </ul>
-    <p>
-    Note que os comandos contextuais estão disponíveis apenas dentro de laços e são acessados pelo ícone
-    <img src="img/icn_cmd_para_caso.png" title="Ícone para os comandos de contexto para e caso" class="w3-icon icon_32x32" style="display:inline-block"/>
-    </p>
-    <div class="img-div">     
-    <center>
-    <img src="img/btn_subcmd.png"/>
-    <span class="img-label"><br/>
-    Fig. 2. Comandos contextuais <azul2>pare</azul2> e <azul2>caso</azul2></span>
+  <div class="w3-item">
+    <img src="img/icn_menu_comandos.png" title="ícone para escolher o comando" class="w3-icon icon_32x32" style="border:1pt solid #001A66"/>
+  </div>
+  <h3>Comandos</h3>
+  <p> 
+    Os comandos são utilizados para criar a estrutura lógica de um programa.
+    Na interface visual do <i>iVProg</i>, os comandos podem ser inseridos no código a partir do botão
+    <img src="img/icn_cmd.png" title="Ícone utilizado para selecionar/construir comandos - basta passar o mouse sobre"
+        width="50px" class="w3-icon icon_32x32" style="display:inline-block"/>,
+    basta passar o "mouse" sobre esse botão, aparecerá a lista dos comandos que podem ser utilizados,
+    como ilustrado na figura 1.
+        são   
+    No <i>iVProg</i> você poderá adicionar os seguintes comandos:
+  </p>
+  <ul>
+    <li> <b>Comandos principais</b>
+      <ul>
+        <li>entrada de dados (leitura);</li>
+        <li>saídas de dados (impressão);</li>
+        <li>inserção de comentário;</li>
+        <li>atribuição (definir valor para alguma variável);</li>
+        <li>chamar função (usada para gerar um valor);</li>
+        <li>comando de seleção;</li>
+        <li>comando de repetição fixo (laço do tipo <i>para</i>);</li>
+        <li>comando de repetição com condição de entrada (laço do tipo <i>repita enquanto</i>);</li>
+        <li>comando de repetição com condição de saída (laço do tipo <i>repita até que</i>);</li>
+        <li>comando de seleção dentre várias opções;</li>
+        <li>comando de devolução (usado em funções).</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="img-div"><center>
+    <img src="img/btn_cmd.png" /><br/>
+    <span class="img-label">Fig. 1. Principais comandos do <i>iVProg</i>, destando a mensagem que aparece ao deixar o
+      "mouse" sobre a primeira opção.</span>
     </center>
-    </div>
-
-  </li>
-</ul>
-
+  </div>
+  <ul>
+    <li> 
+      <b>Comandos contextuais</b>
+      <br/>
+      Os comandos de repetição admitem um comando especial para "quebrar" a repetição, quer dizer, se ele for executado
+      o laço é interrondido (<tt><Azul2>Pare</Azul2></tt>).<br/>
+      Outro comando especial é o <tt><azul2>caso</azul2></tt>, que deve ser usado dentro de um comando de <tt>escolha</tt>, como na figura 2.
+      <ul>
+        <li><Azul2>Pare</Azul2></li>
+        <li><azul2>caso</azul2></li>
+        <!--li>caso contrário</li -->
+      </ul>
+      <p>
+        Note que os comandos contextuais estão disponíveis apenas dentro de laços e são acessados pelo ícone
+        <img src="img/icn_cmd_para_caso.png" title="Ícone para os comandos de contexto para e caso" class="w3-icon icon_32x32" style="display:inline-block"/>
+      </p>
+      <div class="img-div">     
+        <center>
+          <img src="img/btn_subcmd.png"/>
+          <span class="img-label"><br/>
+          Fig. 2. Comandos contextuais <azul2>pare</azul2> e <azul2>caso</azul2></span>
+        </center>
+      </div>
+    </li>
+  </ul>
 </div>
