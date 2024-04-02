@@ -65,11 +65,15 @@
 
   /* Formas: visual; textual */
   function carregar (pagina) { // carregar pagina
+    // Abre, caso esteja offline
+    var customTextElement = document.getElementById('mainDiv');
+    var object = "<object data='"+pagina+"' width='100%' height='100%'></object>"
+    customTextElement.innerHTML = object;
+
     // document.getElementById("mainFrame").src = pagina;
     var txtFile = new XMLHttpRequest(); // https://forums.tumult.com/t/importing-content-from-a-text-file-txt/2004/16
     // txtFile.open("GET", "http://localhost/ivprog/manual_pt/" + pagina, true);
     txtFile.open("GET", "./" + pagina, true);
-
     // alert("aqui");
     txtFile.onreadystatechange = function () {
       if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.

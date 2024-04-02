@@ -206,7 +206,6 @@ main section{
     margin-bottom: 50px;
 }
 
-
 main h2{
     margin: 20px 0;
     color: var(--title-color);
@@ -255,4 +254,21 @@ main table verd2{
 }
 main table cyan{
     color: cyan;
+}
+
+/* COLORS  */
+.vermelho {
+    color: #BA0000;
+}
+
+.verde2 {
+    color: #007500;
+}
+
+.roxo {
+    color: #a500a5;
+}
+
+.azul2 {
+    color: #0000BA;
 }

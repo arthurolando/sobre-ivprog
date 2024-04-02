@@ -19,14 +19,14 @@ http://www.usp.br/line/ivprog
   <p>
     Esse comando é utilizado para indicar um valor a ser <b>devolvido</b> por uma função.
     O tipo do dado a ser devolvido <b>tem</b> se compatível com o tipo declarado da função,
-    por exemplo, uma função declarada do "tipo <verm>inteiro</verm>" tem que devolver um valor inteiro.
+    por exemplo, uma função declarada do "tipo <span class="vermelho">inteiro</span>" tem que devolver um valor inteiro.
     Vide
     <a onclick="carregar('menu_cmd_chamada-funcao.html')"
       href="#" title="Chamada de função: menu_cmd_chamada-funcao.html">chamada de função</a>.
   </p>
 
   <p>
-    Uma vez que o comando <def>devolva</def> é encontrado, a execução da função é interrompida, retornando
+    Uma vez que o comando <span class="roxo">devolva</span> é encontrado, a execução da função é interrompida, retornando
     a execução para o ponto imdiatamente após o ponto em que foi invocada.
     O código na figura 1 ilustra isso: usar a função <i>fatorial</i> para computar a
     <i>combinação de n elementos, tomado-se apenas k deles</i> (<i>combinação de n, k-a-k</i>).
@@ -76,24 +76,24 @@ http://www.usp.br/line/ivprog
   <br/>
 
   <a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
-    <pre><def>programa</def> {
-    <def>funcao</def> vazio inicio (  )  {
-      <verm>inteiro</verm> n &lt;- 0
-      <verm>inteiro</verm> k &lt;- 0
-      <verm>inteiro</verm> aux &lt;- 0
+    <pre><span class="roxo">programa</span> {
+    <span class="roxo">funcao</span> vazio inicio (  )  {
+      <span class="vermelho">inteiro</span> n &lt;- 0
+      <span class="vermelho">inteiro</span> k &lt;- 0
+      <span class="vermelho">inteiro</span> aux &lt;- 0
       <verd2>leia</verd2>(n)
       <verd2>leia</verd2>(k)
       aux &lt;- n - k
       <verd2>escreva</verd2>(fatorial(n) / (fatorial(aux) * fatorial(k))), "\n")
       }
-  <def>funcao</def> <verm>inteiro</verm> fatorial (<verm>inteiro</verm> pn) {
-      <verm>inteiro</verm> fat &lt;- 1
-      <verm>inteiro</verm> i &lt;- 2
-      <azul2>enquanto_verdadeiro</azul2> (i &lt;= pn) {
+  <span class="roxo">funcao</span> <span class="vermelho">inteiro</span> fatorial (<span class="vermelho">inteiro</span> pn) {
+      <span class="vermelho">inteiro</span> fat &lt;- 1
+      <span class="vermelho">inteiro</span> i &lt;- 2
+      <span class="azul2">enquanto_verdadeiro</span> (i &lt;= pn) {
         fat &lt;- fat * i
         i &lt;- i + 1
         }
-      <def>devolva</def> fat
+      <span class="roxo">devolva</span> fat
       }
     }</pre>
 

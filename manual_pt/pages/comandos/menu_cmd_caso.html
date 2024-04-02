@@ -11,25 +11,25 @@ http://www.usp.br/line/ivprog
     <div class="w3-item">
       <img src="img/icn_menu_escolha.png" title="ícone para inserir comando para selecionar opções (escolha (valor))" class="w3-icon" style="border:1pt solid #001A66"/>
     </div>
-      <h3><Azul2>Caso</Azul2></h3>
+      <h3><span class="azul2">Caso</span></h3>
       <p>
         Esse comando também funciona como "desvio de fluxo", como o comando de
         <a href="menu_cmd_se.html" title="Examinar o comando de seleção">seleção</a>, sendo útil quando houver mais de
         uma opção de "desvio" e essa depender de valores inteiros.
-        Várias opções de comando <azul2>caso</azul2> devem estar associadas com um único comando
-        <azul2>escolha</azul2>.
-        Assim, cada comando <azul2>caso</azul2> serve para definir um dos <i>casos</i> possíveis dentro de uma estrutura de
-        <a onclick="carregar('menu_cmd_escolha.html')" href="#">múltipla escolha (<azul2>escolha<azul2>)</a>.
-        Note que sem um comando <a onclick="carregar('menu_cmd_pare.html')" href="#"><azul2>pare</azul2></a> a
+        Várias opções de comando <span class="azul2">caso</span> devem estar associadas com um único comando
+        <span class="azul2">escolha</span>.
+        Assim, cada comando <span class="azul2">caso</span> serve para definir um dos <i>casos</i> possíveis dentro de uma estrutura de
+        <a onclick="carregar('menu_cmd_escolha.html')" href="#">múltipla escolha (<span class="azul2">escolha<span class="azul2">)</a>.
+        Note que sem um comando <a onclick="carregar('menu_cmd_pare.html')" href="#"><span class="azul2">pare</span></a> a
         execução ocorre em cascata a partir do primeiro caso verdadeiro.
         No exemplo abaixo, ambas as mensagens são exibidas.
       </p>
       <p>
-        Inicialmente deve-se inserir o comando <azul2>escolha</azul2> e depois inserir quantas opções de <azul2>caso</azul2>
+        Inicialmente deve-se inserir o comando <span class="azul2">escolha</span> e depois inserir quantas opções de <span class="azul2">caso</span>
         forem necessárias.
         <br/>
         Também deve-se definir a variável inteira que será examinada para decidir em qual <i>caso</i> entrará, como
-        indicado na figura 1: está escolhendo a variável <i>n</i> como parâmetro para comando <azul2>escolha</azul2>.
+        indicado na figura 1: está escolhendo a variável <i>n</i> como parâmetro para comando <span class="azul2">escolha</span>.
       </p>
       <!--center-->
       <div class="img-div">
@@ -41,16 +41,16 @@ http://www.usp.br/line/ivprog
       </div>
       <!--/center-->
       <p>
-        Depois deve-se definir os valores de cada opção <azul2>caso</azul2>, no exemplo indicado na figura 2,
-        foram definidos apenas duas opções <azul2>caso</azul2>, ambas com um único comando subordinado, no primeiro <i>caso</i>
+        Depois deve-se definir os valores de cada opção <span class="azul2">caso</span>, no exemplo indicado na figura 2,
+        foram definidos apenas duas opções <span class="azul2">caso</span>, ambas com um único comando subordinado, no primeiro <i>caso</i>
         imprimindo-se a <i>cadeia de caracteres</i> (portanto constante) <tt>Entou no caso 0</tt> e no segundo
         imprimindo-se <tt>Entou no caso 1</tt>.
         Entretanto, se o desejado for entrar apenas no <i>caso</i> com o valor igual ao <i>selecionador</i>, então este
-        código apresenta uma falha: falta o finalizador <azul2>pare</azul2> que impede que, após entrar no
+        código apresenta uma falha: falta o finalizador <span class="azul2">pare</span> que impede que, após entrar no
         primeiro <i>caso</i> que coincide com o valor de <i>seleção</i> <b>não</b> entre nos demais.
         <br/>
         Como neste exemplo a variável <i>n</i> está sempre com o valor inicial <i>0</i>, o primeiro
-        <azul2>caso</azul2> sempre será <i>verdadeiro</i>, entrando nele e como não tem um
+        <span class="azul2">caso</span> sempre será <i>verdadeiro</i>, entrando nele e como não tem um
         comando de <i>parada</i>, entrará nos demais, portanto sempre imprimindo as duas mensagens.
       </p>
       <div class="img-div">
@@ -59,11 +59,11 @@ http://www.usp.br/line/ivprog
              title="Imagem estática do iVProg com exemplo de uso do comando caso sem o pare">
        <br/>
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="img-label"
-       >Fig. 2. Exemplo de uso do '<azul2>escolha-caso</azul2>' sem o comando <azul2>pare</azul2>.</span>
+       >Fig. 2. Exemplo de uso do '<span class="azul2">escolha-caso</span>' sem o comando <span class="azul2">pare</span>.</span>
       </div>
       <p>
         Para inserir uma instrução de <i>parada</i>, deve-se utilizar a opção
-        para inserir <azul2>pare</azul2> (e <azul2>caso</azul2>)
+        para inserir <span class="azul2">pare</span> (e <span class="azul2">caso</span>)
         <img src="img/icn_cmd_para_caso.png" title="botão para inserir 'para' ou 'caso'"/>.
         A inserção de um comando de <i>parada</i> está ilustrado na imagem 3.
       </p>
@@ -75,16 +75,16 @@ http://www.usp.br/line/ivprog
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="img-label">Fig. 3. Exemplo de uso do 'escolha-caso-pare'.</span>
       </div>
       <p>
-        Abaixo está um código correspondente ao anterior, mas usando o comando <azul2>pare</azul2>,
-        após o último comando subordinado dentro de cada comando <azul2>caso</azul2> (no exemplo apenas um).  
+        Abaixo está um código correspondente ao anterior, mas usando o comando <span class="azul2">pare</span>,
+        após o último comando subordinado dentro de cada comando <span class="azul2">caso</span> (no exemplo apenas um).  
         Assim, após entrar no primeiro <i>caso</i> verdadeiro e executar todos os seus comandos, encontraria um
-        <azul2>pare</azul2>, o que interromperia a execução do <azul2>escolha-caso</azul2>,
-        seguindo para o primeiro comando após o último <azul2>caso-pare</azul2>, ou seja, iria para o primeiro comando
-        após o comando <azul2>escolha-caso</azul2> completo.
+        <span class="azul2">pare</span>, o que interromperia a execução do <span class="azul2">escolha-caso</span>,
+        seguindo para o primeiro comando após o último <span class="azul2">caso-pare</span>, ou seja, iria para o primeiro comando
+        após o comando <span class="azul2">escolha-caso</span> completo.
         <br/>
         A figura 4 ilustra esse exemplo, note que em sua execução, após executar o comando subordinado ao
         primeiro caso a execução é interrompida, seguindo para o primeiro comando após o
-        <azul2>escolha-caso</azul2>.
+        <span class="azul2">escolha-caso</span>.
       </p>
       <div class="img-div">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -101,16 +101,16 @@ http://www.usp.br/line/ivprog
       <br/>
     
      <a name="sintaxe"><h4>Portugol. Código textual correspondente</h4></a>
-      <pre><def>programa</def> {
+      <pre><span class="roxo">programa</span> {
       funcao vazio inicio (  )  {
-        <verm>inteiro</verm> n &lt;- 0
-        <azul2>escolha</azul2> ( n ) {
-          <azul2>caso</azul2> 0 :
+        <span class="vermelho">inteiro</span> n &lt;- 0
+        <span class="azul2">escolha</span> ( n ) {
+          <span class="azul2">caso</span> 0 :
             <verd2>escreva</verd2>("Estou no caso 0", "\n")
-            <azul2>pare</azul2>
-          <azul2>caso</azul2> 1 :
+            <span class="azul2">pare</span>
+          <span class="azul2">caso</span> 1 :
             <verd2>escreva</verd2>("Estou no caso 1", "\n")
-            <azul2>pare</azul2>
+            <span class="azul2">pare</span>
           }
         <verd2>escreva</verd2>("Final de programa", "\n")
         }

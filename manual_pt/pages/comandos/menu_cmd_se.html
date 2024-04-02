@@ -11,10 +11,10 @@ http://www.usp.br/line/ivprog
 <div style="font-family: Arial">
 
   <div class="w3-item">
-    <img src="img/icn_menu_funcaodevolve.png" title="ícone para inserir comando de seleção (<azul2>se</azul2> (CONDICAO) C1; <azul2>senao</azul2> C2)" class="w3-icon" style="border:1pt solid #001A66"/>
+    <img src="img/icn_menu_funcaodevolve.png" title="ícone para inserir comando de seleção (<span class="azul2">se</span> (CONDICAO) C1; <span class="azul2">senao</span> C2)" class="w3-icon" style="border:1pt solid #001A66"/>
   </div>
 
-  <h3>Comando <tt><Azul2>Se</Azul2> (CONDICAO_eh_Verdadeira) COMANDO1 [<azul2>senao</azul2> COMANDO2]</tt></h3>
+  <h3>Comando <tt><span class="azul2">Se</span> (CONDICAO_eh_Verdadeira) COMANDO1 [<span class="azul2">senao</span> COMANDO2]</tt></h3>
 
   <p>
     Esse comando é essencial para permitir que sob determinada condição (uma <i>expressão lógica</i>) o fluxo de execução
@@ -31,7 +31,7 @@ http://www.usp.br/line/ivprog
   <br/>
   <p>
     Assim, nesse comando, pode-se subordinar a execução de um <i>bloco de comandos</i> por alguma <i>expressão lógica</i> <tt>EL</tt>
-    e, opcionalmente, pode-se complementar o comando com um bloco <Azul2>Senao</Azul2>,
+    e, opcionalmente, pode-se complementar o comando com um bloco <span class="azul2">Senao</span>,
     se a <tt>EL</tt> resultar <i>falso</i>, o <i>bloco senão</i> será executado.
   </p>
   <p>
@@ -42,15 +42,15 @@ http://www.usp.br/line/ivprog
         <tr><td>
           <a name="sintaxe"><h4>Sintaxe</h4></a>
           A sintaxe desse comando em <i>Portugol</i> é: <br/>
-          <tt><azul2>se</azul2> ( CONDICAO )  { <br/>
+          <tt><span class="azul2">se</span> ( CONDICAO )  { <br/>
           &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
           &nbsp;&nbsp;}</tt>
           <br/>
           ou<br/>
-          <tt><azul2>se</azul2> ( CONDICAO )  { <br/>
+          <tt><span class="azul2">se</span> ( CONDICAO )  { <br/>
           &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
           &nbsp;&nbsp;} <br/>
-          <azul2>senao</azul2> { <br/>
+          <span class="azul2">senao</span> { <br/>
           &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
           &nbsp;&nbsp;}</tt>
           <br/>
@@ -66,16 +66,16 @@ http://www.usp.br/line/ivprog
           Por exemplo, se forem digitados <i>2</i> e <i>3</i>, nesta ordem (como na figura 2), será impresso no console/terminal
           <tt>2 eh menor que 3</tt>.
           <br/>     
-          <pre><def>programa</def> { 
-        <def>funcao</def> vazio inicio (  )  {
-          <verm>inteiro</verm> a &lt;- 0
-          <verm>inteiro</verm> b &lt;- 0
+          <pre><span class="roxo">programa</span> { 
+        <span class="roxo">funcao</span> vazio inicio (  )  {
+          <span class="vermelho">inteiro</span> a &lt;- 0
+          <span class="vermelho">inteiro</span> b &lt;- 0
           <verd2>leia</verd2> ( a )
           <verd2>leia</verd2> ( b )
-          <azul2>se</azul2> ( a &lt; b )  {
+          <span class="azul2">se</span> ( a &lt; b )  {
             <verd2>escreva</verd2>(a, " ", "eh menor que", " ", b, "\n")
             }
-          <azul2>senao</azul2> {
+          <span class="azul2">senao</span> {
             <verd2>escreva</verd2>(a, " ", "eh maior ou igual a", " ", b, "\n")
             }
           }
@@ -86,7 +86,7 @@ http://www.usp.br/line/ivprog
         <td>
         <table align="right" valign="top" width="500px;">
           <tr><td align="center"><img src="img/pt_fluxo_se_senao.png" title="" class="" width="100%" /></td></tr>
-          <tr><td><i>Fig. 1. Diagrama de fluxo de execução do comando de seleção '<azul2>se</azul2>/<azul2>senao</azul2>'.</i></td></tr>
+          <tr><td><i>Fig. 1. Diagrama de fluxo de execução do comando de seleção '<span class="azul2">se</span>/<span class="azul2">senao</span>'.</i></td></tr>
         </table>
       </td></tr>
     </table>
@@ -98,19 +98,19 @@ http://www.usp.br/line/ivprog
     <br/>
     Usando uma <i>expressão lógica</i>, esse comando permite selecionar a execução de um conjunto de comandos (pode ser apenas um)
     de acordo com o resultado da expressão lógica <tt>EL</tt>.
-    Simbolicamente: <i><Azul2>Se</Azul2></i> <tt>EL</tt> resultar verdadeiro, <i>então</i> execute comandos.
+    Simbolicamente: <i><span class="azul2">Se</span></i> <tt>EL</tt> resultar verdadeiro, <i>então</i> execute comandos.
     <br/>
-    Opcionalmente pode-se utilizar um complemento do tipo <i><azul2>senao</azul2></i>, ou seja, se a
+    Opcionalmente pode-se utilizar um complemento do tipo <i><span class="azul2">senao</span></i>, ou seja, se a
     expressão lógica resultar falso, um segundo conjunto de comandos será executado.
     Simbolicamente: <br/>
-  <tt><Azul2>Se</Azul2> (EL_resultar_verdadeiro), então EXECUTE_COMANDOS_VERDADEIRO, <azul2>senao</azul2> EXECUTE_COMANDOS_FALSO</tt>.
+  <tt><span class="azul2">Se</span> (EL_resultar_verdadeiro), então EXECUTE_COMANDOS_VERDADEIRO, <span class="azul2">senao</span> EXECUTE_COMANDOS_FALSO</tt>.
   </p>
 
   <p>
     No exemplo da fig. 2 a expressão lógica <tt>EL</tt> é para verificar se o valor guardado na variável <tt>a</tt> é estritamente menor que o valor guardado na variável <tt>b</tt>.
-    Ali usamos apenas um comando subordinado a cada opção de fluxo, mas poderia-se se usar vários ou mesmo nenhum comando subordinado ao <tt><azul2>se</azul2></tt>
-    ou ao <tt><azul2>senao</azul2></tt>.
-    <!-- <azul2>se</azul2> <tt>EL</tt> resultar <i>verdadeiro</i> (ou seja, foi digitado o valor <tt>10</tt>), -->
+    Ali usamos apenas um comando subordinado a cada opção de fluxo, mas poderia-se se usar vários ou mesmo nenhum comando subordinado ao <tt><span class="azul2">se</span></tt>
+    ou ao <tt><span class="azul2">senao</span></tt>.
+    <!-- <span class="azul2">se</span> <tt>EL</tt> resultar <i>verdadeiro</i> (ou seja, foi digitado o valor <tt>10</tt>), -->
   </p>
 
   <br/>

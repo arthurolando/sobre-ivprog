@@ -31,16 +31,16 @@ http://www.usp.br/line/ivprog
               A sintaxe desse comanto em <i>Portugol</i> é:
             </p>
             <p>
-              <tt><azul2>repita_para</azul2> i de 0 até n passo  +1 {<br/>
+              <tt><span class="azul2">repita_para</span> i de 0 até n passo  +1 {<br/>
               &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
               &nbsp;&nbsp;}</tt>
             </p>
             <p>
               Vale observar que este comando equivale ao seguinte usando
-              <tt><azul2>repita_enquanto</azul2></tt> (vide diagrama de fluxo na fig. 1):
+              <tt><span class="azul2">repita_enquanto</span></tt> (vide diagrama de fluxo na fig. 1):
               <br/>
               <tt>i &lt;- 0;<br/>
-              <azul2>repita_enquanto</azul2> ( i &lt; N )  { <br/>
+              <span class="azul2">repita_enquanto</span> ( i &lt; N )  { <br/>
               &nbsp;&nbsp;BLOCO_DE_COMANDOS; <br/>
               &nbsp;&nbsp;i &lt;- i+1 <br/>
               &nbsp;&nbsp;}</tt>
@@ -48,12 +48,12 @@ http://www.usp.br/line/ivprog
             <p>
             <a name="sintaxe"><h4>Exemplo.</h4></a>
             Dado <i>n</i> (a ser digitado pelo usuário), imprimir os <i>n</i> primeiros naturais.
-            <pre><def>programa</def> {
-          <def>funcao</def> vazio inicio (  )  {
-            <verm>inteiro</verm> n &lt;- 0
-            <verm>inteiro</verm> i &lt;- 1
+            <pre><span class="roxo">programa</span> {
+          <span class="roxo">funcao</span> vazio inicio (  )  {
+            <span class="vermelho">inteiro</span> n &lt;- 0
+            <span class="vermelho">inteiro</span> i &lt;- 1
             <verd>leia</verd> ( n ) 
-            <azul2>repita_para</azul2> i de 0 até n passo  +1  {
+            <span class="azul2">repita_para</span> i de 0 até n passo  +1  {
               <verd2>escreva</verd2> ( i )
               }
             }
@@ -61,7 +61,7 @@ http://www.usp.br/line/ivprog
           <p>
             <a name="visual"><h4>Exemplo Visual.</h4></a>
             O exemplo de código visual no <i>iVProg</i>, na fig. 2, tem duas variáveis, <tt>n</tt> para o usuário digitar um
-            valor <verm>inteiro</verm> e o <tt>i</tt> para servir de contador.
+            valor <span class="vermelho">inteiro</span> e o <tt>i</tt> para servir de contador.
             O primeiro comando a ser executado é capturar uma leitura de dados. Vamos supor que usuário digite <tt>5</tt>.
           </p>
           </td></tr>
