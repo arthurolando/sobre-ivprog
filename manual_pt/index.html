@@ -65,11 +65,6 @@
 
   /* Formas: visual; textual */
   function carregar (pagina) { // carregar pagina
-    // Abre, caso esteja offline
-    var customTextElement = document.getElementById('mainDiv');
-    var object = "<object data='"+pagina+"' width='100%' height='100%'></object>"
-    customTextElement.innerHTML = object;
-
     // document.getElementById("mainFrame").src = pagina;
     var txtFile = new XMLHttpRequest(); // https://forums.tumult.com/t/importing-content-from-a-text-file-txt/2004/16
     // txtFile.open("GET", "http://localhost/ivprog/manual_pt/" + pagina, true);
@@ -86,6 +81,20 @@
         }
       }
     txtFile.send(null);
+    }
+
+    var lastActiveDropDown = "";
+    function openDropDown(activeDropDown) {
+      //Mantem aberto, o ultimo DropDown selecionado
+      if (lastActiveDropDown == "") {
+        document.getElementById(activeDropDown).classList.add("dropDownContentOpen");
+        lastActiveDropDown = activeDropDown;
+      }
+      else {
+        document.getElementById(lastActiveDropDown).classList.remove("dropDownContentOpen");
+        document.getElementById(activeDropDown).classList.add("dropDownContentOpen");
+        lastActiveDropDown = activeDropDown;
+      }
     }
   </script>
 </head>
@@ -149,7 +158,7 @@
       </a> 
     </p>
     <ul class="side-links">
-      <li id="link1-D" class="dropDownBtn">
+      <li id="link1-D" class="dropDownBtn" onclick="openDropDown('link1-D')">
         <div class="main-anchor">
           <div class="anchor-border">
             <div class="setinha"></div>
@@ -161,7 +170,7 @@
           <a onclick="carregar('./pages/formas/menu_fp_textual.html')" href="#" title="Modo de programação textual: programação tradicional: menu_fp_textual.html">Textual</a>
         </div>
       </li>
-      <li id="link2-D" class="dropDownBtn">
+      <li id="link2-D" class="dropDownBtn" onclick="openDropDown('link2-D')">
         <div class="main-anchor">
           <div class="anchor-border">
             <div class="setinha"></div>
@@ -178,7 +187,7 @@
           <a onclick="carregar('./pages/ferramentas/menu_bf_ajuda.html')" href="#" title="Ajuda sobre iVProg: menu_bf_ajuda.html">Ajuda</a>
         </div>
       </li>
-      <li id="link3-D" class="dropDownBtn">
+      <li id="link3-D" class="dropDownBtn" onclick="openDropDown('link3-D')">
         <div class="main-anchor">
           <div class="anchor-border">
             <div class="setinha"></div>
@@ -190,7 +199,7 @@
           <a onclick="carregar('./pages/variaveis/menu_var_variavel-local.html')" href="#" title="Cria uma nova variável local: menu_var_variavel-local.html">Local</a>
         </div>
       </li>
-      <li id="link4-D" class="dropDownBtn">
+      <li id="link4-D" class="dropDownBtn" onclick="openDropDown('link4-D')">
         <div class="main-anchor">
           <div class="anchor-border">
             <div class="setinha"></div>
@@ -214,7 +223,7 @@
           <a onclick="carregar('./pages/comandos/menu_cmd_caso.html')" href="#" title="Caso: item de múltipla escolha - menu_cmd_caso.html">Caso</a>
         </div>
       </li>
-      <li id="link5-D" class="dropDownBtn">
+      <li id="link5-D" class="dropDownBtn" onclick="openDropDown('link5-D')">
         <div class="main-anchor">
           <div class="anchor-border">
             <div class="setinha"></div>
