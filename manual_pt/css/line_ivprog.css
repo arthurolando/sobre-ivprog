@@ -230,7 +230,7 @@ main #mainDiv{
 }
 
 main section{
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 main h2{
@@ -281,6 +281,17 @@ main table verd2{
 }
 main table cyan{
     color: cyan;
+}
+
+main .pages-links{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 15px 40px;
+}
+ 
+main .pages-links a {
+    color: var(--header-color);
 }
 
 /* COLORS  */
